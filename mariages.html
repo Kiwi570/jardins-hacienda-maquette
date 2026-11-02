@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="fr" data-v="1" data-curseur>
+<html lang="fr" data-v="2" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mariages et réceptions : Les Jardins de l’Hacienda</title>
-<meta name="description" content="Mariage, baptême, anniversaire, pot de départ, séminaire : un cadre idyllique et des prestations sur mesure près de Metz.">
+<meta name="description" content="Mariage, baptême, anniversaire, pot de départ : un cadre idyllique et des prestations sur mesure près de Metz.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://jardins-hacienda-maquette.vercel.app/mariages">
 <style>:root{--fond:#f4ece1;--texte:#2b1e18;--voile-fond:#1b1310;--ouverture-fond:#1b1310;--menu-fond:#1b1310}:root { --entete-h: 72px; --barres-h: 0px; } html { background: var(--fond); color: var(--texte); scrollbar-gutter: stable; } body { margin: 0; background: var(--fond); } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime] { opacity: 0; } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime].vu { opacity: 1; } [data-voile] { position: fixed; inset: 0; z-index: 900; background: var(--voile-fond); transform: translateY(100%); visibility: hidden; pointer-events: none; } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) [data-voile] { transform: none; visibility: visible; } html.calme [data-voile], html.secours [data-voile] { visibility: hidden !important; } .ouverture-panneau { position: fixed; inset: 0; z-index: 850; display: none; place-content: center; justify-items: center; background: var(--ouverture-fond, var(--voile-fond)); color: var(--fond); text-align: center; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) .ouverture-panneau { display: grid; } html.defilement-bloque, html.defilement-bloque body, html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie), html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) body, html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours), html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) body { overflow: hidden; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) { background-color: var(--ouverture-fond, var(--voile-fond)); } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) { background-color: var(--voile-fond); }</style>
@@ -43,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 <style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=1">
-<link rel="stylesheet" href="/assets/css/site.css?v=1">
-<link rel="modulepreload" href="/assets/js/site.js?v=1">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<link rel="stylesheet" href="/assets/css/socle.css?v=2">
+<link rel="stylesheet" href="/assets/css/site.css?v=2">
+<link rel="modulepreload" href="/assets/js/site.js?v=2">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=1"></script>
+<script type="module" src="/assets/js/site.js?v=2"></script>
 <meta name="theme-color" content="#f4ece1">
 <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -58,7 +58,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 <meta property="og:site_name" content="Les Jardins de l’Hacienda">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="Mariages et réceptions : Les Jardins de l’Hacienda">
-<meta property="og:description" content="Mariage, baptême, anniversaire, pot de départ, séminaire : un cadre idyllique et des prestations sur mesure près de Metz.">
+<meta property="og:description" content="Mariage, baptême, anniversaire, pot de départ : un cadre idyllique et des prestations sur mesure près de Metz.">
 <meta property="og:url" content="https://jardins-hacienda-maquette.vercel.app/mariages">
 <meta property="og:image" content="https://jardins-hacienda-maquette.vercel.app/assets/partage/mariages-fr.jpg">
 <meta property="og:image:width" content="1200">
@@ -93,7 +93,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
 </header>
 <div id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu">
-  <ul><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil">Accueil</a></li><li style="--i:1"><a href="/la-carte" class="menu-lien" data-libelle="La carte">La carte</a></li><li style="--i:2"><a href="/terrasse-piscine" class="menu-lien" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li style="--i:3"><a href="/mariages" class="menu-lien" data-libelle="Mariages" aria-current="page">Mariages</a></li><li style="--i:4"><a href="/agenda" class="menu-lien" data-libelle="Agenda">Agenda</a></li><li style="--i:5"><a href="/a-emporter" class="menu-lien" data-libelle="À emporter">À emporter</a></li><li style="--i:6"><a href="/carte-cadeau" class="menu-lien" data-libelle="Carte cadeau">Carte cadeau</a></li><li style="--i:7"><a href="/infos-pratiques" class="menu-lien" data-libelle="Infos pratiques">Infos pratiques</a></li><li style="--i:8"><a href="/reserver" class="menu-lien" data-libelle="Réserver">Réserver</a></li></ul>
+  <ul><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil">Accueil</a></li><li style="--i:1"><a href="/la-carte" class="menu-lien" data-libelle="La carte">La carte</a></li><li style="--i:2"><a href="/restaurant" class="menu-lien" data-libelle="Le restaurant">Le restaurant</a></li><li style="--i:3"><a href="/terrasse-piscine" class="menu-lien" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li style="--i:4"><a href="/mariages" class="menu-lien" data-libelle="Mariages" aria-current="page">Mariages</a></li><li style="--i:5"><a href="/fetes-privees" class="menu-lien" data-libelle="Fêtes privées">Fêtes privées</a></li><li style="--i:6"><a href="/agenda" class="menu-lien" data-libelle="Agenda">Agenda</a></li><li style="--i:7"><a href="/a-emporter" class="menu-lien" data-libelle="À emporter">À emporter</a></li><li style="--i:8"><a href="/carte-cadeau" class="menu-lien" data-libelle="Carte cadeau">Carte cadeau</a></li><li style="--i:9"><a href="/infos-pratiques" class="menu-lien" data-libelle="Infos pratiques">Infos pratiques</a></li><li style="--i:10"><a href="/reserver" class="menu-lien" data-libelle="Réserver">Réserver</a></li></ul>
   <p class="menu-actions"><a class="bouton" href="tel:+33618212810">Appeler 06 18 21 28 10</a>
   <button type="button" class="bouton bouton--contour bascule-saison" data-bascule-saison><span data-saison-seul="hiver">Voir l’été</span><span data-saison-seul="ete">Voir l’hiver</span></button></p>
   <p class="menu-reseaux"><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
@@ -112,7 +112,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     <p class="surtitre">Mariages &amp; réceptions</p>
     <h1 class="page-titre" data-anime="lignes" data-intro-titre>Le plus beau jour, dans un cadre idyllique</h1>
     <p class="page-intro" data-anime>Notre espace mariage offre une ambiance romantique et raffinée, parfaite pour des souvenirs inoubliables. Découvrez nos prestations sur mesure pour une journée unique.</p>
-    <p class="page-actions"><a class="bouton" href="#demande" data-action-principale data-survol="magnetique">Préparer ma réception</a><span class="page-info" data-info-cle>Mariage · baptême · anniversaire · pot de départ · séminaire</span></p>
+    <p class="page-actions"><a class="bouton" href="#demande" data-action-principale data-survol="magnetique">Préparer ma réception</a><span class="page-info" data-info-cle>Mariage · baptême · anniversaire · pot de départ</span></p>
   </div>
 </section>
 <section class="reperes-section conteneur" id="reperes">
@@ -165,15 +165,6 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </picture>
 </figure>
       <span class="type-nom">Pot de départ</span>
-    </a>
-  </li><li class="type">
-    <a href="?type=seminaire#demande" data-sans-transition data-choix-type="seminaire">
-      <figure class="media type-media" style="--cadrage:50% 50%">
-  <picture>
-    <img src="/assets/images/site/type-seminaire-1280.webp" srcset="/assets/images/site/type-seminaire-640.webp 640w, /assets/images/site/type-seminaire-1280.webp 1280w" sizes="(max-width: 760px) 45vw, 18vw" alt="" width="1280" height="1919" loading="lazy" decoding="async">
-  </picture>
-</figure>
-      <span class="type-nom">Séminaire</span>
     </a>
   </li></ul>
 </section>
@@ -261,7 +252,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
         <fieldset class="etape" data-etape="1">
           <legend>Votre réception</legend>
           <div class="champ"><span class="champ-libelle" id="l-type">Type de réception</span>
-            <div class="puces" role="radiogroup" aria-labelledby="l-type"><label class="puce-choix"><input type="radio" name="type" value="mariage" checked><span>Mariage</span></label><label class="puce-choix"><input type="radio" name="type" value="bapteme"><span>Baptême</span></label><label class="puce-choix"><input type="radio" name="type" value="anniversaire"><span>Anniversaire</span></label><label class="puce-choix"><input type="radio" name="type" value="depart"><span>Pot de départ</span></label><label class="puce-choix"><input type="radio" name="type" value="seminaire"><span>Séminaire</span></label></div></div>
+            <div class="puces" role="radiogroup" aria-labelledby="l-type"><label class="puce-choix"><input type="radio" name="type" value="mariage" checked><span>Mariage</span></label><label class="puce-choix"><input type="radio" name="type" value="bapteme"><span>Baptême</span></label><label class="puce-choix"><input type="radio" name="type" value="anniversaire"><span>Anniversaire</span></label><label class="puce-choix"><input type="radio" name="type" value="depart"><span>Pot de départ</span></label></div></div>
           <div class="champ"><label for="m-date">Date souhaitée</label><input id="m-date" name="date" type="date" aria-describedby="m-date-aide"><p class="aide" id="m-date-aide">Une date approximative suffit.</p></div>
         </fieldset>
         <fieldset class="etape" data-etape="2" hidden>
@@ -285,7 +276,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
         <fieldset class="etape" data-etape="4" hidden>
           <legend>Récapitulatif</legend>
           <p>Vérifiez votre demande dans le récapitulatif, puis envoyez-la : nous revenons vers vous pour construire votre journée.</p>
-          <p class="mention-donnees">Vos données servent seulement à répondre à votre demande. <a href="/mentions-legales#confidentialite">Politique de confidentialité</a> (à compléter).</p>
+          <p class="mention-donnees">Vos données servent seulement à répondre à votre demande. <a href="/confidentialite">Politique de confidentialité</a>.</p>
         </fieldset>
       </div>
       <p class="etapes-nav">
@@ -314,7 +305,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     </aside>
   </div>
 </section>
-<script type="application/json" data-recap-textes>{"vide":"à préciser","etape":"Étape {n} sur 4","libelles":{"mariage":"Mariage","bapteme":"Baptême","anniversaire":"Anniversaire","depart":"Pot de départ","seminaire":"Séminaire","dejeuner":"Déjeuner","diner":"Dîner","journee":"Journée entière","salle":"La salle","terrasse":"La terrasse","piscine":"La piscine"}}</script>
+<script type="application/json" data-recap-textes>{"vide":"à préciser","etape":"Étape {n} sur 4","libelles":{"mariage":"Mariage","bapteme":"Baptême","anniversaire":"Anniversaire","depart":"Pot de départ","dejeuner":"Déjeuner","diner":"Dîner","journee":"Journée entière","salle":"La salle","terrasse":"La terrasse","piscine":"La piscine"}}</script>
 <div class="visionneuse" data-visionneuse data-recouvrement role="dialog" aria-modal="true" aria-label="Agrandir la photo" hidden>
   <button type="button" class="visionneuse-fermer" data-vis-fermer aria-label="Fermer"><span aria-hidden="true">×</span></button>
   <figure class="visionneuse-cadre" data-vis-cadre><figcaption data-vis-legende></figcaption></figure>
@@ -332,7 +323,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     </div>
     <nav aria-label="Sommaire">
       <p><strong>Sommaire</strong></p>
-      <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages" aria-current="page">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li></ul>
+      <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages" aria-current="page">Mariages</a></li><li><a href="/fetes-privees" data-libelle="Fêtes privées">Fêtes privées</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li><li><a href="/confidentialite" data-libelle="Confidentialité">Confidentialité</a></li></ul>
     </nav>
     <div>
       <p><strong>Confort</strong></p>

@@ -2,9 +2,9 @@
    le menu, le mode calme, les boucles, les mesures et la bibliothèque d'effets (posés par attributs dans les pages).
    Effets propres du plan, chacun marqué data-effet : surface, saison, braises, ardoise, volets, decompte, envol, palmes,
    carte-relief, carte. */
-import { demarrer, boucle, etat, suivre, lacher, bloquerDefilement, debloquerDefilement, rafraichir, quand } from './socle/index.js?v=1';
-import { monterSurface } from './surface.js?v=1';
-import { initPanier, envolDefilement } from './panier.js?v=1';
+import { demarrer, boucle, etat, suivre, lacher, bloquerDefilement, debloquerDefilement, rafraichir, quand } from './socle/index.js?v=2';
+import { monterSurface } from './surface.js?v=2';
+import { initPanier, envolDefilement } from './panier.js?v=2';
 
 const gsap = window.gsap;
 const html = document.documentElement;

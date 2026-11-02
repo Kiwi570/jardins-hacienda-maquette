@@ -1,22 +1,204 @@
 {
   "piscine": [
-    { "nom": "site/piscine-g1", "alt": { "fr": "La piscine et ses paillotes sous un ciel d'été" } },
-    { "nom": "site/piscine-g2", "alt": { "fr": "Bouées flamant et pastèque sur la piscine" } },
-    { "nom": "site/piscine-g3", "alt": { "fr": "Palmiers et salons autour de la piscine" } },
-    { "nom": "site/piscine-g4", "alt": { "fr": "Parasols blancs au bord de l'eau" } },
-    { "nom": "site/piscine-g5", "alt": { "fr": "Après-midi au bord de la piscine" } },
-    { "nom": "site/piscine-g6", "alt": { "fr": "La piscine bordée de chaises blanches" } },
-    { "nom": "site/piscine-g7", "alt": { "fr": "Une bouée en forme de cœur sur l'eau turquoise" } },
-    { "nom": "site/piscine-g8", "alt": { "fr": "Platines de DJ face à la piscine" } }
+    {
+      "nom": "site/piscine-g1",
+      "alt": {
+        "fr": "La piscine et ses paillotes sous un ciel d'été"
+      }
+    },
+    {
+      "nom": "site/piscine-g2",
+      "alt": {
+        "fr": "Bouées flamant et pastèque sur la piscine"
+      }
+    },
+    {
+      "nom": "site/piscine-g3",
+      "alt": {
+        "fr": "Palmiers et salons autour de la piscine"
+      }
+    },
+    {
+      "nom": "site/piscine-g4",
+      "alt": {
+        "fr": "Parasols blancs au bord de l'eau"
+      }
+    },
+    {
+      "nom": "site/piscine-g5",
+      "alt": {
+        "fr": "Après-midi au bord de la piscine"
+      }
+    },
+    {
+      "nom": "site/piscine-g6",
+      "alt": {
+        "fr": "La piscine bordée de chaises blanches"
+      }
+    },
+    {
+      "nom": "site/piscine-g7",
+      "alt": {
+        "fr": "Une bouée en forme de cœur sur l'eau turquoise"
+      }
+    },
+    {
+      "nom": "site/piscine-g8",
+      "alt": {
+        "fr": "Platines de DJ face à la piscine"
+      }
+    }
   ],
   "mariages": [
-    { "nom": "site/mariage-g1", "alt": { "fr": "Arche en rotin face à la piscine" } },
-    { "nom": "site/mariage-g2", "alt": { "fr": "Cérémonie sous les palmiers, invités de dos" } },
-    { "nom": "site/mariage-g3", "alt": { "fr": "La salle dressée pour un repas de réception" } },
-    { "nom": "site/mariage-g4", "alt": { "fr": "Buffet de réception en terre cuite" } },
-    { "nom": "site/mariage-g5", "alt": { "fr": "Pièce montée et ballons dorés" } },
-    { "nom": "site/mariage-g6", "alt": { "fr": "Longue table aux serviettes vertes" } },
-    { "nom": "site/mariage-g7", "alt": { "fr": "Les mariés dansent sous la paillote" } },
-    { "nom": "site/mariage-g8", "alt": { "fr": "La piscine un jour de mariage" } }
+    {
+      "nom": "site/mariage-g1",
+      "alt": {
+        "fr": "Arche en rotin face à la piscine"
+      }
+    },
+    {
+      "nom": "site/mariage-g2",
+      "alt": {
+        "fr": "Cérémonie sous les palmiers, invités de dos"
+      }
+    },
+    {
+      "nom": "site/mariage-g3",
+      "alt": {
+        "fr": "La salle dressée pour un repas de réception"
+      }
+    },
+    {
+      "nom": "site/mariage-g4",
+      "alt": {
+        "fr": "Buffet de réception en terre cuite"
+      }
+    },
+    {
+      "nom": "site/mariage-g5",
+      "alt": {
+        "fr": "Pièce montée et ballons dorés"
+      }
+    },
+    {
+      "nom": "site/mariage-g6",
+      "alt": {
+        "fr": "Longue table aux serviettes vertes"
+      }
+    },
+    {
+      "nom": "site/mariage-g7",
+      "alt": {
+        "fr": "Les mariés dansent sous la paillote"
+      }
+    },
+    {
+      "nom": "site/mariage-g8",
+      "alt": {
+        "fr": "La piscine un jour de mariage"
+      }
+    }
+  ],
+  "restaurant": [
+    {
+      "nom": "site/restaurant-g1",
+      "alt": {
+        "fr": "La salle, ses fauteuils clairs et ses grandes baies"
+      }
+    },
+    {
+      "nom": "site/restaurant-g2",
+      "alt": {
+        "fr": "Une table en verre sur un pied en racine de bois, près des fenêtres"
+      }
+    },
+    {
+      "nom": "site/restaurant-g3",
+      "alt": {
+        "fr": "Une table dressée devant la cheminée décorée pour Noël"
+      }
+    },
+    {
+      "nom": "site/restaurant-g4",
+      "alt": {
+        "fr": "Tables dressées dans la salle lumineuse"
+      }
+    },
+    {
+      "nom": "site/restaurant-g5",
+      "alt": {
+        "fr": "Une volaille dorée et ses pommes de terre"
+      }
+    },
+    {
+      "nom": "site/restaurant-g6",
+      "alt": {
+        "fr": "Une pièce de viande et ses légumes, dressée à l'assiette"
+      }
+    }
+  ],
+  "fetes": [
+    {
+      "nom": "site/fetes-g2",
+      "alt": {
+        "fr": "Un gâteau de fête et des fleurs au bord de l'eau"
+      }
+    },
+    {
+      "nom": "site/fetes-g3",
+      "alt": {
+        "fr": "Un plateau de bouchées décoré de fleurs"
+      }
+    },
+    {
+      "nom": "site/fetes-g4",
+      "alt": {
+        "fr": "Une pièce montée de macarons et des guimauves"
+      }
+    },
+    {
+      "nom": "site/fetes-g5",
+      "alt": {
+        "fr": "Des verrines alignées sur un buffet"
+      }
+    },
+    {
+      "nom": "site/fetes-g6",
+      "alt": {
+        "fr": "Une assiette dressée, sauce mousseuse et fleurs comestibles"
+      }
+    }
+  ],
+  "buffet": [
+    {
+      "nom": "site/buffet-g1",
+      "alt": {
+        "fr": "Légumes grillés sur la plancha du brasero"
+      }
+    },
+    {
+      "nom": "site/buffet-g2",
+      "alt": {
+        "fr": "Volailles et brochettes sur le grand brasero"
+      }
+    },
+    {
+      "nom": "site/broche",
+      "alt": {
+        "fr": "Une viande rôtie à la broche"
+      }
+    },
+    {
+      "nom": "site/buffet-g3",
+      "alt": {
+        "fr": "Les tables et les ombrelles de la terrasse"
+      }
+    },
+    {
+      "nom": "site/buffet-g4",
+      "alt": {
+        "fr": "La piscine et ses transats"
+      }
+    }
   ]
 }

@@ -567,7 +567,7 @@ html.calme .pool-video video { display: none; }
 .reperes-media { grid-column: 2; grid-row: 1 / span 3; width: clamp(180px, 22vw, 300px); aspect-ratio: 4 / 5; }
 .types { padding-block: calc(var(--section) * .4) var(--section); }
 .types-tete { margin-bottom: 28px; max-width: 40em; }
-.types-grille { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 20px); }
+.types-grille { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 20px); }
 .type a { display: grid; gap: 10px; text-decoration: none; }
 .type-media { aspect-ratio: 3 / 4; }
 .type-media img { transition: transform .8s var(--courbe); }
@@ -729,3 +729,21 @@ html.calme .saisons-scene { --coupe: 50%; }
 .hero-surtitre, .page-tete .surtitre { display: table; padding: 5px 10px; border-radius: 8px; background: rgba(20,13,10,.74); }
 html[data-saison="ete"] :is(.hero-surtitre, .page-tete .surtitre) { background: rgba(10,32,28,.74); }
 .hero-prochain-libelle { display: block; }
+
+/* v2 : Fêtes privées (trois types, deux saisons) et fiches des soirées passées. */
+.types-grille--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fetes-saisons { padding-block: var(--section) 0; }
+.fetes-saisons-grille { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 40px); }
+.fetes-saisons-grille h3 { margin: 16px 0 4px; }
+.fetes-saisons-grille p { margin: 0; color: var(--texte-doux); }
+.fetes-saison-media { aspect-ratio: 3 / 2; }
+.fetes-saisons .note { margin-top: 20px; }
+.fiche-passee { padding-block: clamp(56px, 9vw, 120px); }
+.fiche-passee h2 { font-size: clamp(2rem, 1.4rem + 3vw, 4rem); }
+.fiche-passee p { max-width: 42em; }
+@media (max-width: 760px) { .fetes-saisons-grille, .types-grille--3 { grid-template-columns: 1fr; } }
+.fiche-passee-grille { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.fiche-date { margin: 0; width: clamp(140px, 16vw, 200px); aspect-ratio: 1; border-radius: 50%; display: grid; place-content: center; text-align: center; gap: 4px; box-shadow: inset 0 0 0 2px #f0d9b0; color: #f0d9b0; }
+.fiche-date-jour { font-family: var(--police-titres); font-size: clamp(2.2rem, 1.6rem + 2vw, 3.4rem); line-height: 1.05; white-space: nowrap; }
+.fiche-date-mois { font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
+@media (max-width: 560px) { .fiche-passee-grille { grid-template-columns: 1fr; } .fiche-date { width: 120px; } }

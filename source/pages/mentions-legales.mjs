@@ -16,6 +16,6 @@ export default (c) => html`
   </div>
 </section>
 <div class="texte-long conteneur" data-sans-visuel>
-  ${sections.map((s) => html`<section id="${s}" data-sans-visuel><h2>${c.t(`mentions.${s}.titre`)}</h2><p>${c.t(`mentions.${s}.texte`)}</p></section>`)}
+  ${sections.map((s) => html`<section id="${s}" data-sans-visuel><h2>${c.t(`mentions.${s}.titre`)}</h2><p>${s === 'confidentialite' ? c.tb('mentions.confidentialite.html') : c.t(`mentions.${s}.texte`)}</p></section>`)}
 </div>
 `;

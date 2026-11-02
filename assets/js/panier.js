@@ -1,7 +1,7 @@
 /* Commande à emporter : une seule source (localStorage « hacienda:panier »), identique dans tous les onglets
    (événement storage), donnée abîmée nettoyée sans bloquer le site, panier vidé après une commande simulée.
    Effet propre « envol » : au défilement, les produits montent ; à l'ajout, le visuel s'envole vers le panier. */
-import { etat } from './socle/index.js?v=1';
+import { etat } from './socle/index.js?v=2';
 
 const CLE = 'hacienda:panier';
 const ls = () => { try { return window.localStorage; } catch { return null; } };

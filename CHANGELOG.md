@@ -2,6 +2,28 @@
 
 Chaque version ajoute sa partie en tête de ce fichier, construite en comparant l'archive précédente et la nouvelle, jamais de mémoire.
 
+## v2 — les pages des modèles
+
+**Pages ajoutées**
+- Le restaurant (`/restaurant`) : la salle au coin du feu avec les braises de la cheminée, l'ardoise du chef, la salle en images (galerie et visionneuse), l'essentiel à savoir et la réservation.
+- Fêtes privées (`/fetes-privees`) : baptême, anniversaire, pot de départ, deux saisons, buffets en images, demande en quatre étapes avec récapitulatif.
+- Fiches des soirées passées : Soirée libanaise (`/agenda/soiree-libanaise`) et Grand Buffet (`/agenda/grand-buffet`), avec programme, tarif et affiche ; pour le Grand Buffet, la journée en frise et les photos.
+- Confidentialité (`/confidentialite`) : données recueillies par les formulaires, usages, conservation, destinataires, réglages gardés dans le navigateur, droits.
+
+**Liens**
+- Menu et pied de page : Le restaurant, Fêtes privées, Confidentialité.
+- Accueil : la carte « Le restaurant » mène à la nouvelle page, les réceptions proposent aussi Fêtes privées, les soirées passées mènent à leur fiche.
+- Agenda : les soirées passées ont leur bouton « Voir la soirée ».
+- Mentions sous les formulaires et mentions légales : lien vers Confidentialité.
+
+**Contenu**
+- Séminaires retirés : ils ne figurent pas sur le site actuel. La page Mariages propose quatre types de réception.
+
+**Technique**
+- La demande en quatre étapes devient un composant partagé par Mariages et Fêtes privées.
+- Numéro de version des fichiers : ?v=2. Images de partage pour les nouvelles pages ; nouvelles photos converties (salle, plats, buffets, fêtes).
+- Fichiers retirés : `assets/images/site/type-seminaire-640.webp` et `type-seminaire-1280.webp`.
+
 ## v1 — la base
 
 **Pages** : accueil, la carte, à emporter, terrasse & piscine, mariages & réceptions, agenda, fiche Saint-Sylvestre, infos pratiques, carte cadeau, réserver, mentions légales, page introuvable. En français.

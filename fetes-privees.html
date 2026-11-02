@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="fr" data-v="2" data-curseur>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fêtes privées : Les Jardins de l’Hacienda</title>
+<meta name="description" content="Baptême, anniversaire, pot de départ : vos fêtes aux Jardins de l’Hacienda à Moineville, demande en ligne.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jardins-hacienda-maquette.vercel.app/fetes-privees">
+<style>:root{--fond:#f4ece1;--texte:#2b1e18;--voile-fond:#1b1310;--ouverture-fond:#1b1310;--menu-fond:#1b1310}:root { --entete-h: 72px; --barres-h: 0px; } html { background: var(--fond); color: var(--texte); scrollbar-gutter: stable; } body { margin: 0; background: var(--fond); } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime] { opacity: 0; } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime].vu { opacity: 1; } [data-voile] { position: fixed; inset: 0; z-index: 900; background: var(--voile-fond); transform: translateY(100%); visibility: hidden; pointer-events: none; } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) [data-voile] { transform: none; visibility: visible; } html.calme [data-voile], html.secours [data-voile] { visibility: hidden !important; } .ouverture-panneau { position: fixed; inset: 0; z-index: 850; display: none; place-content: center; justify-items: center; background: var(--ouverture-fond, var(--voile-fond)); color: var(--fond); text-align: center; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) .ouverture-panneau { display: grid; } html.defilement-bloque, html.defilement-bloque body, html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie), html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) body, html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours), html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) body { overflow: hidden; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) { background-color: var(--ouverture-fond, var(--voile-fond)); } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) { background-color: var(--voile-fond); }</style>
+<script>(function () {
+var d = document.documentElement, ss = null, ls = null;
+try { ss = window.sessionStorage; ls = window.localStorage; } catch (e) {}
+d.classList.add('js');
+var calme = false;
+try { calme = !!ls && ls.getItem('socle:calme') === 'oui'; } catch (e) {}
+if (!calme && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+if (calme) d.classList.add('calme');
+var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+var type = nav ? nav.type : 'navigate';
+var depart = null;
+try { depart = JSON.parse(ss.getItem('socle:depart') || 'null'); ss.removeItem('socle:depart'); } catch (e) {}
+if (depart && !(Date.now() - depart.t < 15000)) depart = null;
+var retourSection = false;
+try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
+var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
+d.setAttribute('data-arrivee', mode);
+if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+if (type === 'reload' && 'scrollRestoration' in history) {
+if (!retourSection) history.scrollRestoration = 'manual';
+}
+try {
+var choisie = ls && ls.getItem('socle:langue');
+var langue = (d.lang || '').slice(0, 2);
+if (choisie && choisie !== langue && type === 'navigate' && !depart) {
+var alt = document.querySelector('link[rel="alternate"][hreflang="' + choisie + '"]');
+if (alt) location.replace(new URL(alt.href).pathname + location.search + location.hash);
+}
+} catch (e) {}
+setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('secours'); }, 2000);
+})();</script>
+<script>(function(){var d=document.documentElement,s=null;try{s=sessionStorage.getItem('hacienda:saison')}catch(e){}if(s!=='ete'&&s!=='hiver'){var m=+new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',month:'numeric'}).format(new Date());s=[6,7,8,9].indexOf(m)>-1?'ete':'hiver'}d.setAttribute('data-saison',s)})();</script>
+<style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/socle.css?v=2">
+<link rel="stylesheet" href="/assets/css/site.css?v=2">
+<link rel="modulepreload" href="/assets/js/site.js?v=2">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/vendor/SplitText.min.js" defer></script>
+<script type="module" src="/assets/js/site.js?v=2"></script>
+<meta name="theme-color" content="#f4ece1">
+<link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Les Jardins de l’Hacienda">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Fêtes privées : Les Jardins de l’Hacienda">
+<meta property="og:description" content="Baptême, anniversaire, pot de départ : vos fêtes aux Jardins de l’Hacienda à Moineville, demande en ligne.">
+<meta property="og:url" content="https://jardins-hacienda-maquette.vercel.app/fetes-privees">
+<meta property="og:image" content="https://jardins-hacienda-maquette.vercel.app/assets/partage/fetes-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Une table de fête dressée aux Jardins de l’Hacienda">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Restaurant","EventVenue"],"name":"Les Jardins de l'Hacienda","url":"https://jardins-hacienda-maquette.vercel.app/","telephone":"+33618212810","image":"https://jardins-hacienda-maquette.vercel.app/assets/partage/accueil-fr.jpg","address":{"@type":"PostalAddress","streetAddress":"6 Vathier Haye","postalCode":"54580","addressLocality":"Moineville","addressCountry":"FR"},"servesCuisine":["Cuisine traditionnelle","Cuisine de saison"],"acceptsReservations":true,"sameAs":["https://www.facebook.com/lesjardinsdelhacienda54","https://www.instagram.com/lesjardinsdel.hacienda/"],"description":"Restaurant et lieu de réception en pleine nature, à 15 km de Metz : cuisine de saison du chef Régis Clauss, cheminée l'hiver, terrasse et piscine l'été, mariages et réceptions."}</script>
+</head>
+<body id="haut">
+<div data-voile aria-hidden="true"><div class="voile-contenu"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56"><span data-voile-libelle>Fêtes privées</span></div></div>
+<div class="ouverture-panneau" data-ouverture aria-hidden="true">
+  <div class="ouverture-sceau">
+    <svg class="ouverture-cercle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" pathLength="1"/></svg>
+    <img class="ouverture-logo" src="/assets/images/logo-h-or-192.png" alt="" width="96" height="96">
+  </div>
+  <p class="ouverture-ligne">Restaurant &amp; lieu de réception · Moineville</p>
+  <p class="ouverture-saison"><span data-saison-seul="hiver">Saison d’hiver</span><span data-saison-seul="ete">Saison d’été</span></p>
+</div>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header data-entete>
+  <div class="entete-rangee">
+    <a class="entete-logo" href="/" aria-label="Les Jardins de l’Hacienda, retour à l’accueil" data-libelle="Accueil">
+      <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
+    </a>
+    <nav data-nav aria-label="Navigation principale">
+      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
+    </nav>
+    <div class="entete-actions">
+      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+    </div>
+  </div>
+</header>
+<div id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu">
+  <ul><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil">Accueil</a></li><li style="--i:1"><a href="/la-carte" class="menu-lien" data-libelle="La carte">La carte</a></li><li style="--i:2"><a href="/restaurant" class="menu-lien" data-libelle="Le restaurant">Le restaurant</a></li><li style="--i:3"><a href="/terrasse-piscine" class="menu-lien" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li style="--i:4"><a href="/mariages" class="menu-lien" data-libelle="Mariages">Mariages</a></li><li style="--i:5"><a href="/fetes-privees" class="menu-lien" data-libelle="Fêtes privées" aria-current="page">Fêtes privées</a></li><li style="--i:6"><a href="/agenda" class="menu-lien" data-libelle="Agenda">Agenda</a></li><li style="--i:7"><a href="/a-emporter" class="menu-lien" data-libelle="À emporter">À emporter</a></li><li style="--i:8"><a href="/carte-cadeau" class="menu-lien" data-libelle="Carte cadeau">Carte cadeau</a></li><li style="--i:9"><a href="/infos-pratiques" class="menu-lien" data-libelle="Infos pratiques">Infos pratiques</a></li><li style="--i:10"><a href="/reserver" class="menu-lien" data-libelle="Réserver">Réserver</a></li></ul>
+  <p class="menu-actions"><a class="bouton" href="tel:+33618212810">Appeler 06 18 21 28 10</a>
+  <button type="button" class="bouton bouton--contour bascule-saison" data-bascule-saison><span data-saison-seul="hiver">Voir l’été</span><span data-saison-seul="ete">Voir l’hiver</span></button></p>
+  <p class="menu-reseaux"><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+  <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
+</div>
+<main id="contenu" tabindex="-1">
+<section class="page-tete " id="debut">
+  <div class="page-tete-fond">
+    <figure class="media page-tete-media" data-fx="parallaxe" style="--cadrage:50% 50%;--cadrage-mobile:50% 80%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/site/fetes-ouverture-mobile-640.webp 640w, /assets/images/site/fetes-ouverture-mobile-1280.webp 1280w" sizes="100vw">
+    <img src="/assets/images/site/fetes-ouverture-1280.webp" srcset="/assets/images/site/fetes-ouverture-640.webp 640w, /assets/images/site/fetes-ouverture-1280.webp 1280w, /assets/images/site/fetes-ouverture-1920.webp 1920w" sizes="100vw" alt="Une longue table de fête dressée dans la salle" width="1280" height="767" fetchpriority="high" loading="eager" decoding="async">
+  </picture>
+</figure>
+  </div>
+  <div class="page-tete-texte conteneur">
+    <p class="surtitre">Fêtes privées</p>
+    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Un instant magique avec vos proches</h1>
+    <p class="page-intro" data-anime>Baptême, anniversaire ou pot de départ : au bord de l’eau l’été, au coin du feu l’hiver.</p>
+    <p class="page-actions"><a class="bouton" href="#demande" data-action-principale data-survol="magnetique">Préparer ma fête</a><span class="page-info" data-info-cle>Baptême · anniversaire · pot de départ</span></p>
+  </div>
+</section>
+<section class="types conteneur" id="fetes">
+  <div class="types-tete">
+    <h2 data-anime="lignes">Votre fête</h2>
+    <p data-anime>Choisissez votre fête : la demande se remplit en quelques minutes, l’établissement revient vers vous.</p>
+  </div>
+  <ul class="types-grille types-grille--3" data-anime="cascade"><li class="type">
+    <a href="?type=bapteme#demande" data-sans-transition data-choix-type="bapteme">
+      <figure class="media type-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/type-bapteme-1080.webp" srcset="/assets/images/site/type-bapteme-640.webp 640w, /assets/images/site/type-bapteme-1080.webp 1080w" sizes="(max-width: 760px) 45vw, 28vw" alt="" width="1080" height="1351" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <span class="type-nom">Baptême</span>
+    </a>
+  </li><li class="type">
+    <a href="?type=anniversaire#demande" data-sans-transition data-choix-type="anniversaire">
+      <figure class="media type-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/type-anniversaire-1280.webp" srcset="/assets/images/site/type-anniversaire-640.webp 640w, /assets/images/site/type-anniversaire-1280.webp 1280w" sizes="(max-width: 760px) 45vw, 28vw" alt="" width="1280" height="960" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <span class="type-nom">Anniversaire</span>
+    </a>
+  </li><li class="type">
+    <a href="?type=depart#demande" data-sans-transition data-choix-type="depart">
+      <figure class="media type-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/type-depart-640.webp" srcset="/assets/images/site/type-depart-640.webp 640w" sizes="(max-width: 760px) 45vw, 28vw" alt="" width="640" height="426" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <span class="type-nom">Pot de départ</span>
+    </a>
+  </li></ul>
+</section>
+<section class="fetes-saisons conteneur" id="saisons">
+  <h2 data-anime="lignes">Deux saisons, deux ambiances</h2>
+  <ul class="fetes-saisons-grille" data-anime="cascade">
+    <li><figure class="media fetes-saison-media" data-fx="zoom" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/fetes-ete-640.webp" srcset="/assets/images/site/fetes-ete-640.webp 640w" sizes="(max-width: 760px) 100vw, 45vw" alt="Des tables de fête dressées en extérieur, avec des fleurs blanches" width="640" height="426" loading="lazy" decoding="async">
+  </picture>
+</figure><h3>L’été, en extérieur</h3><p>La terrasse et la piscine, de juin à septembre.</p></li>
+    <li><figure class="media fetes-saison-media" data-fx="zoom" style="--cadrage:50% 55%">
+  <picture>
+    <img src="/assets/images/site/restaurant-g3-1280.webp" srcset="/assets/images/site/restaurant-g3-640.webp 640w, /assets/images/site/restaurant-g3-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 45vw" alt="Une table dressée devant la cheminée décorée pour les fêtes" width="1280" height="1919" loading="lazy" decoding="async">
+  </picture>
+</figure><h3>L’hiver, en salle</h3><p>La salle et sa cheminée, d’octobre à mai.</p></li>
+  </ul>
+  <p class="note">Capacité, formules et tarifs : <span class="a-completer">à compléter</span></p>
+</section>
+<section class="galerie ecran epingle" id="photos" data-entete-cache data-fx="galerie">
+  <div class="conteneur galerie-tete">
+    <h2 data-anime="lignes">Buffets et gourmandises</h2>
+  </div>
+  <div class="piste galerie-piste" data-galerie tabindex="0" role="region" aria-label="Photos de buffets et de desserts servis aux Jardins">
+    <a class="carte-photo" href="#photos-1" id="photos-1" data-vis-ouvrir data-sans-transition aria-label="Agrandir la photo : Un gâteau de fête et des fleurs au bord de l’eau">
+      <figure class="media carte-photo-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/fetes-g2-960.webp" srcset="/assets/images/site/fetes-g2-640.webp 640w, /assets/images/site/fetes-g2-960.webp 960w" sizes="(max-width: 760px) 78vw, 32vw" alt="Un gâteau de fête et des fleurs au bord de l’eau" width="960" height="480" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    </a><a class="carte-photo" href="#photos-2" id="photos-2" data-vis-ouvrir data-sans-transition aria-label="Agrandir la photo : Un plateau de bouchées décoré de fleurs">
+      <figure class="media carte-photo-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/fetes-g3-1280.webp" srcset="/assets/images/site/fetes-g3-640.webp 640w, /assets/images/site/fetes-g3-1280.webp 1280w" sizes="(max-width: 760px) 78vw, 32vw" alt="Un plateau de bouchées décoré de fleurs" width="1280" height="853" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    </a><a class="carte-photo" href="#photos-3" id="photos-3" data-vis-ouvrir data-sans-transition aria-label="Agrandir la photo : Une pièce montée de macarons et des guimauves">
+      <figure class="media carte-photo-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/fetes-g4-1280.webp" srcset="/assets/images/site/fetes-g4-640.webp 640w, /assets/images/site/fetes-g4-1280.webp 1280w" sizes="(max-width: 760px) 78vw, 32vw" alt="Une pièce montée de macarons et des guimauves" width="1280" height="1707" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    </a><a class="carte-photo" href="#photos-4" id="photos-4" data-vis-ouvrir data-sans-transition aria-label="Agrandir la photo : Des verrines alignées sur un buffet">
+      <figure class="media carte-photo-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/fetes-g5-640.webp" srcset="/assets/images/site/fetes-g5-640.webp 640w" sizes="(max-width: 760px) 78vw, 32vw" alt="Des verrines alignées sur un buffet" width="640" height="853" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    </a><a class="carte-photo" href="#photos-5" id="photos-5" data-vis-ouvrir data-sans-transition aria-label="Agrandir la photo : Une assiette dressée, sauce mousseuse et fleurs comestibles">
+      <figure class="media carte-photo-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/fetes-g6-1280.webp" srcset="/assets/images/site/fetes-g6-640.webp 640w, /assets/images/site/fetes-g6-1280.webp 1280w" sizes="(max-width: 760px) 78vw, 32vw" alt="Une assiette dressée, sauce mousseuse et fleurs comestibles" width="1280" height="1707" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    </a>
+  </div>
+  <p class="galerie-aide" aria-hidden="true">Faites glisser</p>
+  <div class="galerie-progres" aria-hidden="true"><span></span></div>
+</section>
+<section class="demande conteneur" id="demande">
+  <div class="demande-tete">
+    <h2 data-anime="lignes">Préparer votre fête</h2>
+    <p data-anime>Quatre étapes, environ deux minutes : l’établissement revient vers vous pour construire votre journée.</p>
+    <ol class="etapes-liste" aria-hidden="true"><li data-etape-repere="1">Votre réception</li><li data-etape-repere="2">Vos invités</li><li data-etape-repere="3">Vos coordonnées</li><li data-etape-repere="4">Récapitulatif</li></ol>
+  </div>
+  <div class="demande-grille">
+    <form class="etapes" data-formulaire data-etapes action="#" novalidate>
+      <p class="etape-compte" data-etape-compte aria-live="polite">Étape 1 sur 4</p>
+      <div class="etapes-cadre" data-etapes-cadre>
+        <fieldset class="etape" data-etape="1">
+          <legend>Votre réception</legend>
+          <div class="champ"><span class="champ-libelle" id="l-type">Type de réception</span>
+            <div class="puces" role="radiogroup" aria-labelledby="l-type"><label class="puce-choix"><input type="radio" name="type" value="bapteme" checked><span>Baptême</span></label><label class="puce-choix"><input type="radio" name="type" value="anniversaire"><span>Anniversaire</span></label><label class="puce-choix"><input type="radio" name="type" value="depart"><span>Pot de départ</span></label></div></div>
+          <div class="champ"><label for="m-date">Date souhaitée</label><input id="m-date" name="date" type="date" aria-describedby="m-date-aide"><p class="aide" id="m-date-aide">Une date approximative suffit.</p></div>
+        </fieldset>
+        <fieldset class="etape" data-etape="2" hidden>
+          <legend>Vos invités</legend>
+          <div class="champ"><label for="m-invites">Nombre d’invités</label><input id="m-invites" name="invites" type="number" min="1" max="500" inputmode="numeric" required></div>
+          <div class="champ"><span class="champ-libelle" id="l-moment">Moment</span>
+            <div class="puces" role="radiogroup" aria-labelledby="l-moment"><label class="puce-choix"><input type="radio" name="moment" value="dejeuner"><span>Déjeuner</span></label><label class="puce-choix"><input type="radio" name="moment" value="diner"><span>Dîner</span></label><label class="puce-choix"><input type="radio" name="moment" value="journee" checked><span>Journée entière</span></label></div></div>
+          <div class="champ"><span class="champ-libelle" id="l-espaces">Espaces souhaités</span>
+            <div class="puces" role="group" aria-labelledby="l-espaces"><label class="puce-choix"><input type="checkbox" name="espaces" value="salle"><span>La salle</span></label><label class="puce-choix"><input type="checkbox" name="espaces" value="terrasse"><span>La terrasse</span></label><label class="puce-choix"><input type="checkbox" name="espaces" value="piscine"><span>La piscine</span></label></div></div>
+        </fieldset>
+        <fieldset class="etape" data-etape="3" hidden>
+          <legend>Vos coordonnées</legend>
+          <div class="champs-2">
+            <div class="champ"><label for="m-prenom">Prénom</label><input id="m-prenom" name="prenom" autocomplete="given-name" required></div>
+            <div class="champ"><label for="m-nom">Nom</label><input id="m-nom" name="nom" autocomplete="family-name" required></div>
+            <div class="champ"><label for="m-email">E-mail</label><input id="m-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="champ"><label for="m-tel">Téléphone</label><input id="m-tel" name="tel" type="tel" autocomplete="tel" required></div>
+          </div>
+          <div class="champ"><label for="m-message">Message (facultatif)</label><textarea id="m-message" name="message" rows="4"></textarea></div>
+        </fieldset>
+        <fieldset class="etape" data-etape="4" hidden>
+          <legend>Récapitulatif</legend>
+          <p>Vérifiez votre demande dans le récapitulatif, puis envoyez-la : nous revenons vers vous pour construire votre journée.</p>
+          <p class="mention-donnees">Vos données servent seulement à répondre à votre demande. <a href="/confidentialite">Politique de confidentialité</a>.</p>
+        </fieldset>
+      </div>
+      <p class="etapes-nav">
+        <button type="button" class="bouton bouton--contour" data-etape-prec hidden>Précédent</button>
+        <button type="button" class="bouton" data-etape-suiv>Suivant</button>
+        <button type="submit" class="bouton" data-etape-envoyer hidden>Envoyer ma demande</button>
+      </p>
+      <p data-message-envoi role="status" tabindex="-1" hidden></p>
+    </form>
+    <aside class="recap" data-recap aria-labelledby="recap-titre">
+      <figure class="media recap-media" style="--cadrage:50% 55%">
+  <picture>
+    <img src="/assets/images/site/fetes-g1-960.webp" srcset="/assets/images/site/fetes-g1-640.webp 640w, /assets/images/site/fetes-g1-960.webp 960w" sizes="(max-width: 860px) 90vw, 28vw" alt="Un buffet de desserts au bord de la piscine" width="960" height="640" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <h3 id="recap-titre">Votre demande</h3>
+      <dl>
+        <dt>Type de réception</dt><dd data-recap-champ="type"></dd>
+        <dt>Date souhaitée</dt><dd data-recap-champ="date"></dd>
+        <dt>Nombre d’invités</dt><dd data-recap-champ="invites"></dd>
+        <dt>Moment</dt><dd data-recap-champ="moment"></dd>
+        <dt>Espaces souhaités</dt><dd data-recap-champ="espaces"></dd>
+        <dt>Contact</dt><dd data-recap-champ="contact"></dd>
+      </dl>
+      <p class="note">Demande simulée : rien n’a été envoyé. Sur le site final, elle partira vers l’établissement.</p>
+    </aside>
+  </div>
+</section>
+<script type="application/json" data-recap-textes>{"vide":"à préciser","etape":"Étape {n} sur 4","libelles":{"mariage":"Mariage","bapteme":"Baptême","anniversaire":"Anniversaire","depart":"Pot de départ","dejeuner":"Déjeuner","diner":"Dîner","journee":"Journée entière","salle":"La salle","terrasse":"La terrasse","piscine":"La piscine"}}</script>
+<div class="visionneuse" data-visionneuse data-recouvrement role="dialog" aria-modal="true" aria-label="Agrandir la photo" hidden>
+  <button type="button" class="visionneuse-fermer" data-vis-fermer aria-label="Fermer"><span aria-hidden="true">×</span></button>
+  <figure class="visionneuse-cadre" data-vis-cadre><figcaption data-vis-legende></figcaption></figure>
+  <button type="button" class="visionneuse-nav visionneuse-prec" data-vis-prec aria-label="Précédent"><span aria-hidden="true">←</span></button>
+  <button type="button" class="visionneuse-nav visionneuse-suiv" data-vis-suiv aria-label="Suivant"><span aria-hidden="true">→</span></button>
+  <p class="visionneuse-compte" data-vis-compte aria-live="polite"></p>
+</div>
+</main>
+<footer class="pied" id="pied">
+  <div class="conteneur pied-grille">
+    <div>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
+      <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+    </div>
+    <nav aria-label="Sommaire">
+      <p><strong>Sommaire</strong></p>
+      <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/fetes-privees" data-libelle="Fêtes privées" aria-current="page">Fêtes privées</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li><li><a href="/confidentialite" data-libelle="Confidentialité">Confidentialité</a></li></ul>
+    </nav>
+    <div>
+      <p><strong>Confort</strong></p>
+      <ul>
+        <li><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></li>
+        <li><a href="#haut" data-sans-transition>Retour en haut</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="conteneur pied-bas"><p>Maquette : les informations marquées « à compléter » ou « à confirmer » seront fournies par l’établissement.</p><p>© Les Jardins de l’Hacienda</p></div>
+</footer>
+<div data-barre-fixe>
+  <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
+  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+</div>
+<p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
+</body>
+</html>

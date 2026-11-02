@@ -11,16 +11,20 @@ Adresse prévue : https://jardins-hacienda-maquette.vercel.app — la maquette n
 | La carte | `/la-carte` | Toute la carte avec ses prix, l'ardoise, les allergènes |
 | À emporter | `/a-emporter` | Produits des fêtes, panier, jour et moment de retrait (commande simulée) |
 | Terrasse & piscine | `/terrasse-piscine` | Journée festive, règles, week-end, pool parties (vidéo), galerie, visite 360° |
+| Le restaurant | `/restaurant` | La salle au coin du feu, braises, ardoise du chef, salle en images, bon à savoir |
 | Mariages & réceptions | `/mariages` | Repères, types de réception, galerie, avis, demande en quatre étapes (simulée) |
+| Fêtes privées | `/fetes-privees` | Baptême, anniversaire, pot de départ, deux saisons, buffets en images, demande en quatre étapes (simulée) |
 | Agenda | `/agenda` | Événements à venir avec compte à rebours, événements passés (tri automatique à la date du jour) |
 | Saint-Sylvestre | `/agenda/saint-sylvestre` | Fiche d'événement : compte à rebours, menu, tarifs, affiche |
 | Infos pratiques | `/infos-pratiques` | Horaires, journées festives, accès bar, piscine, réservation, accès, questions fréquentes |
 | Carte cadeau | `/carte-cadeau` | Carte composée en direct : montant, quantité, total (simulé) |
 | Réserver | `/reserver` | Table, événement, réception ou question ; préremplie depuis les autres pages (simulé) |
-| Mentions légales | `/mentions-legales` | Éditeur, hébergeur, crédits, confidentialité (à compléter) |
+| Soirée libanaise, Grand Buffet | `/agenda/soiree-libanaise`, `/agenda/grand-buffet` | Fiches des soirées passées : programme, tarif, affiche, photos |
+| Mentions légales | `/mentions-legales` | Éditeur, hébergeur, crédits (à compléter) |
+| Confidentialité | `/confidentialite` | Données des formulaires, usages, conservation, droits (à compléter) |
 | Page introuvable | `/404` | « Table introuvable » |
 
-À prévoir en v2 : Restaurant & cheminée, Fêtes & séminaires, une fiche par soirée passée, Politique de confidentialité.
+Ajoutées en v2 : Le restaurant, Fêtes privées, les fiches des soirées passées, Confidentialité. Les séminaires ne figurent pas sur le site actuel : ils ne sont pas proposés dans la maquette tant que l'établissement ne les confirme pas.
 
 ## Direction : « Deux saisons »
 

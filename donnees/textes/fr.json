@@ -36,7 +36,7 @@
     "contact": "Contact",
     "itineraire": "Itinéraire",
     "alcool": "L'abus d'alcool est dangereux pour la santé, à consommer avec modération.",
-    "donnees": "Vos données servent seulement à répondre à votre demande. <a href=\"/mentions-legales#confidentialite\">Politique de confidentialité</a> (à compléter).",
+    "donnees": "Vos données servent seulement à répondre à votre demande. <a href=\"/confidentialite\">Politique de confidentialité</a>.",
     "simule": "Demande simulée : rien n'a été envoyé. Sur le site final, elle partira vers l'établissement.",
     "prenom": "Prénom",
     "nom": "Nom",
@@ -90,7 +90,7 @@
     },
     "mariages": {
       "titre": "Mariages et réceptions : Les Jardins de l'Hacienda",
-      "description": "Mariage, baptême, anniversaire, pot de départ, séminaire : un cadre idyllique et des prestations sur mesure près de Metz.",
+      "description": "Mariage, baptême, anniversaire, pot de départ : un cadre idyllique et des prestations sur mesure près de Metz.",
       "nav": "Mariages",
       "partageAlt": "Un mariage aux Jardins de l'Hacienda",
       "accroche": "Le plus beau jour, dans un cadre idyllique"
@@ -143,6 +143,41 @@
       "nav": "Table introuvable",
       "partageAlt": "Table introuvable",
       "accroche": "Table introuvable"
+    },
+    "restaurant": {
+      "titre": "Le restaurant : Les Jardins de l'Hacienda",
+      "description": "Le restaurant des Jardins de l'Hacienda à Moineville : la cuisine du chef Régis Clauss, une salle chaleureuse et sa cheminée, près de Metz.",
+      "nav": "Le restaurant",
+      "partageAlt": "La salle du restaurant des Jardins de l'Hacienda",
+      "accroche": "Au coin du feu, la cuisine du chef"
+    },
+    "fetes": {
+      "titre": "Fêtes privées : Les Jardins de l'Hacienda",
+      "description": "Baptême, anniversaire, pot de départ : vos fêtes aux Jardins de l'Hacienda à Moineville, demande en ligne.",
+      "nav": "Fêtes privées",
+      "partageAlt": "Une table de fête dressée aux Jardins de l'Hacienda",
+      "accroche": "Un instant magique avec vos proches"
+    },
+    "soiree-libanaise": {
+      "titre": "Soirée libanaise du 31 octobre 2026 : Les Jardins de l'Hacienda",
+      "description": "La Soirée libanaise du 31 octobre 2026 aux Jardins de l'Hacienda : mezze, dessert libanais et danse orientale.",
+      "nav": "Soirée libanaise",
+      "partageAlt": "La Soirée libanaise des Jardins de l'Hacienda",
+      "accroche": "Soirée libanaise, 31 octobre 2026"
+    },
+    "grand-buffet": {
+      "titre": "Le Grand Buffet, août 2026 : Les Jardins de l'Hacienda",
+      "description": "Le Grand Buffet des dimanches d'août 2026 aux Jardins de l'Hacienda : buffet froid et chaud, brasero, broche et piscine.",
+      "nav": "Le Grand Buffet",
+      "partageAlt": "Le Grand Buffet des Jardins de l'Hacienda",
+      "accroche": "Le Grand Buffet du dimanche"
+    },
+    "confidentialite": {
+      "titre": "Confidentialité : Les Jardins de l'Hacienda",
+      "description": "Données recueillies par les formulaires du site, finalités, conservation et droits.",
+      "nav": "Confidentialité",
+      "partageAlt": "Politique de confidentialité des Jardins de l'Hacienda",
+      "accroche": "Politique de confidentialité"
     }
   },
   "accueil": {
@@ -215,8 +250,8 @@
     "receptions": {
       "surtitre": "Réceptions",
       "titre": "Un instant magique avec vos proches",
-      "mots": "Mariage · Baptême · Anniversaire · Pot de départ · Séminaire",
-      "texte": "Mariages, baptêmes, anniversaires, pots de départ ou séminaires : une ambiance raffinée et des prestations sur mesure, au bord de l'eau ou au coin du feu.",
+      "mots": "Mariage · Baptême · Anniversaire · Pot de départ",
+      "texte": "Mariages, baptêmes, anniversaires ou pots de départ : une ambiance raffinée et des prestations sur mesure, au bord de l'eau ou au coin du feu.",
       "lien": "Préparer une réception",
       "alt": "Une réception de mariage aux Jardins de l'Hacienda"
     },
@@ -367,7 +402,7 @@
     "surtitre": "Mariages & réceptions",
     "titre": "Le plus beau jour, dans un cadre idyllique",
     "texte": "Notre espace mariage offre une ambiance romantique et raffinée, parfaite pour des souvenirs inoubliables. Découvrez nos prestations sur mesure pour une journée unique.",
-    "info": "Mariage · baptême · anniversaire · pot de départ · séminaire",
+    "info": "Mariage · baptême · anniversaire · pot de départ",
     "action": "Préparer ma réception",
     "alt": "Les mariés et leurs invités aux Jardins de l'Hacienda",
     "reperesTitre": "Le lieu en quelques repères",
@@ -382,7 +417,6 @@
     "t2": "Baptême",
     "t3": "Anniversaire",
     "t4": "Pot de départ",
-    "t5": "Séminaire",
     "altDetails": "Détails d'une table de mariage : pampas, lin et bougie",
     "galerieTitre": "Ils ont dit oui aux Jardins",
     "galerieRegion": "Les mariages en images, défilement horizontal",
@@ -544,7 +578,8 @@
     },
     "confidentialite": {
       "titre": "Confidentialité",
-      "texte": "Politique de confidentialité à compléter (RGPD) : données recueillies par les formulaires de réservation, de commande et de contact, finalité, durée de conservation, destinataires et droits d'accès, de rectification et de suppression."
+      "texte": "Politique de confidentialité à compléter (RGPD) : données recueillies par les formulaires de réservation, de commande et de contact, finalité, durée de conservation, destinataires et droits d'accès, de rectification et de suppression.",
+      "html": "La politique de confidentialité détaille les données recueillies par les formulaires, leur usage et vos droits : <a href=\"/confidentialite\">voir la page Confidentialité</a>."
     },
     "maquette": {
       "titre": "Maquette",
@@ -558,5 +593,138 @@
     "retour": "Revenir à l'accueil",
     "carte": "Voir la carte",
     "alt": "Des tables dressées dans la salle du restaurant"
+  },
+  "restaurant": {
+    "surtitre": "Le restaurant",
+    "titre": "Au coin du feu, la cuisine du chef",
+    "texte": "Une cuisine de qualité, un décor élégant et chaleureux : le restaurant des Jardins se prête aussi bien aux repas en famille qu'aux dîners en amoureux.",
+    "action": "Réserver une table",
+    "info": "Horaires d'ouverture : à compléter",
+    "alt": "La salle du restaurant, ses tables en verre et ses grandes plumes de pampa",
+    "feuSurtitre": "Saison d'hiver",
+    "feuTitre": "Au creux de la cheminée",
+    "feuTexte": "De la bonne humeur, de bons plats, des sourires… Venez vous détendre aux Jardins de l'Hacienda.",
+    "feuTexte2": "En fin d'année, la salle se pare de ses décorations de fête, autour de la cheminée en pierre.",
+    "altFeu": "Une table dressée devant la cheminée en pierre et le sapin décoré",
+    "chefSurtitre": "Le chef",
+    "chefTitre": "La carte de Régis Clauss",
+    "chefTexte": "À la tête du restaurant, Régis Clauss, un chef passionné et créatif. Chaque semaine, il réinvente sa carte en vous proposant des suggestions uniques.",
+    "chefLien": "Voir la carte",
+    "galerieTitre": "La salle en images",
+    "galerieRegion": "Photos de la salle et des plats du restaurant",
+    "savoirTitre": "Bon à savoir",
+    "s1": "Toutes les réservations se font en ligne.",
+    "s2": "Menu enfant, jusqu'à 10 ans : un plat et un dessert à 16 €.",
+    "s3": "Produits à emporter pour les fêtes, du 5 au 31 décembre.",
+    "s4": "Horaires d'ouverture et capacité de la salle :",
+    "altSavoir": "Une table dressée près des baies vitrées",
+    "finTitre": "Réserver votre table",
+    "finTexte": "En ligne, ou par téléphone si vous avez une question."
+  },
+  "fetes": {
+    "surtitre": "Fêtes privées",
+    "titre": "Un instant magique avec vos proches",
+    "texte": "Baptême, anniversaire ou pot de départ : au bord de l'eau l'été, au coin du feu l'hiver.",
+    "action": "Préparer ma fête",
+    "info": "Baptême · anniversaire · pot de départ",
+    "alt": "Une longue table de fête dressée dans la salle",
+    "typesTitre": "Votre fête",
+    "typesTexte": "Choisissez votre fête : la demande se remplit en quelques minutes, l'établissement revient vers vous.",
+    "saisonsTitre": "Deux saisons, deux ambiances",
+    "eteTitre": "L'été, en extérieur",
+    "eteTexte": "La terrasse et la piscine, de juin à septembre.",
+    "altEte": "Des tables de fête dressées en extérieur, avec des fleurs blanches",
+    "hiverTitre": "L'hiver, en salle",
+    "hiverTexte": "La salle et sa cheminée, d'octobre à mai.",
+    "altHiver": "Une table dressée devant la cheminée décorée pour les fêtes",
+    "note": "Capacité, formules et tarifs :",
+    "galerieTitre": "Buffets et gourmandises",
+    "galerieRegion": "Photos de buffets et de desserts servis aux Jardins",
+    "demandeTitre": "Préparer votre fête",
+    "demandeTexte": "Quatre étapes, environ deux minutes : l'établissement revient vers vous pour construire votre journée.",
+    "altRecap": "Un buffet de desserts au bord de la piscine"
+  },
+  "fiche": {
+    "passeTitre": "Cette soirée a eu lieu",
+    "prochains": "Voir les prochains rendez-vous",
+    "instagram": "Suivre les annonces sur Instagram",
+    "programmeTitre": "Le programme",
+    "afficheTitre": "L'affiche de l'événement",
+    "galerieTitre": "Le Grand Buffet en images",
+    "galerieRegion": "Photos du buffet, du brasero et de la piscine"
+  },
+  "libanaise": {
+    "surtitre": "Agenda · samedi 31 octobre 2026",
+    "titre": "Soirée libanaise",
+    "texte": "Dès 19 h : mezze et dessert libanais, spectacle de danse orientale avec Romane.",
+    "info": "Soirée passée · 49 € par personne",
+    "alt": "Une coupe crémeuse près de la cheminée, en soirée",
+    "passe": "La Soirée libanaise a eu lieu le samedi 31 octobre 2026. Les prochains rendez-vous sont annoncés dans l'agenda et sur Instagram.",
+    "p1": "Le soir, dès 19 h",
+    "p2": "Au menu : mezze et dessert libanais",
+    "p3": "Spectacle de danse orientale avec Romane",
+    "p4": "Places limitées, acompte obligatoire",
+    "tarif": "49 € par personne",
+    "altAffiche": "Affiche de la Soirée libanaise du 31 octobre 2026",
+    "passeTitre": "Cette soirée a eu lieu"
+  },
+  "buffet": {
+    "surtitre": "Agenda · dimanches d'août 2026",
+    "titre": "Le Grand Buffet",
+    "texte": "Le dimanche de 12 h à 18 h avec DJ set : buffet froid et chaud, brasero, viande à la broche, gourmandises sucrées.",
+    "info": "Saison d'été · 50 € par personne",
+    "alt": "Un brasero allumé au pied d'un palmier, le soir",
+    "passe": "Le Grand Buffet a eu lieu les dimanches 9, 16, 23 et 30 août 2026. La saison d'été reprend en juin : les prochains rendez-vous sont annoncés dans l'agenda et sur Instagram.",
+    "f1h": "12 h",
+    "f1t": "Ouverture",
+    "f1x": "DJ set jusqu'à 18 h.",
+    "f2h": "13 h",
+    "f2t": "Le buffet",
+    "f2x": "Buffet froid et chaud, brasero, viande à la broche, gourmandises sucrées, jusqu'à 15 h 30.",
+    "f3h": "14 h 30",
+    "f3t": "La piscine",
+    "f3x": "Accès à la piscine.",
+    "f4h": "18 h",
+    "f4t": "Fin de journée",
+    "f4x": "Fin du DJ set.",
+    "tarif": "50 € par personne",
+    "altAffiche": "Affiche du Grand Buffet du dimanche",
+    "passeTitre": "Cet événement a eu lieu"
+  },
+  "confidentialite": {
+    "titre": "Confidentialité",
+    "alt": "Tissu de lin naturel posé sur une pierre claire",
+    "responsable": {
+      "titre": "Responsable",
+      "texte": "Les Jardins de l'Hacienda, 6 Vathier Haye, 54580 Moineville. Raison sociale et contact du responsable du traitement : à compléter."
+    },
+    "donnees": {
+      "titre": "Données recueillies",
+      "texte": "Les formulaires du site demandent seulement ce qui sert à répondre : nom, prénom, e-mail et téléphone ; selon le formulaire, la date, le nombre de couverts ou d'invités, le type de réception, les produits commandés, le montant de la carte cadeau et votre message."
+    },
+    "finalites": {
+      "titre": "À quoi elles servent",
+      "texte": "Confirmer une réservation, préparer une réception, une commande à emporter ou une carte cadeau, et répondre à vos questions. Finalités exactes et base légale : à confirmer par l'établissement."
+    },
+    "conservation": {
+      "titre": "Conservation",
+      "texte": "Durée de conservation des données : à compléter."
+    },
+    "destinataires": {
+      "titre": "Destinataires",
+      "texte": "L'établissement, et son hébergeur Vercel Inc. (États-Unis) pour le fonctionnement du site. Autres prestataires (réservation, paiement en ligne) : à compléter."
+    },
+    "navigateur": {
+      "titre": "Dans votre navigateur",
+      "texte": "Le site ne dépose aucun cookie de mesure d'audience ni de publicité. Il garde seulement dans votre navigateur quelques réglages (saison choisie, animations réduites) et le contenu de votre commande à emporter."
+    },
+    "droits": {
+      "titre": "Vos droits",
+      "texte": "Vous pouvez demander l'accès à vos données, leur rectification ou leur effacement, vous opposer à leur traitement ou en demander la limitation et la portabilité, en écrivant à l'établissement (adresse e-mail à compléter). Vous pouvez aussi adresser une réclamation à la CNIL."
+    },
+    "maquette": {
+      "titre": "Maquette",
+      "texte": "Dans cette maquette, rien n'est envoyé : les formulaires, la commande et la carte cadeau sont simulés."
+    }
   }
 }

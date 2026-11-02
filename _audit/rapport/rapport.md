@@ -1,13 +1,13 @@
 # Rapport d’audit
 
-Projet : `jardins-hacienda-maquette` · 02/11/2026 22:57:15 · 3 min · 1 page(s) · audit standard ciblé sur / (étapes : fichiers, mesures, fluidite, mouvement)
+Projet : `jardins-hacienda-maquette` · 02/11/2026 23:54:05 · 1 min · 3 page(s) · audit standard ciblé sur /,/agenda/grand-buffet,/agenda/soiree-libanaise (étapes : fichiers, mesures)
 
 ## Résumé
 
 - Échecs : **0**
-- À regarder : **1**
+- À regarder : **0**
 - Non lancé : **0**
-- Contrôles passés : vercel.json (1), .vercelignore (1), robots.txt (1), numéro de version (1), langues (1), mesures (11), balayage (1), fluidité (2), défilement selon l’appareil (5), mouvement (2), effets du plan (10), souris immobile (3)
+- Contrôles passés : vercel.json (1), .vercelignore (1), robots.txt (1), numéro de version (1), langues (1), mesures (33), balayage (3)
 
 ## Échecs
 
@@ -15,9 +15,7 @@ Aucun.
 
 ## À regarder
 
-### fluidité (1)
-
-- **fluidité** — `/` — 6 % d'images de plus de 50 ms _(1366×768 défilement à la molette, processeur ralenti 4 fois)_
+Rien.
 
 ## Non lancé
 
@@ -26,10 +24,9 @@ Tout a été lancé.
 
 ## Repères
 
-- Numéro de version des fichiers : ?v=1
-- Audit standard : étapes lourdes sur /.
+- Numéro de version des fichiers : ?v=2
+- Audit standard : étapes lourdes sur /, /agenda/grand-buffet, /agenda/soiree-libanaise.
 - Accessibilité : axe-core 4.12.1 en plus des contrôles intégrés.
-- Fluidité / 390×844 (doigt) : 0 % d'images lentes sur 1210, tâche la plus longue 90 ms
 
 ## Fichiers
 

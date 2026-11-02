@@ -17,7 +17,7 @@ export default (c) => {
     return { titre: s.titre, plats: idx.map((i) => s.plats[i]) };
   });
   const cartes = [
-    { nom: 'site/lieu-salle', cle: 'salle', lien: c.url('carte') },
+    { nom: 'site/lieu-salle', cle: 'salle', lien: c.url('restaurant') },
     { nom: 'site/lieu-terrasse', cle: 'terrasse', lien: c.url('terrasse', 'terrasse') },
     { nom: 'site/lieu-piscine', cle: 'piscine', lien: c.url('terrasse') },
     { nom: 'site/lieu-mariages', cle: 'mariages', lien: c.url('mariages') },
@@ -161,7 +161,7 @@ export default (c) => {
     </article>` : html`<p>${c.t('agenda.vide')}</p>`}
     <div class="agenda-passes">
       <h3>${c.t('accueil.agenda.passes')}</h3>
-      <ul data-anime="cascade">${passes.map((e) => html`<li class="evenement-passe" data-evenement="${e.id}" data-fin="${finEvenement(e)}"><span class="evenement-passe-titre">${e.titre}</span><span class="evenement-passe-date">${datesTitre(e.dates)}</span><span class="etiquette">${c.t('commun.termine')}</span></li>`)}</ul>
+      <ul data-anime="cascade">${passes.map((e) => html`<li class="evenement-passe" data-evenement="${e.id}" data-fin="${finEvenement(e)}"><span class="evenement-passe-titre">${e.page ? c.lien(e.page, { texte: e.titre }) : e.titre}</span><span class="evenement-passe-date">${datesTitre(e.dates)}</span><span class="etiquette">${c.t('commun.termine')}</span></li>`)}</ul>
       <p>${c.lien('agenda', { classe: 'lien-fleche', texte: c.t('accueil.agenda.lien') })}</p>
     </div>
   </div>
@@ -180,7 +180,7 @@ export default (c) => {
         <li>${c.t('mariages.r2')} ${aConfirmer(c)}</li>
         <li>${c.t('mariages.r3')} ${aConfirmer(c)}</li>
       </ul>
-      <p data-anime>${c.lien('mariages', { classe: 'bouton', texte: c.t('accueil.receptions.lien'), attrs: 'data-survol="magnetique"' })}</p>
+      <p class="actions" data-anime>${c.lien('mariages', { classe: 'bouton', texte: c.t('accueil.receptions.lien'), attrs: 'data-survol="magnetique"' })} ${c.lien('fetes', { classe: 'bouton bouton--contour', texte: c.t('pages.fetes.nav') })}</p>
     </div>
   </div>
 </section>
