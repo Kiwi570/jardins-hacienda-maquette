@@ -1,0 +1,11 @@
+[
+  { "id": "saint-sylvestre", "titre": { "fr": "Saint-Sylvestre" }, "dates": ["2026-12-31"], "fin": "2027-01-01T00:00:00+01:00", "affiche": "site/affiche-saint-sylvestre", "page": "saint-sylvestre",
+    "texte": { "fr": "Menu de fête en cinq temps, formule accord mets et vins, soirée animée par DJ Laurent Geymet." },
+    "tarif": { "fr": "120 € le menu · 170 € avec l'accord mets et vins" } },
+  { "id": "soiree-libanaise", "titre": { "fr": "Soirée libanaise" }, "dates": ["2026-10-31"], "image": "site/affiche-soiree-libanaise", "affiche": "site/affiche-soiree-libanaise", "page": null,
+    "texte": { "fr": "Dès 19 h : mezze et dessert libanais, spectacle de danse orientale avec Romane. Places limitées, acompte obligatoire." },
+    "tarif": { "fr": "49 € par personne" } },
+  { "id": "grand-buffet", "titre": { "fr": "Le Grand Buffet" }, "dates": ["2026-08-09", "2026-08-16", "2026-08-23", "2026-08-30"], "image": "site/affiche-grand-buffet", "affiche": "site/affiche-grand-buffet", "page": null,
+    "texte": { "fr": "Le dimanche de 12 h à 18 h avec DJ set : buffet froid et chaud, brasero, viande à la broche, gourmandises sucrées. Buffet servi de 13 h à 15 h 30, piscine à partir de 14 h 30." },
+    "tarif": { "fr": "50 € par personne" } }
+]

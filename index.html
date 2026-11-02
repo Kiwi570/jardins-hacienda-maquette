@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="fr" data-v="1" data-curseur>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les Jardins de l’Hacienda : restaurant et lieu de réception à Moineville, près de Metz</title>
+<meta name="description" content="Cuisine de saison du chef Régis Clauss, cheminée l’hiver, terrasse et piscine l’été, mariages et réceptions, à 15 km de Metz.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jardins-hacienda-maquette.vercel.app/">
+<style>:root{--fond:#f4ece1;--texte:#2b1e18;--voile-fond:#1b1310;--ouverture-fond:#1b1310;--menu-fond:#1b1310}:root { --entete-h: 72px; --barres-h: 0px; } html { background: var(--fond); color: var(--texte); scrollbar-gutter: stable; } body { margin: 0; background: var(--fond); } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime] { opacity: 0; } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime].vu { opacity: 1; } [data-voile] { position: fixed; inset: 0; z-index: 900; background: var(--voile-fond); transform: translateY(100%); visibility: hidden; pointer-events: none; } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) [data-voile] { transform: none; visibility: visible; } html.calme [data-voile], html.secours [data-voile] { visibility: hidden !important; } .ouverture-panneau { position: fixed; inset: 0; z-index: 850; display: none; place-content: center; justify-items: center; background: var(--ouverture-fond, var(--voile-fond)); color: var(--fond); text-align: center; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) .ouverture-panneau { display: grid; } html.defilement-bloque, html.defilement-bloque body, html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie), html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) body, html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours), html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) body { overflow: hidden; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) { background-color: var(--ouverture-fond, var(--voile-fond)); } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) { background-color: var(--voile-fond); }</style>
+<script>(function () {
+var d = document.documentElement, ss = null, ls = null;
+try { ss = window.sessionStorage; ls = window.localStorage; } catch (e) {}
+d.classList.add('js');
+var calme = false;
+try { calme = !!ls && ls.getItem('socle:calme') === 'oui'; } catch (e) {}
+if (!calme && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+if (calme) d.classList.add('calme');
+var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+var type = nav ? nav.type : 'navigate';
+var depart = null;
+try { depart = JSON.parse(ss.getItem('socle:depart') || 'null'); ss.removeItem('socle:depart'); } catch (e) {}
+if (depart && !(Date.now() - depart.t < 15000)) depart = null;
+var retourSection = false;
+try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
+var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
+d.setAttribute('data-arrivee', mode);
+if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+if (type === 'reload' && 'scrollRestoration' in history) {
+if (!retourSection) history.scrollRestoration = 'manual';
+}
+try {
+var choisie = ls && ls.getItem('socle:langue');
+var langue = (d.lang || '').slice(0, 2);
+if (choisie && choisie !== langue && type === 'navigate' && !depart) {
+var alt = document.querySelector('link[rel="alternate"][hreflang="' + choisie + '"]');
+if (alt) location.replace(new URL(alt.href).pathname + location.search + location.hash);
+}
+} catch (e) {}
+setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('secours'); }, 2000);
+})();</script>
+<script>(function(){var d=document.documentElement,s=null;try{s=sessionStorage.getItem('hacienda:saison')}catch(e){}if(s!=='ete'&&s!=='hiver'){var m=+new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',month:'numeric'}).format(new Date());s=[6,7,8,9].indexOf(m)>-1?'ete':'hiver'}d.setAttribute('data-saison',s)})();</script>
+<style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/socle.css?v=1">
+<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<link rel="modulepreload" href="/assets/js/site.js?v=1">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/vendor/SplitText.min.js" defer></script>
+<script type="module" src="/assets/js/site.js?v=1"></script>
+<meta name="theme-color" content="#f4ece1">
+<link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Les Jardins de l’Hacienda">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Les Jardins de l’Hacienda : restaurant et lieu de réception à Moineville, près de Metz">
+<meta property="og:description" content="Cuisine de saison du chef Régis Clauss, cheminée l’hiver, terrasse et piscine l’été, mariages et réceptions, à 15 km de Metz.">
+<meta property="og:url" content="https://jardins-hacienda-maquette.vercel.app/">
+<meta property="og:image" content="https://jardins-hacienda-maquette.vercel.app/assets/partage/accueil-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Les Jardins de l’Hacienda, restaurant et lieu de réception à Moineville">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Restaurant","EventVenue"],"name":"Les Jardins de l'Hacienda","url":"https://jardins-hacienda-maquette.vercel.app/","telephone":"+33618212810","image":"https://jardins-hacienda-maquette.vercel.app/assets/partage/accueil-fr.jpg","address":{"@type":"PostalAddress","streetAddress":"6 Vathier Haye","postalCode":"54580","addressLocality":"Moineville","addressCountry":"FR"},"servesCuisine":["Cuisine traditionnelle","Cuisine de saison"],"acceptsReservations":true,"sameAs":["https://www.facebook.com/lesjardinsdelhacienda54","https://www.instagram.com/lesjardinsdel.hacienda/"],"description":"Restaurant et lieu de réception en pleine nature, à 15 km de Metz : cuisine de saison du chef Régis Clauss, cheminée l'hiver, terrasse et piscine l'été, mariages et réceptions."}</script>
+</head>
+<body id="haut">
+<div data-voile aria-hidden="true"><div class="voile-contenu"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56"><span data-voile-libelle>Accueil</span></div></div>
+<div class="ouverture-panneau" data-ouverture aria-hidden="true">
+  <div class="ouverture-sceau">
+    <svg class="ouverture-cercle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" pathLength="1"/></svg>
+    <img class="ouverture-logo" src="/assets/images/logo-h-or-192.png" alt="" width="96" height="96">
+  </div>
+  <p class="ouverture-ligne">Restaurant &amp; lieu de réception · Moineville</p>
+  <p class="ouverture-saison"><span data-saison-seul="hiver">Saison d’hiver</span><span data-saison-seul="ete">Saison d’été</span></p>
+</div>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header data-entete>
+  <div class="entete-rangee">
+    <a class="entete-logo" href="/" aria-label="Les Jardins de l’Hacienda, retour à l’accueil" data-libelle="Accueil" aria-current="page">
+      <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
+    </a>
+    <nav data-nav aria-label="Navigation principale">
+      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
+    </nav>
+    <div class="entete-actions">
+      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+    </div>
+  </div>
+</header>
+<div id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu">
+  <ul><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil" aria-current="page">Accueil</a></li><li style="--i:1"><a href="/la-carte" class="menu-lien" data-libelle="La carte">La carte</a></li><li style="--i:2"><a href="/terrasse-piscine" class="menu-lien" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li style="--i:3"><a href="/mariages" class="menu-lien" data-libelle="Mariages">Mariages</a></li><li style="--i:4"><a href="/agenda" class="menu-lien" data-libelle="Agenda">Agenda</a></li><li style="--i:5"><a href="/a-emporter" class="menu-lien" data-libelle="À emporter">À emporter</a></li><li style="--i:6"><a href="/carte-cadeau" class="menu-lien" data-libelle="Carte cadeau">Carte cadeau</a></li><li style="--i:7"><a href="/infos-pratiques" class="menu-lien" data-libelle="Infos pratiques">Infos pratiques</a></li><li style="--i:8"><a href="/reserver" class="menu-lien" data-libelle="Réserver">Réserver</a></li></ul>
+  <p class="menu-actions"><a class="bouton" href="tel:+33618212810">Appeler 06 18 21 28 10</a>
+  <button type="button" class="bouton bouton--contour bascule-saison" data-bascule-saison><span data-saison-seul="hiver">Voir l’été</span><span data-saison-seul="ete">Voir l’hiver</span></button></p>
+  <p class="menu-reseaux"><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+  <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
+</div>
+<main id="contenu" tabindex="-1">
+<section class="hero" id="debut">
+  <div class="hero-scene">
+    <figure class="media hero-photo" data-saison-seul="hiver" data-hero-photo style="--cadrage:50% 55%;--cadrage-mobile:50% 78%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/site/salle-ouverture-mobile-640.webp 640w, /assets/images/site/salle-ouverture-mobile-1280.webp 1280w" sizes="100vw">
+    <img src="/assets/images/site/salle-ouverture-1280.webp" srcset="/assets/images/site/salle-ouverture-640.webp 640w, /assets/images/site/salle-ouverture-1280.webp 1280w, /assets/images/site/salle-ouverture-1920.webp 1920w" sizes="100vw" alt="La salle du restaurant, ses tables rondes en verre et sa cheminée en pierre" width="1280" height="432" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    <figure class="media hero-photo" data-saison-seul="ete" data-hero-photo style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/site/piscine-ouverture-mobile-640.webp 640w, /assets/images/site/piscine-ouverture-mobile-1280.webp 1280w, /assets/images/site/piscine-ouverture-mobile-1703.webp 1703w" sizes="100vw">
+    <img src="/assets/images/site/piscine-ouverture-1280.webp" srcset="/assets/images/site/piscine-ouverture-640.webp 640w, /assets/images/site/piscine-ouverture-1280.webp 1280w, /assets/images/site/piscine-ouverture-1920.webp 1920w" sizes="100vw" alt="La piscine des Jardins de l’Hacienda entourée de palmiers" width="1280" height="852" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    <canvas class="hero-surface" data-surface data-effet="surface" aria-hidden="true"></canvas>
+    <div class="hero-ombre" aria-hidden="true"></div>
+  </div>
+  <div class="hero-contenu conteneur">
+    <p class="surtitre hero-surtitre" data-anime="gsap">Restaurant &amp; lieu de réception à Moineville, à 15 km de Metz</p>
+    <h1 class="hero-titre" data-intro-titre data-superpose><span class="hero-l1" data-anime="gsap">Les Jardins</span> <span class="hero-l2" data-anime="gsap">de l’Hacienda</span></h1>
+    <p class="hero-texte" data-anime="gsap"><span data-saison-seul="hiver">La cuisine de saison du chef Régis Clauss, servie au coin du feu, et des soirées pour finir l’année en beauté.</span><span data-saison-seul="ete">De juin à septembre, les journées festives : déjeuner au bord de l’eau, puis l’après-midi au soleil, sous les palmiers.</span></p>
+    <p class="hero-actions" data-anime="gsap">
+      <a href="/reserver" class="bouton" data-libelle="Réserver" data-action-principale data-survol="magnetique">Réserver une table</a>
+      <a href="/la-carte" class="bouton bouton--clair" data-libelle="La carte">Voir la carte</a>
+    </p>
+    <div class="hero-bas" data-anime="gsap">
+      <p class="hero-info" data-info-cle>
+        <span class="pastille"><span data-saison-seul="hiver">Saison d’hiver</span><span data-saison-seul="ete">Saison d’été</span></span>
+        <span class="hero-prochain" data-prochain><span class="hero-prochain-libelle">Prochain rendez-vous :</span> <a href="/agenda/saint-sylvestre" data-libelle="Saint-Sylvestre">Saint-Sylvestre, jeudi 31 décembre 2026</a></span>
+      </p>
+      <button type="button" class="bascule-saison bascule-saison--hero" data-bascule-saison aria-label="Changer de saison"><span class="bascule-piste" aria-hidden="true"><span class="bascule-bouton"></span></span><span data-saison-seul="hiver">Voir l’été</span><span data-saison-seul="ete">Voir l’hiver</span></button>
+    </div>
+  </div>
+  <button type="button" class="pause-animation" data-pause-surface aria-pressed="false" data-libelle-pause="Mettre l’animation en pause" data-libelle-lecture="Reprendre l’animation"><span class="visuellement-cache" data-libelle-bouton>Mettre l’animation en pause</span><span class="pause-icone" aria-hidden="true"></span></button>
+</section>
+<section class="saisons" id="saisons">
+  <div class="conteneur saisons-tete">
+    <p class="surtitre">Deux saisons, une adresse</p>
+    <h2 data-anime="lignes">L’hiver au coin du feu, l’été au bord de l’eau</h2>
+  </div>
+  <div class="saisons-scene" data-saisons-scene data-effet="saison">
+    <article class="saison saison--hiver">
+      <figure class="media saison-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/hiver-panneau-1280.webp" srcset="/assets/images/site/hiver-panneau-640.webp 640w, /assets/images/site/hiver-panneau-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 100vw" alt="La salle du restaurant en hiver" width="1280" height="1919" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <div class="saison-texte">
+        <p class="surtitre">Saison d’hiver</p>
+        <h3>Au coin du feu</h3>
+        <p>De la bonne humeur, de bons plats, des sourires… Venez vous détendre aux Jardins de l’Hacienda.</p>
+      </div>
+    </article>
+    <article class="saison saison--ete" data-saison-ete>
+      <figure class="media saison-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/ete-panneau-1280.webp" srcset="/assets/images/site/ete-panneau-640.webp 640w, /assets/images/site/ete-panneau-1280.webp 1280w, /assets/images/site/ete-panneau-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 100vw" alt="Transats et palmiers au bord de la piscine" width="1280" height="852" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <div class="saison-texte">
+        <p class="surtitre">Saison d’été</p>
+        <h3>La piscine, de juin à septembre</h3>
+        <p>Des palmiers, des cocktails, des sourires… Venez vous détendre au bord de l’eau.</p>
+        <p class="saison-detail">Journées festives de juin à septembre : mardi, mercredi et jeudi, de 12 h à 19 h.</p>
+        <p class="mention-alcool">L’abus d’alcool est dangereux pour la santé, à consommer avec modération.</p>
+      </div>
+    </article>
+    <span class="saisons-couture" aria-hidden="true"></span>
+  </div>
+  <p class="conteneur saisons-bascule">
+    <button type="button" class="bouton bouton--contour bascule-saison" data-bascule-saison><span data-saison-seul="hiver">Voir l’été</span><span data-saison-seul="ete">Voir l’hiver</span></button>
+  </p>
+</section>
+<section class="chef sombre" id="chef">
+  <canvas class="braises" data-braises data-effet="braises" aria-hidden="true"></canvas>
+  <div class="conteneur chef-grille">
+    <figure class="media chef-media" data-fx="parallaxe" data-fx-force="8" style="--cadrage:20% 40%">
+  <picture>
+    <img src="/assets/images/site/chef-1280.webp" srcset="/assets/images/site/chef-640.webp 640w, /assets/images/site/chef-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 42vw" alt="Le chef Régis Clauss (à droite) au bord de la piscine des Jardins" width="1280" height="960" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    <div class="chef-texte">
+      <p class="surtitre">Le chef</p>
+      <h2 data-anime="lignes">Régis Clauss, l’âme de notre cuisine</h2>
+      <p class="chef-sous" data-anime>Une signature culinaire entre tradition et créativité</p>
+      <p data-anime>À la tête de notre restaurant, Régis Clauss, un chef passionné et créatif, sublime les produits de saison pour offrir une cuisine authentique et pleine de caractère. Chaque semaine, il réinvente sa carte en vous proposant des suggestions uniques, inspirées par la nature et le terroir.</p>
+      <p data-anime>Laissez-vous séduire par une expérience culinaire riche en découvertes et venez partager un moment d’exception dans un cadre convivial. Toute l’équipe des Jardins de l’Hacienda vous attend avec impatience !</p>
+    </div>
+  </div>
+  <div class="conteneur chef-ardoise">
+    <div class="ardoise " data-effet="ardoise">
+  <figure class="media ardoise-fond" data-grok style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/ardoise-mobile-640.webp 640w" sizes="(max-width: 760px) 100vw, 60vw">
+    <img src="/assets/images/grok/ardoise-1168.webp" srcset="/assets/images/grok/ardoise-640.webp 640w, /assets/images/grok/ardoise-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 60vw" alt="Une ardoise vierge" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+  <div class="ardoise-texte">
+    <p class="ardoise-titre craie"><span>L’ardoise du moment</span></p>
+    <svg class="ardoise-trait" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" data-fx="trace"><path d="M4 16 C 90 6, 200 22, 396 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    <ul class="ardoise-liste craie"><li><span>Entrée du moment : à compléter</span></li><li><span>Plat du moment : à compléter</span></li><li><span>Dessert du moment : à compléter</span></li><li><span>Annoncées aussi à la voix, en salle</span></li></ul>
+  </div>
+  <span class="ardoise-chiffon" aria-hidden="true"></span>
+</div>
+    <div class="chef-ardoise-texte">
+      <p data-anime>Chaque semaine, le chef imagine des suggestions à l’ardoise, annoncées à la voix et sur nos réseaux.</p>
+      <p data-anime><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="bouton bouton--clair">Les suggestions sur Instagram</a></p>
+    </div>
+  </div>
+</section>
+<section class="carte-extrait conteneur" id="carte">
+  <figure class="media carte-extrait-media" data-fx="zoom" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/plat-volaille-1280.webp" srcset="/assets/images/site/plat-volaille-640.webp 640w, /assets/images/site/plat-volaille-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 36vw" alt="Une volaille dorée et ses pommes de terre, cuisinée par le chef" width="1280" height="1919" loading="lazy" decoding="async">
+  </picture>
+</figure>
+  <div class="carte-extrait-tete">
+    <p class="surtitre">La carte</p>
+    <h2 data-anime="lignes">Produits frais et de saison</h2>
+    <p data-anime>Fidèle à sa passion pour les produits frais et de saison, le chef fait de chaque plat une invitation à la gourmandise et au réconfort.</p>
+  </div>
+  <div class="volets" data-volets data-effet="volets">
+    <article class="volet">
+      <h3 class="volet-titre">Nos entrées</h3>
+      <ul class="plats"><li class="plat"><span class="plat-nom">Foie gras de canard maison</span><span class="plat-points" aria-hidden="true"></span><span class="plat-prix" data-prix>21 €</span><span class="plat-texte">Foie gras de canard maison, briochette au beurre et chutney maison.</span></li><li class="plat"><span class="plat-nom">L’os à moelle</span><span class="plat-points" aria-hidden="true"></span><span class="plat-prix" data-prix>9 €</span><span class="plat-texte">Rôti au four, relevé d’une pincée de fleur de sel et d’une persillade fraîche. Un classique de bistrot, généreux et réconfortant.</span></li></ul>
+    </article><article class="volet">
+      <h3 class="volet-titre">Nos plats</h3>
+      <ul class="plats"><li class="plat"><span class="plat-nom">Suprême de pintade</span><span class="plat-points" aria-hidden="true"></span><span class="plat-prix" data-prix>24 €</span><span class="plat-texte">Volaille tendre et dorée, crème de carotte soyeuse et girolles sautées, le tout lié d’une sauce au vin moelleux.</span></li><li class="plat"><span class="plat-nom">Dhal aux trois lentilles</span><span class="plat-points" aria-hidden="true"></span><span class="plat-prix" data-prix>21 €</span><span class="plat-texte">Lentilles mijotées aux épices douces, légumes de saison et lait de coco, pour un voyage parfumé et chaleureux.</span></li></ul>
+    </article><article class="volet">
+      <h3 class="volet-titre">Nos desserts</h3>
+      <ul class="plats"><li class="plat"><span class="plat-nom">Crème brûlée à la vanille de l’île Maurice</span><span class="plat-points" aria-hidden="true"></span><span class="plat-prix" data-prix>10 €</span><span class="plat-texte">Une crème onctueuse parfumée à la vanille de l’île Maurice, sous une fine croûte de sucre caramélisé craquante à souhait.</span></li><li class="plat"><span class="plat-nom">Brioche perdue</span><span class="plat-points" aria-hidden="true"></span><span class="plat-prix" data-prix>10 €</span><span class="plat-texte">Brioche dorée au beurre, caramel au beurre salé et sa boule de glace.</span></li></ul>
+    </article>
+  </div>
+  <p class="carte-extrait-lien" data-anime><a href="/la-carte" class="bouton" data-libelle="La carte" data-survol="magnetique">Toute la carte</a></p>
+</section>
+<section class="galerie lieu ecran epingle" id="lieu" data-entete-cache data-fx="galerie">
+  <div class="conteneur galerie-tete">
+    <p class="surtitre">Le lieu</p>
+    <h2 data-anime="lignes">Un endroit magique, en pleine nature</h2>
+    <p>À 15 km de Metz, à côté de Sainte-Marie-aux-Chênes, le restaurant vous accueille toute l’année.</p>
+  </div>
+  <div class="piste galerie-piste" data-galerie tabindex="0" role="region" aria-label="Le lieu en images, défilement horizontal">
+    <article class="carte-lieu">
+      <figure class="media carte-lieu-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/lieu-salle-1280.webp" srcset="/assets/images/site/lieu-salle-640.webp 640w, /assets/images/site/lieu-salle-1280.webp 1280w" sizes="(max-width: 760px) 78vw, 30vw" alt="Le restaurant" width="1280" height="1919" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <h3><a href="/la-carte" data-libelle="Le restaurant">Le restaurant</a></h3>
+      <p>Un décor élégant et chaleureux, idéal pour des repas en famille ou des dîners romantiques.</p>
+    </article><article class="carte-lieu">
+      <figure class="media carte-lieu-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/lieu-terrasse-1280.webp" srcset="/assets/images/site/lieu-terrasse-640.webp 640w, /assets/images/site/lieu-terrasse-1280.webp 1280w" sizes="(max-width: 760px) 78vw, 30vw" alt="La terrasse" width="1280" height="1924" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <h3><a href="/terrasse-piscine#terrasse" data-libelle="La terrasse">La terrasse</a></h3>
+      <p>Un véritable havre de paix où la nature et la gastronomie se rencontrent.</p>
+    </article><article class="carte-lieu">
+      <figure class="media carte-lieu-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/lieu-piscine-1280.webp" srcset="/assets/images/site/lieu-piscine-640.webp 640w, /assets/images/site/lieu-piscine-1280.webp 1280w, /assets/images/site/lieu-piscine-1703.webp 1703w" sizes="(max-width: 760px) 78vw, 30vw" alt="La piscine" width="1280" height="1924" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <h3><a href="/terrasse-piscine" data-libelle="La piscine">La piscine</a></h3>
+      <p>Une véritable oasis de détente, au soleil, au bord d’une eau cristalline.</p>
+    </article><article class="carte-lieu">
+      <figure class="media carte-lieu-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/lieu-mariages-1280.webp" srcset="/assets/images/site/lieu-mariages-640.webp 640w, /assets/images/site/lieu-mariages-1280.webp 1280w" sizes="(max-width: 760px) 78vw, 30vw" alt="Les réceptions" width="1280" height="1707" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <h3><a href="/mariages" data-libelle="Les réceptions">Les réceptions</a></h3>
+      <p>Une ambiance romantique et raffinée pour les plus beaux jours.</p>
+    </article>
+    <article class="carte-lieu carte-lieu--360">
+      <figure class="media carte-lieu-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/lieu-360-1280.webp" srcset="/assets/images/site/lieu-360-640.webp 640w, /assets/images/site/lieu-360-1280.webp 1280w" sizes="(max-width: 760px) 78vw, 30vw" alt="Visite 360°" width="1280" height="1921" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <h3>Visite 360°</h3>
+      <p>Explorez chaque recoin, de la salle à la terrasse, depuis votre salon.</p>
+      <p><a href="https://my.matterport.com/show/?m=FnaTLx1Vd4G" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="lien-fleche">Lancer la visite</a></p>
+    </article>
+  </div>
+  <p class="galerie-aide" aria-hidden="true">Faites glisser</p>
+  <div class="galerie-progres" aria-hidden="true"><span></span></div>
+</section>
+<section class="agenda-accueil sombre" id="agenda" data-agenda>
+  <div class="conteneur agenda-grille">
+    <div class="agenda-tete">
+      <p class="surtitre">Agenda</p>
+      <h2 data-anime="lignes">De nouveaux événements chaque mois</h2>
+    </div>
+    <article class="evenement-vedette" data-evenement="saint-sylvestre" data-fin="2027-01-01T00:00:00+01:00">
+      <figure class="media evenement-media" data-anime="rideau" style="--cadrage:50% 30%">
+  <picture>
+    <img src="/assets/images/site/affiche-saint-sylvestre-1254.webp" srcset="/assets/images/site/affiche-saint-sylvestre-640.webp 640w, /assets/images/site/affiche-saint-sylvestre-1254.webp 1254w" sizes="(max-width: 760px) 90vw, 34vw" alt="Affiche : Saint-Sylvestre" width="1254" height="1254" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <div class="evenement-texte">
+        <p class="evenement-date">Jeudi 31 décembre 2026</p>
+        <h3 class="evenement-titre">Saint-Sylvestre</h3>
+        <p>Menu de fête en cinq temps, formule accord mets et vins, soirée animée par DJ Laurent Geymet.</p>
+        <div class="decompte " data-decompte="2027-01-01T00:00:00+01:00" data-effet="decompte" role="timer" aria-label="Avant le 31 décembre, minuit">
+  <p class="visuellement-cache" data-decompte-texte>59 jours, 1 heures, 5 minutes</p>
+  <div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="jours" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:5" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:9" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">jours</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="heures" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:0" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:1" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">heures</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="minutes" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:0" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:5" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">minutes</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="secondes" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:5" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:5" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">secondes</span></div>
+</div>
+        <p class="evenement-actions">
+          <a href="/reserver?sujet=evenement&amp;evenement=saint-sylvestre" class="bouton" data-libelle="Réserver">Réserver la soirée</a>
+          <a href="/agenda/saint-sylvestre" class="bouton bouton--clair" data-libelle="Saint-Sylvestre">Voir la soirée</a>
+        </p>
+      </div>
+    </article>
+    <div class="agenda-passes">
+      <h3>Déjà passés</h3>
+      <ul data-anime="cascade"><li class="evenement-passe" data-evenement="soiree-libanaise" data-fin="2026-10-31T23:59:59+01:00"><span class="evenement-passe-titre">Soirée libanaise</span><span class="evenement-passe-date">Samedi 31 octobre 2026</span><span class="etiquette">Terminé</span></li><li class="evenement-passe" data-evenement="grand-buffet" data-fin="2026-08-30T23:59:59+01:00"><span class="evenement-passe-titre">Le Grand Buffet</span><span class="evenement-passe-date">Dimanches 9, 16, 23 et 30 août 2026</span><span class="etiquette">Terminé</span></li></ul>
+      <p><a href="/agenda" class="lien-fleche" data-libelle="Agenda">Tout l’agenda</a></p>
+    </div>
+  </div>
+</section>
+<section class="receptions" id="receptions">
+  <p class="receptions-mots" data-anime="mots" aria-hidden="true">Mariage · Baptême · Anniversaire · Pot de départ · Séminaire</p>
+  <div class="conteneur receptions-grille">
+    <figure class="media receptions-media" data-fx="zoom" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/lieu-mariages-1280.webp" srcset="/assets/images/site/lieu-mariages-640.webp 640w, /assets/images/site/lieu-mariages-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Une réception de mariage aux Jardins de l’Hacienda" width="1280" height="1707" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    <div>
+      <p class="surtitre">Réceptions</p>
+      <h2 data-anime="lignes">Un instant magique avec vos proches</h2>
+      <p data-anime>Mariages, baptêmes, anniversaires, pots de départ ou séminaires : une ambiance raffinée et des prestations sur mesure, au bord de l’eau ou au coin du feu.</p>
+      <ul class="reperes" data-anime="cascade">
+        <li>140 personnes debout <span class="a-confirmer">à confirmer</span></li>
+        <li>Terrasse de plus de 300 m² <span class="a-confirmer">à confirmer</span></li>
+        <li>Piscine chauffée <span class="a-confirmer">à confirmer</span></li>
+      </ul>
+      <p data-anime><a href="/mariages" class="bouton" data-libelle="Mariages" data-survol="magnetique">Préparer une réception</a></p>
+    </div>
+  </div>
+</section>
+<section class="offrir conteneur" id="offrir">
+  <p class="surtitre">Offrir &amp; emporter</p>
+  <div class="offrir-grille" data-anime="cascade">
+    <article class="offrir-carte">
+      <figure class="media offrir-media" data-fx="parallaxe" data-fx-force="6" style="--cadrage:50% 90%">
+  <picture>
+    <img src="/assets/images/site/foie-gras-brioche-1280.webp" srcset="/assets/images/site/foie-gras-brioche-640.webp 640w, /assets/images/site/foie-gras-brioche-1280.webp 1280w" sizes="(max-width: 760px) 90vw, 40vw" alt="Le foie gras maison du chef, ici servi au restaurant avec sa briochette." width="1280" height="1919" loading="lazy" decoding="async">
+  </picture>
+</figure>
+      <h2>Les incontournables des fêtes</h2>
+      <p>Escargots, tourtes, pâté lorrain, foie gras maison… À retirer du 05/12 au 31/12.</p>
+      <p><a href="/a-emporter" class="bouton" data-libelle="À emporter">Commander à emporter</a></p>
+    </article>
+    <article class="offrir-carte">
+      <div class="mini-carte-cadeau" data-survol="incline" aria-hidden="true"><img src="/assets/images/logo-hacienda-96.png" alt="" width="44" height="44" loading="lazy"><span class="mini-carte-nom">Carte cadeau</span><span class="mini-carte-montant">25 – 200 €</span></div>
+      <h2>La carte cadeau</h2>
+      <p>Valable 6 mois sur toute la carte du chef, pour offrir un moment aux Jardins.</p>
+      <p><a href="/carte-cadeau" class="bouton bouton--contour" data-libelle="Carte cadeau">Offrir une carte</a></p>
+    </article>
+  </div>
+</section>
+<section class="venir" id="venir">
+  <div class="conteneur venir-grille">
+    <div>
+      <p class="surtitre">Venir</p>
+      <h2 data-anime="lignes">En pleine nature, à 15 km de Metz</h2>
+      <p data-anime>À Moineville, à côté de Sainte-Marie-aux-Chênes, proche de Metz, Nancy, Thionville et du Luxembourg.</p>
+      <address class="adresse" data-anime>
+        <strong>Les Jardins de l’Hacienda</strong><br>6 Vathier Haye, 54580 Moineville<br>
+        <a href="tel:+33618212810">06 18 21 28 10</a>
+      </address>
+      <p class="a-completer-texte" data-anime>Horaires d’ouverture : à compléter</p>
+      <p class="note-google" data-anime>4,5/5 sur Google · environ 1 400 avis <span class="a-confirmer">à confirmer</span></p>
+      <p class="venir-actions" data-anime>
+        <a href="/reserver" class="bouton" data-libelle="Réserver">Réserver</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=6%20Vathier%20Haye%2054580%20Moineville" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="bouton bouton--contour">Itinéraire</a>
+      </p>
+    </div>
+    <figure class="carte-acces" data-visuel>
+  <svg viewBox="0 0 360 520" role="img" aria-label="Carte d’accès : Moineville et les villes proches" data-effet="carte">
+    <rect x="1" y="1" width="358" height="518" rx="10" class="carte-cadre" data-audit-ignorer/>
+    <path data-fx-trait data-audit-ignorer class="carte-route" d="M257.9 273.8 Q 218.3 254.6 142.7 235.4"/><path data-fx-trait data-audit-ignorer class="carte-route" d="M254.2 166.2 Q 216.5 200.8 142.7 235.4"/><path data-fx-trait data-audit-ignorer class="carte-route" d="M235.9 51.8 Q 207.3 143.6 142.7 235.4"/><path data-fx-trait data-audit-ignorer class="carte-route" d="M262.2 466.5 Q 220.5 351.0 142.7 235.4"/>
+    <g class="carte-ville" data-repere><circle cx="257.9" cy="273.8" r="4.5"/><text x="257.9" y="297.8" text-anchor="middle">Metz · 15 km</text></g><g class="carte-ville" data-repere><circle cx="254.2" cy="166.2" r="4.5"/><text x="264.2" y="171.2">Thionville</text></g><g class="carte-ville" data-repere><circle cx="235.9" cy="51.8" r="4.5"/><text x="245.9" y="56.8">Luxembourg</text></g><g class="carte-ville" data-repere><circle cx="262.2" cy="466.5" r="4.5"/><text x="272.2" y="471.5">Nancy</text></g>
+    <g class="carte-ville carte-ville--centre" data-repere><circle cx="142.7" cy="235.4" r="9"/><text x="126.7" y="242.4" text-anchor="end">Moineville</text></g>
+  </svg>
+  <figcaption class="visuellement-cache">Carte d’accès : Moineville et les villes proches</figcaption>
+</figure>
+  </div>
+</section>
+</main>
+<footer class="pied" id="pied">
+  <div class="conteneur pied-grille">
+    <div>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
+      <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+    </div>
+    <nav aria-label="Sommaire">
+      <p><strong>Sommaire</strong></p>
+      <ul><li><a href="/" data-libelle="Accueil" aria-current="page">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li></ul>
+    </nav>
+    <div>
+      <p><strong>Confort</strong></p>
+      <ul>
+        <li><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></li>
+        <li><a href="#haut" data-sans-transition>Retour en haut</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="conteneur pied-bas"><p>Maquette : les informations marquées « à compléter » ou « à confirmer » seront fournies par l’établissement.</p><p>© Les Jardins de l’Hacienda</p></div>
+</footer>
+<div data-barre-fixe>
+  <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
+  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+</div>
+<p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
+</body>
+</html>

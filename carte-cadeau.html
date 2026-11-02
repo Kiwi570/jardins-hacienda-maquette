@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr" data-v="1" data-curseur>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carte cadeau : Les Jardins de l’Hacienda</title>
+<meta name="description" content="Offrez une carte cadeau, valable 6 mois sur toute la carte du chef, pour un moment aux Jardins de l’Hacienda.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jardins-hacienda-maquette.vercel.app/carte-cadeau">
+<style>:root{--fond:#f4ece1;--texte:#2b1e18;--voile-fond:#1b1310;--ouverture-fond:#1b1310;--menu-fond:#1b1310}:root { --entete-h: 72px; --barres-h: 0px; } html { background: var(--fond); color: var(--texte); scrollbar-gutter: stable; } body { margin: 0; background: var(--fond); } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime] { opacity: 0; } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime].vu { opacity: 1; } [data-voile] { position: fixed; inset: 0; z-index: 900; background: var(--voile-fond); transform: translateY(100%); visibility: hidden; pointer-events: none; } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) [data-voile] { transform: none; visibility: visible; } html.calme [data-voile], html.secours [data-voile] { visibility: hidden !important; } .ouverture-panneau { position: fixed; inset: 0; z-index: 850; display: none; place-content: center; justify-items: center; background: var(--ouverture-fond, var(--voile-fond)); color: var(--fond); text-align: center; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) .ouverture-panneau { display: grid; } html.defilement-bloque, html.defilement-bloque body, html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie), html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) body, html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours), html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) body { overflow: hidden; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) { background-color: var(--ouverture-fond, var(--voile-fond)); } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) { background-color: var(--voile-fond); }</style>
+<script>(function () {
+var d = document.documentElement, ss = null, ls = null;
+try { ss = window.sessionStorage; ls = window.localStorage; } catch (e) {}
+d.classList.add('js');
+var calme = false;
+try { calme = !!ls && ls.getItem('socle:calme') === 'oui'; } catch (e) {}
+if (!calme && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+if (calme) d.classList.add('calme');
+var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+var type = nav ? nav.type : 'navigate';
+var depart = null;
+try { depart = JSON.parse(ss.getItem('socle:depart') || 'null'); ss.removeItem('socle:depart'); } catch (e) {}
+if (depart && !(Date.now() - depart.t < 15000)) depart = null;
+var retourSection = false;
+try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
+var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
+d.setAttribute('data-arrivee', mode);
+if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+if (type === 'reload' && 'scrollRestoration' in history) {
+if (!retourSection) history.scrollRestoration = 'manual';
+}
+try {
+var choisie = ls && ls.getItem('socle:langue');
+var langue = (d.lang || '').slice(0, 2);
+if (choisie && choisie !== langue && type === 'navigate' && !depart) {
+var alt = document.querySelector('link[rel="alternate"][hreflang="' + choisie + '"]');
+if (alt) location.replace(new URL(alt.href).pathname + location.search + location.hash);
+}
+} catch (e) {}
+setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('secours'); }, 2000);
+})();</script>
+<script>(function(){var d=document.documentElement,s=null;try{s=sessionStorage.getItem('hacienda:saison')}catch(e){}if(s!=='ete'&&s!=='hiver'){var m=+new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',month:'numeric'}).format(new Date());s=[6,7,8,9].indexOf(m)>-1?'ete':'hiver'}d.setAttribute('data-saison',s)})();</script>
+<style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/socle.css?v=1">
+<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<link rel="modulepreload" href="/assets/js/site.js?v=1">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/vendor/SplitText.min.js" defer></script>
+<script type="module" src="/assets/js/site.js?v=1"></script>
+<meta name="theme-color" content="#f4ece1">
+<link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Les Jardins de l’Hacienda">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Carte cadeau : Les Jardins de l’Hacienda">
+<meta property="og:description" content="Offrez une carte cadeau, valable 6 mois sur toute la carte du chef, pour un moment aux Jardins de l’Hacienda.">
+<meta property="og:url" content="https://jardins-hacienda-maquette.vercel.app/carte-cadeau">
+<meta property="og:image" content="https://jardins-hacienda-maquette.vercel.app/assets/partage/cadeau-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="La carte cadeau des Jardins de l’Hacienda">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Restaurant","EventVenue"],"name":"Les Jardins de l'Hacienda","url":"https://jardins-hacienda-maquette.vercel.app/","telephone":"+33618212810","image":"https://jardins-hacienda-maquette.vercel.app/assets/partage/accueil-fr.jpg","address":{"@type":"PostalAddress","streetAddress":"6 Vathier Haye","postalCode":"54580","addressLocality":"Moineville","addressCountry":"FR"},"servesCuisine":["Cuisine traditionnelle","Cuisine de saison"],"acceptsReservations":true,"sameAs":["https://www.facebook.com/lesjardinsdelhacienda54","https://www.instagram.com/lesjardinsdel.hacienda/"],"description":"Restaurant et lieu de réception en pleine nature, à 15 km de Metz : cuisine de saison du chef Régis Clauss, cheminée l'hiver, terrasse et piscine l'été, mariages et réceptions."}</script>
+</head>
+<body id="haut">
+<div data-voile aria-hidden="true"><div class="voile-contenu"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56"><span data-voile-libelle>Carte cadeau</span></div></div>
+<div class="ouverture-panneau" data-ouverture aria-hidden="true">
+  <div class="ouverture-sceau">
+    <svg class="ouverture-cercle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" pathLength="1"/></svg>
+    <img class="ouverture-logo" src="/assets/images/logo-h-or-192.png" alt="" width="96" height="96">
+  </div>
+  <p class="ouverture-ligne">Restaurant &amp; lieu de réception · Moineville</p>
+  <p class="ouverture-saison"><span data-saison-seul="hiver">Saison d’hiver</span><span data-saison-seul="ete">Saison d’été</span></p>
+</div>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header data-entete>
+  <div class="entete-rangee">
+    <a class="entete-logo" href="/" aria-label="Les Jardins de l’Hacienda, retour à l’accueil" data-libelle="Accueil">
+      <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
+    </a>
+    <nav data-nav aria-label="Navigation principale">
+      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
+    </nav>
+    <div class="entete-actions">
+      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+    </div>
+  </div>
+</header>
+<div id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu">
+  <ul><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil">Accueil</a></li><li style="--i:1"><a href="/la-carte" class="menu-lien" data-libelle="La carte">La carte</a></li><li style="--i:2"><a href="/terrasse-piscine" class="menu-lien" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li style="--i:3"><a href="/mariages" class="menu-lien" data-libelle="Mariages">Mariages</a></li><li style="--i:4"><a href="/agenda" class="menu-lien" data-libelle="Agenda">Agenda</a></li><li style="--i:5"><a href="/a-emporter" class="menu-lien" data-libelle="À emporter">À emporter</a></li><li style="--i:6"><a href="/carte-cadeau" class="menu-lien" data-libelle="Carte cadeau" aria-current="page">Carte cadeau</a></li><li style="--i:7"><a href="/infos-pratiques" class="menu-lien" data-libelle="Infos pratiques">Infos pratiques</a></li><li style="--i:8"><a href="/reserver" class="menu-lien" data-libelle="Réserver">Réserver</a></li></ul>
+  <p class="menu-actions"><a class="bouton" href="tel:+33618212810">Appeler 06 18 21 28 10</a>
+  <button type="button" class="bouton bouton--contour bascule-saison" data-bascule-saison><span data-saison-seul="hiver">Voir l’été</span><span data-saison-seul="ete">Voir l’hiver</span></button></p>
+  <p class="menu-reseaux"><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+  <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
+</div>
+<main id="contenu" tabindex="-1">
+<section class="page-tete " id="debut">
+  <div class="page-tete-fond">
+    <figure class="media page-tete-media" data-grok data-fx="parallaxe" style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/cadeau-kraft-mobile-640.webp 640w" sizes="100vw">
+    <img src="/assets/images/grok/cadeau-kraft-1168.webp" srcset="/assets/images/grok/cadeau-kraft-640.webp 640w, /assets/images/grok/cadeau-kraft-1168.webp 1168w" sizes="100vw" alt="Un cadeau emballé dans du papier kraft avec un ruban rouge" width="1168" height="784" fetchpriority="high" loading="eager" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+  </div>
+  <div class="page-tete-texte conteneur">
+    <p class="surtitre">Carte cadeau</p>
+    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Offrez un moment aux Jardins</h1>
+    <p class="page-intro" data-anime>Un repas au coin du feu, une journée au bord de l’eau : la carte cadeau se compose en quelques secondes.</p>
+    <p class="page-actions"><a class="bouton" href="#composer" data-action-principale data-survol="magnetique">Composer ma carte</a><span class="page-info" data-info-cle>Valable 6 mois sur toute la carte</span></p>
+  </div>
+</section>
+<section class="cadeau conteneur" id="composer">
+  <div class="cadeau-apercu">
+    <div class="carte-cadeau" data-carte-cadeau data-visuel data-effet="carte-relief" data-survol="incline">
+      <img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy">
+      <p class="carte-cadeau-nom">Carte cadeau</p>
+      <p class="carte-cadeau-lieu">Les Jardins de l’Hacienda</p>
+      <p class="carte-cadeau-montant" data-prix><span data-cadeau-montant>50</span> €</p>
+      <p class="carte-cadeau-pour" data-cadeau-pour-apercu>&nbsp;</p>
+    </div>
+    <p class="note">Valable 6 mois sur toute la carte proposée par le chef, à présenter impérativement à votre arrivée ; ne peut être échangée contre des espèces.</p>
+  </div>
+  <form class="cadeau-form" data-formulaire data-cadeau action="#" novalidate>
+    <p class="surtitre">Carte cadeau</p>
+    <h2 data-anime="lignes">Composer votre carte</h2>
+    <fieldset class="champ"><legend class="champ-libelle">Montant <span class="a-confirmer">à confirmer</span></legend>
+      <div class="puces"><label class="puce-choix"><input type="radio" name="montant" value="25"><span>25 €</span></label><label class="puce-choix"><input type="radio" name="montant" value="50" checked><span>50 €</span></label><label class="puce-choix"><input type="radio" name="montant" value="100"><span>100 €</span></label><label class="puce-choix"><input type="radio" name="montant" value="150"><span>150 €</span></label><label class="puce-choix"><input type="radio" name="montant" value="200"><span>200 €</span></label></div>
+    </fieldset>
+    <div class="champs-2">
+      <div class="champ"><label for="g-qte">Quantité</label><select id="g-qte" name="quantite"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+      <div class="champ"><label for="g-pour">Pour</label><input id="g-pour" name="pour" autocomplete="off" aria-describedby="g-pour-aide" maxlength="40"><p class="aide" id="g-pour-aide">Prénom de la personne qui la reçoit</p></div>
+      <div class="champ"><label for="g-de">De la part de</label><input id="g-de" name="de" autocomplete="name" required maxlength="40"></div>
+      <div class="champ"><label for="g-email">E-mail</label><input id="g-email" name="email" type="email" autocomplete="email" required></div>
+    </div>
+    <div class="champ"><label for="g-mot">Petit mot (facultatif)</label><textarea id="g-mot" name="mot" rows="3" maxlength="200"></textarea></div>
+    <p class="cadeau-total"><span>Total</span><strong data-cadeau-total data-prix>50 €</strong></p>
+    <p class="mention-donnees">Vos données servent seulement à répondre à votre demande. <a href="/mentions-legales#confidentialite">Politique de confidentialité</a> (à compléter).</p>
+    <p class="note">Moyens de paiement en ligne : à compléter.</p>
+    <button type="submit" class="bouton">Offrir cette carte</button>
+    <p data-message-envoi role="status" tabindex="-1" hidden data-texte="Paiement simulé : rien n&#39;est débité. Sur le site final, le paiement se fera en ligne."></p>
+  </form>
+</section>
+</main>
+<footer class="pied" id="pied">
+  <div class="conteneur pied-grille">
+    <div>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
+      <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+    </div>
+    <nav aria-label="Sommaire">
+      <p><strong>Sommaire</strong></p>
+      <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau" aria-current="page">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li></ul>
+    </nav>
+    <div>
+      <p><strong>Confort</strong></p>
+      <ul>
+        <li><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></li>
+        <li><a href="#haut" data-sans-transition>Retour en haut</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="conteneur pied-bas"><p>Maquette : les informations marquées « à compléter » ou « à confirmer » seront fournies par l’établissement.</p><p>© Les Jardins de l’Hacienda</p></div>
+</footer>
+<div data-barre-fixe>
+  <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
+  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+</div>
+<p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
+</body>
+</html>

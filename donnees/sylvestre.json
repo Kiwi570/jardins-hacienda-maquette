@@ -1,0 +1,7 @@
+[
+  { "plat": { "fr": "Amuse-bouche" }, "detail": { "fr": "Bouchée gourmande et coupe de champagne" }, "vin": null },
+  { "plat": { "fr": "Velours de foie gras" }, "detail": { "fr": "Éclats de truffe noire" }, "vin": { "fr": "Champagne blanc de blancs" } },
+  { "plat": { "fr": "Esturgeon délicatement poché" }, "detail": { "fr": "Sauce citronnée au caviar et lentilles noires Béluga" }, "vin": { "fr": "Chablis premier cru" } },
+  { "plat": { "fr": "Filet de bœuf d'exception" }, "detail": { "fr": "Aux morilles, jus réduit infusé au café" }, "vin": { "fr": "Pomerol ou Côte-Rôtie" } },
+  { "plat": { "fr": "Sablé breton au yuzu" }, "detail": { "fr": "Crémeux de yuzu et meringue délicatement brûlée" }, "vin": { "fr": "Jurançon moelleux" } }
+]

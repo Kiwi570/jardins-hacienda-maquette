@@ -1,0 +1,22 @@
+{
+  "piscine": [
+    { "nom": "site/piscine-g1", "alt": { "fr": "La piscine et ses paillotes sous un ciel d'été" } },
+    { "nom": "site/piscine-g2", "alt": { "fr": "Bouées flamant et pastèque sur la piscine" } },
+    { "nom": "site/piscine-g3", "alt": { "fr": "Palmiers et salons autour de la piscine" } },
+    { "nom": "site/piscine-g4", "alt": { "fr": "Parasols blancs au bord de l'eau" } },
+    { "nom": "site/piscine-g5", "alt": { "fr": "Après-midi au bord de la piscine" } },
+    { "nom": "site/piscine-g6", "alt": { "fr": "La piscine bordée de chaises blanches" } },
+    { "nom": "site/piscine-g7", "alt": { "fr": "Une bouée en forme de cœur sur l'eau turquoise" } },
+    { "nom": "site/piscine-g8", "alt": { "fr": "Platines de DJ face à la piscine" } }
+  ],
+  "mariages": [
+    { "nom": "site/mariage-g1", "alt": { "fr": "Arche en rotin face à la piscine" } },
+    { "nom": "site/mariage-g2", "alt": { "fr": "Cérémonie sous les palmiers, invités de dos" } },
+    { "nom": "site/mariage-g3", "alt": { "fr": "La salle dressée pour un repas de réception" } },
+    { "nom": "site/mariage-g4", "alt": { "fr": "Buffet de réception en terre cuite" } },
+    { "nom": "site/mariage-g5", "alt": { "fr": "Pièce montée et ballons dorés" } },
+    { "nom": "site/mariage-g6", "alt": { "fr": "Longue table aux serviettes vertes" } },
+    { "nom": "site/mariage-g7", "alt": { "fr": "Les mariés dansent sous la paillote" } },
+    { "nom": "site/mariage-g8", "alt": { "fr": "La piscine un jour de mariage" } }
+  ]
+}

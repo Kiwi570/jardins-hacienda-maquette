@@ -1,0 +1,27 @@
+{
+  "siteActuel": "lesjardinsdelhacienda54.com",
+  "pagesTypes": [
+    "/",
+    "/la-carte",
+    "/a-emporter",
+    "/terrasse-piscine",
+    "/mariages",
+    "/agenda",
+    "/agenda/saint-sylvestre",
+    "/infos-pratiques",
+    "/carte-cadeau",
+    "/reserver"
+  ],
+  "effets": [
+    "surface",
+    "saison",
+    "braises",
+    "ardoise",
+    "volets",
+    "decompte",
+    "envol",
+    "palmes",
+    "carte-relief",
+    "carte"
+  ]
+}

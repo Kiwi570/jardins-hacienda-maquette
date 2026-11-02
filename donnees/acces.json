@@ -1,0 +1,11 @@
+{
+  "centre": "moineville",
+  "villes": [
+    { "id": "moineville", "nom": "Moineville", "lat": 49.2045, "lon": 5.9455, "principal": true },
+    { "id": "sainte-marie", "nom": "Sainte-Marie-aux-Chênes", "lat": 49.1931, "lon": 6.0003, "carte": false },
+    { "id": "metz", "nom": "Metz", "lat": 49.1193, "lon": 6.1757, "distance": "15 km" },
+    { "id": "thionville", "nom": "Thionville", "lat": 49.3579, "lon": 6.1683 },
+    { "id": "luxembourg", "nom": "Luxembourg", "lat": 49.6116, "lon": 6.1319 },
+    { "id": "nancy", "nom": "Nancy", "lat": 48.6921, "lon": 6.1844 }
+  ]
+}

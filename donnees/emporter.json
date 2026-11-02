@@ -1,0 +1,105 @@
+{
+  "debut": "2026-12-05",
+  "fin": "2026-12-31",
+  "produits": [
+    {
+      "id": "escargots",
+      "nom": {
+        "fr": "Escargots à la crème d'ail"
+      },
+      "texte": {
+        "fr": "Escargots préparés dans une crème d'ail onctueuse et parfumée."
+      },
+      "prix": 18,
+      "unite": "piece",
+      "image": null
+    },
+    {
+      "id": "tourte-escargots",
+      "nom": {
+        "fr": "Tourte aux escargots"
+      },
+      "texte": {
+        "fr": "Tourte artisanale garnie d'escargots, dans une farce généreuse et savoureuse."
+      },
+      "prix": 32,
+      "unite": "piece",
+      "image": null
+    },
+    {
+      "id": "tourte-grenouilles",
+      "nom": {
+        "fr": "Tourte aux grenouilles"
+      },
+      "texte": {
+        "fr": "Tourte maison aux cuisses de grenouilles, délicatement persillées et parfumées à l'ail."
+      },
+      "prix": 32,
+      "unite": "piece",
+      "image": null
+    },
+    {
+      "id": "pate-lorrain",
+      "nom": {
+        "fr": "Pâté lorrain"
+      },
+      "texte": {
+        "fr": "Spécialité lorraine en pâte feuilletée, garnie de viande marinée et délicatement assaisonnée."
+      },
+      "prix": 28,
+      "unite": "kg",
+      "image": null
+    },
+    {
+      "id": "foie-gras",
+      "nom": {
+        "fr": "Foie gras de canard maison"
+      },
+      "texte": {
+        "fr": "Le chef vous propose pour les fêtes son foie gras de canard maison."
+      },
+      "prix": 36,
+      "unite": "piece",
+      "format": {
+        "fr": "Format à compléter"
+      },
+      "image": null
+    },
+    {
+      "id": "gravlax",
+      "nom": {
+        "fr": "Gravlax de saumon maison"
+      },
+      "texte": {
+        "fr": "Saumon mariné maison, fondant et parfumé, parfait pour vos apéros et entrées de fête."
+      },
+      "prix": 22,
+      "unite": "piece",
+      "image": null
+    },
+    {
+      "id": "tataki-boeuf",
+      "nom": {
+        "fr": "Tataki de bœuf"
+      },
+      "texte": {
+        "fr": "Tataki de bœuf à la japonaise mariné par nos soins."
+      },
+      "prix": 25,
+      "unite": "piece",
+      "image": null
+    },
+    {
+      "id": "tataki-thon",
+      "nom": {
+        "fr": "Tataki de thon"
+      },
+      "texte": {
+        "fr": "Thon snacké à cœur cru, mariné façon japonaise et préparé par nos soins."
+      },
+      "prix": 25,
+      "unite": "piece",
+      "image": null
+    }
+  ]
+}

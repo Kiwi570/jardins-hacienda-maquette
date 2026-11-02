@@ -1,0 +1,10 @@
+[
+  { "q": { "fr": "Faut-il réserver ?" }, "r": { "fr": "Oui : toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert confirme la réservation (montant à compléter), le reste est réglé sur place." } },
+  { "q": { "fr": "Peut-on venir seulement boire un verre ?" }, "r": { "fr": "Lors des journées festives, à partir de 15 h 30, sous réserve de disponibilité. Un droit d'entrée est demandé, une tenue correcte est exigée et l'établissement se réserve le droit d'entrée." } },
+  { "q": { "fr": "Quand la piscine est-elle accessible ?" }, "r": { "fr": "Pendant la saison d'été, lors des journées festives, après le déjeuner à partir de 14 h 30 et jusqu'à 19 h. Le dimanche du Grand Buffet, à partir de 14 h 30." } },
+  { "q": { "fr": "Y a-t-il des vestiaires ?" }, "r": { "fr": "Oui, des vestiaires et des douches sont à votre disposition avant l'accès à la piscine." } },
+  { "q": { "fr": "Peut-on se garer sur place ?" }, "r": { "fr": "Stationnement : informations à compléter par l'établissement." } },
+  { "q": { "fr": "Avez-vous un menu enfant ?" }, "r": { "fr": "Oui, pour les enfants jusqu'à 10 ans : un plat et un dessert à 16 €." } },
+  { "q": { "fr": "Peut-on commander à emporter ?" }, "r": { "fr": "Oui, les incontournables des fêtes sont à retirer du 05/12 au 31/12, pendant les horaires d'ouverture du restaurant." } },
+  { "q": { "fr": "Le lieu est-il accessible aux personnes à mobilité réduite ?" }, "r": { "fr": "D'après des annuaires de lieux de réception, oui : à confirmer par l'établissement." } }
+]

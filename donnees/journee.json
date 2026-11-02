@@ -1,0 +1,6 @@
+[
+  { "heure": "12 h", "titre": { "fr": "Déjeuner" }, "texte": { "fr": "Le service du midi est assuré jusqu'à 14 h 30." } },
+  { "heure": "14 h 30", "titre": { "fr": "La piscine s'ouvre" }, "texte": { "fr": "Après le déjeuner, profitez librement de la piscine, des extérieurs et des espaces détente." } },
+  { "heure": "15 h 30", "titre": { "fr": "Accès bar" }, "texte": { "fr": "Pour venir seulement boire un verre, sous réserve de disponibilité : droit d'entrée, tenue correcte exigée." } },
+  { "heure": "19 h", "titre": { "fr": "Fin de journée" }, "texte": { "fr": "Service boissons et snacking tout l'après-midi, jusqu'à 19 h." } }
+]

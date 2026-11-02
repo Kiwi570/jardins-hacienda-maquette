@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="fr" data-v="1" data-curseur>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Infos pratiques : Les Jardins de l’Hacienda</title>
+<meta name="description" content="Horaires, journées festives, accès bar, piscine, réservation et accès à Moineville, à 15 km de Metz.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jardins-hacienda-maquette.vercel.app/infos-pratiques">
+<style>:root{--fond:#f4ece1;--texte:#2b1e18;--voile-fond:#1b1310;--ouverture-fond:#1b1310;--menu-fond:#1b1310}:root { --entete-h: 72px; --barres-h: 0px; } html { background: var(--fond); color: var(--texte); scrollbar-gutter: stable; } body { margin: 0; background: var(--fond); } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime] { opacity: 0; } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime].vu { opacity: 1; } [data-voile] { position: fixed; inset: 0; z-index: 900; background: var(--voile-fond); transform: translateY(100%); visibility: hidden; pointer-events: none; } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) [data-voile] { transform: none; visibility: visible; } html.calme [data-voile], html.secours [data-voile] { visibility: hidden !important; } .ouverture-panneau { position: fixed; inset: 0; z-index: 850; display: none; place-content: center; justify-items: center; background: var(--ouverture-fond, var(--voile-fond)); color: var(--fond); text-align: center; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) .ouverture-panneau { display: grid; } html.defilement-bloque, html.defilement-bloque body, html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie), html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) body, html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours), html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) body { overflow: hidden; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) { background-color: var(--ouverture-fond, var(--voile-fond)); } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) { background-color: var(--voile-fond); }</style>
+<script>(function () {
+var d = document.documentElement, ss = null, ls = null;
+try { ss = window.sessionStorage; ls = window.localStorage; } catch (e) {}
+d.classList.add('js');
+var calme = false;
+try { calme = !!ls && ls.getItem('socle:calme') === 'oui'; } catch (e) {}
+if (!calme && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+if (calme) d.classList.add('calme');
+var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+var type = nav ? nav.type : 'navigate';
+var depart = null;
+try { depart = JSON.parse(ss.getItem('socle:depart') || 'null'); ss.removeItem('socle:depart'); } catch (e) {}
+if (depart && !(Date.now() - depart.t < 15000)) depart = null;
+var retourSection = false;
+try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
+var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
+d.setAttribute('data-arrivee', mode);
+if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+if (type === 'reload' && 'scrollRestoration' in history) {
+if (!retourSection) history.scrollRestoration = 'manual';
+}
+try {
+var choisie = ls && ls.getItem('socle:langue');
+var langue = (d.lang || '').slice(0, 2);
+if (choisie && choisie !== langue && type === 'navigate' && !depart) {
+var alt = document.querySelector('link[rel="alternate"][hreflang="' + choisie + '"]');
+if (alt) location.replace(new URL(alt.href).pathname + location.search + location.hash);
+}
+} catch (e) {}
+setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('secours'); }, 2000);
+})();</script>
+<script>(function(){var d=document.documentElement,s=null;try{s=sessionStorage.getItem('hacienda:saison')}catch(e){}if(s!=='ete'&&s!=='hiver'){var m=+new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',month:'numeric'}).format(new Date());s=[6,7,8,9].indexOf(m)>-1?'ete':'hiver'}d.setAttribute('data-saison',s)})();</script>
+<style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/socle.css?v=1">
+<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<link rel="modulepreload" href="/assets/js/site.js?v=1">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/vendor/SplitText.min.js" defer></script>
+<script type="module" src="/assets/js/site.js?v=1"></script>
+<meta name="theme-color" content="#f4ece1">
+<link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Les Jardins de l’Hacienda">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Infos pratiques : Les Jardins de l’Hacienda">
+<meta property="og:description" content="Horaires, journées festives, accès bar, piscine, réservation et accès à Moineville, à 15 km de Metz.">
+<meta property="og:url" content="https://jardins-hacienda-maquette.vercel.app/infos-pratiques">
+<meta property="og:image" content="https://jardins-hacienda-maquette.vercel.app/assets/partage/infos-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Infos pratiques des Jardins de l’Hacienda">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Restaurant","EventVenue"],"name":"Les Jardins de l'Hacienda","url":"https://jardins-hacienda-maquette.vercel.app/","telephone":"+33618212810","image":"https://jardins-hacienda-maquette.vercel.app/assets/partage/accueil-fr.jpg","address":{"@type":"PostalAddress","streetAddress":"6 Vathier Haye","postalCode":"54580","addressLocality":"Moineville","addressCountry":"FR"},"servesCuisine":["Cuisine traditionnelle","Cuisine de saison"],"acceptsReservations":true,"sameAs":["https://www.facebook.com/lesjardinsdelhacienda54","https://www.instagram.com/lesjardinsdel.hacienda/"],"description":"Restaurant et lieu de réception en pleine nature, à 15 km de Metz : cuisine de saison du chef Régis Clauss, cheminée l'hiver, terrasse et piscine l'été, mariages et réceptions."}</script>
+</head>
+<body id="haut">
+<div data-voile aria-hidden="true"><div class="voile-contenu"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56"><span data-voile-libelle>Infos pratiques</span></div></div>
+<div class="ouverture-panneau" data-ouverture aria-hidden="true">
+  <div class="ouverture-sceau">
+    <svg class="ouverture-cercle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" pathLength="1"/></svg>
+    <img class="ouverture-logo" src="/assets/images/logo-h-or-192.png" alt="" width="96" height="96">
+  </div>
+  <p class="ouverture-ligne">Restaurant &amp; lieu de réception · Moineville</p>
+  <p class="ouverture-saison"><span data-saison-seul="hiver">Saison d’hiver</span><span data-saison-seul="ete">Saison d’été</span></p>
+</div>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header data-entete>
+  <div class="entete-rangee">
+    <a class="entete-logo" href="/" aria-label="Les Jardins de l’Hacienda, retour à l’accueil" data-libelle="Accueil">
+      <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
+    </a>
+    <nav data-nav aria-label="Navigation principale">
+      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques" aria-current="page">Infos pratiques</a></li></ul>
+    </nav>
+    <div class="entete-actions">
+      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+    </div>
+  </div>
+</header>
+<div id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu">
+  <ul><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil">Accueil</a></li><li style="--i:1"><a href="/la-carte" class="menu-lien" data-libelle="La carte">La carte</a></li><li style="--i:2"><a href="/terrasse-piscine" class="menu-lien" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li style="--i:3"><a href="/mariages" class="menu-lien" data-libelle="Mariages">Mariages</a></li><li style="--i:4"><a href="/agenda" class="menu-lien" data-libelle="Agenda">Agenda</a></li><li style="--i:5"><a href="/a-emporter" class="menu-lien" data-libelle="À emporter">À emporter</a></li><li style="--i:6"><a href="/carte-cadeau" class="menu-lien" data-libelle="Carte cadeau">Carte cadeau</a></li><li style="--i:7"><a href="/infos-pratiques" class="menu-lien" data-libelle="Infos pratiques" aria-current="page">Infos pratiques</a></li><li style="--i:8"><a href="/reserver" class="menu-lien" data-libelle="Réserver">Réserver</a></li></ul>
+  <p class="menu-actions"><a class="bouton" href="tel:+33618212810">Appeler 06 18 21 28 10</a>
+  <button type="button" class="bouton bouton--contour bascule-saison" data-bascule-saison><span data-saison-seul="hiver">Voir l’été</span><span data-saison-seul="ete">Voir l’hiver</span></button></p>
+  <p class="menu-reseaux"><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+  <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
+</div>
+<main id="contenu" tabindex="-1">
+<section class="page-tete " id="debut">
+  <div class="page-tete-fond">
+    <figure class="media page-tete-media" data-fx="parallaxe" style="--cadrage:50% 60%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/site/infos-ouverture-mobile-640.webp 640w, /assets/images/site/infos-ouverture-mobile-1280.webp 1280w" sizes="100vw">
+    <img src="/assets/images/site/infos-ouverture-1280.webp" srcset="/assets/images/site/infos-ouverture-640.webp 640w, /assets/images/site/infos-ouverture-1280.webp 1280w, /assets/images/site/infos-ouverture-1703.webp 1703w" sizes="100vw" alt="L’entrée des Jardins de l’Hacienda, entre oliviers et lauriers fleuris" width="1280" height="827" fetchpriority="high" loading="eager" decoding="async">
+  </picture>
+</figure>
+  </div>
+  <div class="page-tete-texte conteneur">
+    <p class="surtitre">Infos pratiques</p>
+    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Tout pour venir aux Jardins</h1>
+    <p class="page-intro" data-anime>Horaires, journées festives, piscine, réservation et accès : l’essentiel en un coup d’œil.</p>
+    <p class="page-actions"><a class="bouton" href="/reserver" data-action-principale data-survol="magnetique">Réserver</a><span class="page-info" data-info-cle>6 Vathier Haye, 54580 Moineville · 06 18 21 28 10</span></p>
+  </div>
+</section>
+<section class="infos-grille-section" id="horaires">
+  <figure class="media infos-fond" data-grok data-fx="parallaxe" data-fx-force="6" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/grok/pierre-chaux-1168.webp" srcset="/assets/images/grok/pierre-chaux-640.webp 640w, /assets/images/grok/pierre-chaux-1168.webp 1168w" sizes="100vw" alt="" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+  <div class="conteneur infos-grille" data-anime="cascade">
+    <article class="info-bloc info-bloc--horaires"><h2>Horaires</h2><p>Horaires d’ouverture du restaurant : à compléter. Aucun statut « ouvert » n’est affiché tant qu’ils ne sont pas fournis. <span class="a-completer">à compléter</span></p></article>
+    <article class="info-bloc"><h2>Journées festives</h2><p>De juin à septembre : mardi, mercredi et jeudi, de 12 h à 19 h. Déjeuner jusqu’à 14 h 30, puis piscine, extérieurs et espaces détente jusqu’à 19 h, avec un service boissons et snacking l’après-midi.</p></article>
+    <article class="info-bloc"><h2>Accès bar</h2><p>Pendant les journées festives, à partir de 15 h 30 seulement et sous réserve de disponibilité. Droit d’entrée, tenue correcte exigée ; l’établissement se réserve le droit d’entrée.</p></article>
+    <article class="info-bloc"><h2>Piscine et confort</h2><p>Des vestiaires et des douches sont à votre disposition avant l’accès à la piscine.</p></article>
+    <article class="info-bloc"><h2>Réservation</h2><p>Toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert est demandé (montant à compléter), le reste est réglé sur place.</p><p><a href="/reserver" class="lien-fleche" data-libelle="Réserver">Réserver</a></p></article>
+  </div>
+</section>
+<section class="infos-photos conteneur" id="lieu">
+  <figure class="media infos-photo infos-photo--large" data-anime="rideau" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/infos-piscine-918.webp" srcset="/assets/images/site/infos-piscine-640.webp 640w, /assets/images/site/infos-piscine-918.webp 918w" sizes="(max-width: 760px) 100vw, 60vw" alt="La piscine entourée de palmiers et de paillotes" width="918" height="612" loading="lazy" decoding="async">
+  </picture>
+</figure>
+  <figure class="media infos-photo" data-fx="parallaxe" data-fx-force="8" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/infos-bar-1280.webp" srcset="/assets/images/site/infos-bar-640.webp 640w, /assets/images/site/infos-bar-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 30vw" alt="Le bar en bois sous sa paillote" width="1280" height="1924" loading="lazy" decoding="async">
+  </picture>
+</figure>
+</section>
+<section class="acces conteneur" id="acces">
+  <div>
+    <p class="surtitre">Accès</p>
+    <h2 data-anime="lignes">En pleine nature, à 15 km de Metz</h2>
+    <p data-anime>6 Vathier Haye, 54580 Moineville : en pleine nature, à 15 km de Metz, à côté de Sainte-Marie-aux-Chênes.</p>
+    <address class="adresse" data-anime><strong>Les Jardins de l’Hacienda</strong><br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a></address>
+    <p class="actions" data-anime><a href="https://www.google.com/maps/search/?api=1&amp;query=6%20Vathier%20Haye%2054580%20Moineville" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="bouton">Itinéraire</a></p>
+    <figure class="media acces-media" data-fx="zoom" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/route-reelle-1280.webp" srcset="/assets/images/site/route-reelle-640.webp 640w, /assets/images/site/route-reelle-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 30vw" alt="Route de campagne entre les champs, aux abords de Moineville" width="1280" height="1923" loading="lazy" decoding="async">
+  </picture>
+</figure>
+  </div>
+  <figure class="carte-acces" data-visuel>
+  <svg viewBox="0 0 360 520" role="img" aria-label="Carte d’accès : Moineville et les villes proches" data-effet="carte">
+    <rect x="1" y="1" width="358" height="518" rx="10" class="carte-cadre" data-audit-ignorer/>
+    <path data-fx-trait data-audit-ignorer class="carte-route" d="M257.9 273.8 Q 218.3 254.6 142.7 235.4"/><path data-fx-trait data-audit-ignorer class="carte-route" d="M254.2 166.2 Q 216.5 200.8 142.7 235.4"/><path data-fx-trait data-audit-ignorer class="carte-route" d="M235.9 51.8 Q 207.3 143.6 142.7 235.4"/><path data-fx-trait data-audit-ignorer class="carte-route" d="M262.2 466.5 Q 220.5 351.0 142.7 235.4"/>
+    <g class="carte-ville" data-repere><circle cx="257.9" cy="273.8" r="4.5"/><text x="257.9" y="297.8" text-anchor="middle">Metz · 15 km</text></g><g class="carte-ville" data-repere><circle cx="254.2" cy="166.2" r="4.5"/><text x="264.2" y="171.2">Thionville</text></g><g class="carte-ville" data-repere><circle cx="235.9" cy="51.8" r="4.5"/><text x="245.9" y="56.8">Luxembourg</text></g><g class="carte-ville" data-repere><circle cx="262.2" cy="466.5" r="4.5"/><text x="272.2" y="471.5">Nancy</text></g>
+    <g class="carte-ville carte-ville--centre" data-repere><circle cx="142.7" cy="235.4" r="9"/><text x="126.7" y="242.4" text-anchor="end">Moineville</text></g>
+  </svg>
+  <figcaption class="visuellement-cache">Carte d’accès : Moineville et les villes proches</figcaption>
+</figure>
+</section>
+<section class="faq conteneur" id="faq" data-sans-visuel>
+  <h2 data-anime="lignes">Questions fréquentes</h2>
+  <div class="faq-liste"><details class="faq-item" data-anime><summary>Faut-il réserver ?</summary><div class="faq-reponse"><p>Oui : toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert confirme la réservation (montant à compléter), le reste est réglé sur place.</p></div></details><details class="faq-item" data-anime><summary>Peut-on venir seulement boire un verre ?</summary><div class="faq-reponse"><p>Lors des journées festives, à partir de 15 h 30, sous réserve de disponibilité. Un droit d’entrée est demandé, une tenue correcte est exigée et l’établissement se réserve le droit d’entrée.</p></div></details><details class="faq-item" data-anime><summary>Quand la piscine est-elle accessible ?</summary><div class="faq-reponse"><p>Pendant la saison d’été, lors des journées festives, après le déjeuner à partir de 14 h 30 et jusqu’à 19 h. Le dimanche du Grand Buffet, à partir de 14 h 30.</p></div></details><details class="faq-item" data-anime><summary>Y a-t-il des vestiaires ?</summary><div class="faq-reponse"><p>Oui, des vestiaires et des douches sont à votre disposition avant l’accès à la piscine.</p></div></details><details class="faq-item" data-anime><summary>Peut-on se garer sur place ?</summary><div class="faq-reponse"><p>Stationnement : informations à compléter par l’établissement.</p></div></details><details class="faq-item" data-anime><summary>Avez-vous un menu enfant ?</summary><div class="faq-reponse"><p>Oui, pour les enfants jusqu’à 10 ans : un plat et un dessert à 16 €.</p></div></details><details class="faq-item" data-anime><summary>Peut-on commander à emporter ?</summary><div class="faq-reponse"><p>Oui, les incontournables des fêtes sont à retirer du 05/12 au 31/12, pendant les horaires d’ouverture du restaurant.</p></div></details><details class="faq-item" data-anime><summary>Le lieu est-il accessible aux personnes à mobilité réduite ?</summary><div class="faq-reponse"><p>D’après des annuaires de lieux de réception, oui : à confirmer par l’établissement.</p></div></details></div>
+  <p class="actions" data-anime><a href="/reserver" class="bouton" data-libelle="Réserver" data-survol="magnetique">Réserver</a> <a class="bouton bouton--contour" href="tel:+33618212810">Appeler 06 18 21 28 10</a></p>
+</section>
+</main>
+<footer class="pied" id="pied">
+  <div class="conteneur pied-grille">
+    <div>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
+      <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+    </div>
+    <nav aria-label="Sommaire">
+      <p><strong>Sommaire</strong></p>
+      <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques" aria-current="page">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li></ul>
+    </nav>
+    <div>
+      <p><strong>Confort</strong></p>
+      <ul>
+        <li><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></li>
+        <li><a href="#haut" data-sans-transition>Retour en haut</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="conteneur pied-bas"><p>Maquette : les informations marquées « à compléter » ou « à confirmer » seront fournies par l’établissement.</p><p>© Les Jardins de l’Hacienda</p></div>
+</footer>
+<div data-barre-fixe>
+  <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
+  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+</div>
+<p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "sections": [
+    { "id": "entrees", "titre": { "fr": "Nos entrées" }, "note": null, "plats": [
+      { "nom": { "fr": "Foie gras de canard maison" }, "texte": { "fr": "Foie gras de canard maison, briochette au beurre et chutney maison." }, "prix": 21 },
+      { "nom": { "fr": "Risotto de Saint-Jacques au riz noir" }, "texte": { "fr": "Noix de Saint-Jacques posées sur un riz noir crémeux, accompagnées d'un velouté de butternut aux notes douces et automnales." }, "prix": 21 },
+      { "nom": { "fr": "Rouget en vinaigrette" }, "texte": { "fr": "Filet de rouget délicatement nappé d'une vinaigrette à l'huile d'olive, au jus de citron et au vinaigre de Xérès, parsemé de pignons de pin torréfiés." }, "prix": 18 },
+      { "nom": { "fr": "L'os à moelle" }, "texte": { "fr": "Rôti au four, relevé d'une pincée de fleur de sel et d'une persillade fraîche. Un classique de bistrot, généreux et réconfortant." }, "prix": 9 },
+      { "nom": { "fr": "Œuf cocotte à la bourguignonne" }, "texte": { "fr": "Œuf fondant mijoté dans une sauce au vin rouge, lardons et champignons, à savourer avec une tranche de pain grillé." }, "prix": 14 }
+    ] },
+    { "id": "plats", "titre": { "fr": "Nos plats" }, "note": { "fr": "Des suggestions seront annoncées à la voix… Pour nos petits (jusqu'à 10 ans), le menu enfant est composé d'un plat et d'un dessert à 16 €." }, "plats": [
+      { "nom": { "fr": "Pièce de boucher" }, "texte": { "fr": "Accompagnée d'une galette de pommes de terre croustillante et d'une crème de chou-fleur onctueuse." }, "prix": "marche" },
+      { "nom": { "fr": "Poisson selon l'arrivage" }, "texte": { "fr": "Servi avec sa purée maison et ses légumes glacés." }, "prix": 26 },
+      { "nom": { "fr": "Suprême de pintade" }, "texte": { "fr": "Volaille tendre et dorée, crème de carotte soyeuse et girolles sautées, le tout lié d'une sauce au vin moelleux." }, "prix": 24 },
+      { "nom": { "fr": "Porc et ail confit" }, "texte": { "fr": "Porc fondant et gousses d'ail confites, purée de pommes de terre maison et jus de viande réduit au vinaigre balsamique." }, "prix": 24 },
+      { "nom": { "fr": "Dhal aux trois lentilles" }, "texte": { "fr": "Lentilles mijotées aux épices douces, légumes de saison et lait de coco, pour un voyage parfumé et chaleureux." }, "prix": 21 }
+    ] },
+    { "id": "partager", "titre": { "fr": "À partager" }, "note": { "fr": "Planches pour 4 personnes. Supplément de 10 € par personne en plus. Pour deux : 25 €." }, "plats": [
+      { "nom": { "fr": "La Libanaise" }, "texte": { "fr": "Chaussons aux fromages, épinards, viande et labné." }, "prix": 45 },
+      { "nom": { "fr": "La Charcuterie" }, "texte": { "fr": "Assortiment de charcuteries italiennes." }, "prix": 45 },
+      { "nom": { "fr": "La Mer" }, "texte": { "fr": "Saumon fumé, gambas ail et fines herbes, calamar." }, "prix": 45 },
+      { "nom": { "fr": "Houmous" }, "texte": { "fr": "Assiette de houmous." }, "prix": 12 }
+    ] },
+    { "id": "desserts", "titre": { "fr": "Nos desserts" }, "note": null, "plats": [
+      { "nom": { "fr": "Crème brûlée à la vanille de l'île Maurice" }, "texte": { "fr": "Une crème onctueuse parfumée à la vanille de l'île Maurice, sous une fine croûte de sucre caramélisé craquante à souhait." }, "prix": 10 },
+      { "nom": { "fr": "Tarte aux fruits de saison" }, "texte": { "fr": "Au gré du marché et des récoltes du moment." }, "prix": 9 },
+      { "nom": { "fr": "Le Gourmand" }, "texte": { "fr": "Une douce parenthèse en quatre bouchées : mini tartelette au citron meringuée, financier à la pistache, mini profiterole et mini crème brûlée." }, "prix": 11 },
+      { "nom": { "fr": "Brioche perdue" }, "texte": { "fr": "Brioche dorée au beurre, caramel au beurre salé et sa boule de glace." }, "prix": 10 },
+      { "nom": { "fr": "Figues rôties au miel" }, "texte": { "fr": "Figues caramélisées au four, nappées de miel, servies avec une crème glacée au lait." }, "prix": 10 }
+    ] }
+  ]
+}

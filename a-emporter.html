@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr" data-v="1" data-curseur>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>À emporter pour les fêtes : Les Jardins de l’Hacienda</title>
+<meta name="description" content="Escargots, tourtes, pâté lorrain, foie gras maison, gravlax et tatakis à retirer du 05/12 au 31/12 à Moineville.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jardins-hacienda-maquette.vercel.app/a-emporter">
+<style>:root{--fond:#f4ece1;--texte:#2b1e18;--voile-fond:#1b1310;--ouverture-fond:#1b1310;--menu-fond:#1b1310}:root { --entete-h: 72px; --barres-h: 0px; } html { background: var(--fond); color: var(--texte); scrollbar-gutter: stable; } body { margin: 0; background: var(--fond); } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime] { opacity: 0; } html.js:not(.calme):not(.secours):not([data-arrivee="retour"]) [data-anime].vu { opacity: 1; } [data-voile] { position: fixed; inset: 0; z-index: 900; background: var(--voile-fond); transform: translateY(100%); visibility: hidden; pointer-events: none; } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) [data-voile] { transform: none; visibility: visible; } html.calme [data-voile], html.secours [data-voile] { visibility: hidden !important; } .ouverture-panneau { position: fixed; inset: 0; z-index: 850; display: none; place-content: center; justify-items: center; background: var(--ouverture-fond, var(--voile-fond)); color: var(--fond); text-align: center; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) .ouverture-panneau { display: grid; } html.defilement-bloque, html.defilement-bloque body, html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie), html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) body, html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours), html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) body { overflow: hidden; } html.js[data-arrivee="intro"]:not(.calme):not(.secours):not(.intro-finie) { background-color: var(--ouverture-fond, var(--voile-fond)); } html[data-arrivee="voile"]:not(.voile-leve):not(.calme):not(.secours) { background-color: var(--voile-fond); }</style>
+<script>(function () {
+var d = document.documentElement, ss = null, ls = null;
+try { ss = window.sessionStorage; ls = window.localStorage; } catch (e) {}
+d.classList.add('js');
+var calme = false;
+try { calme = !!ls && ls.getItem('socle:calme') === 'oui'; } catch (e) {}
+if (!calme && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) calme = true;
+if (calme) d.classList.add('calme');
+var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+var type = nav ? nav.type : 'navigate';
+var depart = null;
+try { depart = JSON.parse(ss.getItem('socle:depart') || 'null'); ss.removeItem('socle:depart'); } catch (e) {}
+if (depart && !(Date.now() - depart.t < 15000)) depart = null;
+var retourSection = false;
+try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
+var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
+d.setAttribute('data-arrivee', mode);
+if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+if (type === 'reload' && 'scrollRestoration' in history) {
+if (!retourSection) history.scrollRestoration = 'manual';
+}
+try {
+var choisie = ls && ls.getItem('socle:langue');
+var langue = (d.lang || '').slice(0, 2);
+if (choisie && choisie !== langue && type === 'navigate' && !depart) {
+var alt = document.querySelector('link[rel="alternate"][hreflang="' + choisie + '"]');
+if (alt) location.replace(new URL(alt.href).pathname + location.search + location.hash);
+}
+} catch (e) {}
+setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('secours'); }, 2000);
+})();</script>
+<script>(function(){var d=document.documentElement,s=null;try{s=sessionStorage.getItem('hacienda:saison')}catch(e){}if(s!=='ete'&&s!=='hiver'){var m=+new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',month:'numeric'}).format(new Date());s=[6,7,8,9].indexOf(m)>-1?'ete':'hiver'}d.setAttribute('data-saison',s)})();</script>
+<style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
+<link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/socle.css?v=1">
+<link rel="stylesheet" href="/assets/css/site.css?v=1">
+<link rel="modulepreload" href="/assets/js/site.js?v=1">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<script src="/assets/vendor/gsap.min.js" defer></script>
+<script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/assets/vendor/SplitText.min.js" defer></script>
+<script type="module" src="/assets/js/site.js?v=1"></script>
+<meta name="theme-color" content="#f4ece1">
+<link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Les Jardins de l’Hacienda">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="À emporter pour les fêtes : Les Jardins de l’Hacienda">
+<meta property="og:description" content="Escargots, tourtes, pâté lorrain, foie gras maison, gravlax et tatakis à retirer du 05/12 au 31/12 à Moineville.">
+<meta property="og:url" content="https://jardins-hacienda-maquette.vercel.app/a-emporter">
+<meta property="og:image" content="https://jardins-hacienda-maquette.vercel.app/assets/partage/emporter-fr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Les incontournables des fêtes à emporter">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Restaurant","EventVenue"],"name":"Les Jardins de l'Hacienda","url":"https://jardins-hacienda-maquette.vercel.app/","telephone":"+33618212810","image":"https://jardins-hacienda-maquette.vercel.app/assets/partage/accueil-fr.jpg","address":{"@type":"PostalAddress","streetAddress":"6 Vathier Haye","postalCode":"54580","addressLocality":"Moineville","addressCountry":"FR"},"servesCuisine":["Cuisine traditionnelle","Cuisine de saison"],"acceptsReservations":true,"sameAs":["https://www.facebook.com/lesjardinsdelhacienda54","https://www.instagram.com/lesjardinsdel.hacienda/"],"description":"Restaurant et lieu de réception en pleine nature, à 15 km de Metz : cuisine de saison du chef Régis Clauss, cheminée l'hiver, terrasse et piscine l'été, mariages et réceptions."}</script>
+</head>
+<body id="haut">
+<div data-voile aria-hidden="true"><div class="voile-contenu"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56"><span data-voile-libelle>À emporter</span></div></div>
+<div class="ouverture-panneau" data-ouverture aria-hidden="true">
+  <div class="ouverture-sceau">
+    <svg class="ouverture-cercle" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" pathLength="1"/></svg>
+    <img class="ouverture-logo" src="/assets/images/logo-h-or-192.png" alt="" width="96" height="96">
+  </div>
+  <p class="ouverture-ligne">Restaurant &amp; lieu de réception · Moineville</p>
+  <p class="ouverture-saison"><span data-saison-seul="hiver">Saison d’hiver</span><span data-saison-seul="ete">Saison d’été</span></p>
+</div>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header data-entete>
+  <div class="entete-rangee">
+    <a class="entete-logo" href="/" aria-label="Les Jardins de l’Hacienda, retour à l’accueil" data-libelle="Accueil">
+      <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
+    </a>
+    <nav data-nav aria-label="Navigation principale">
+      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
+    </nav>
+    <div class="entete-actions">
+      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+    </div>
+  </div>
+</header>
+<div id="menu" data-menu role="dialog" aria-modal="true" aria-label="Menu">
+  <ul><li style="--i:0"><a href="/" class="menu-lien" data-libelle="Accueil">Accueil</a></li><li style="--i:1"><a href="/la-carte" class="menu-lien" data-libelle="La carte">La carte</a></li><li style="--i:2"><a href="/terrasse-piscine" class="menu-lien" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li style="--i:3"><a href="/mariages" class="menu-lien" data-libelle="Mariages">Mariages</a></li><li style="--i:4"><a href="/agenda" class="menu-lien" data-libelle="Agenda">Agenda</a></li><li style="--i:5"><a href="/a-emporter" class="menu-lien" data-libelle="À emporter" aria-current="page">À emporter</a></li><li style="--i:6"><a href="/carte-cadeau" class="menu-lien" data-libelle="Carte cadeau">Carte cadeau</a></li><li style="--i:7"><a href="/infos-pratiques" class="menu-lien" data-libelle="Infos pratiques">Infos pratiques</a></li><li style="--i:8"><a href="/reserver" class="menu-lien" data-libelle="Réserver">Réserver</a></li></ul>
+  <p class="menu-actions"><a class="bouton" href="tel:+33618212810">Appeler 06 18 21 28 10</a>
+  <button type="button" class="bouton bouton--contour bascule-saison" data-bascule-saison><span data-saison-seul="hiver">Voir l’été</span><span data-saison-seul="ete">Voir l’hiver</span></button></p>
+  <p class="menu-reseaux"><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+  <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
+</div>
+<main id="contenu" tabindex="-1">
+<section class="page-tete " id="debut">
+  <div class="page-tete-fond">
+    <figure class="media page-tete-media" data-grok data-fx="parallaxe" style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/table-fetes-mobile-640.webp 640w" sizes="100vw">
+    <img src="/assets/images/grok/table-fetes-1168.webp" srcset="/assets/images/grok/table-fetes-640.webp 640w, /assets/images/grok/table-fetes-1168.webp 1168w" sizes="100vw" alt="Une table de fêtes dressée, bougies et branches de sapin" width="1168" height="784" fetchpriority="high" loading="eager" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+  </div>
+  <div class="page-tete-texte conteneur">
+    <p class="surtitre">À emporter</p>
+    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Les incontournables des fêtes</h1>
+    <p class="page-intro" data-anime>Choisissez vos produits, puis le jour et le moment du retrait, du 05/12 au 31/12, pendant les horaires d’ouverture du restaurant.</p>
+    <p class="page-actions"><a class="bouton" href="#produits" data-action-principale data-survol="magnetique">Composer ma commande</a><span class="page-info" data-info-cle>Retrait du 05/12 au 31/12 · 6 Vathier Haye, Moineville</span></p>
+  </div>
+</section>
+<section class="produits conteneur" id="produits" data-panier-produits>
+  <div class="produits-tete">
+    <p class="surtitre">À emporter</p>
+    <h2 data-anime="lignes">Nos produits à emporter</h2>
+    <p class="note" data-anime>Allergènes : à compléter.</p>
+  </div>
+  <ul class="produits-grille" data-effet="envol">
+    <li class="produit" data-produit="escargots" data-prix-unitaire="18" data-unite="piece">
+      <div class="produit-visuel produit-visuel--spirale" data-visuel data-envol-image aria-hidden="true">
+        <span class="produit-initiales">EC</span>
+        <span class="produit-ornement"></span>
+        <span class="produit-photo-attente">Photo du produit à venir</span>
+      </div>
+      <h3 class="produit-nom">Escargots à la crème d’ail</h3>
+      <p class="produit-texte">Escargots préparés dans une crème d’ail onctueuse et parfumée.</p>
+      <p class="produit-bas">
+        <span class="produit-prix" data-prix>18 €</span>
+        <button type="button" class="bouton bouton--petit" data-ajouter="escargots" aria-label="Ajouter Escargots à la crème d’ail à la commande">Ajouter</button>
+      </p>
+    </li><li class="produit" data-produit="tourte-escargots" data-prix-unitaire="32" data-unite="piece">
+      <div class="produit-visuel produit-visuel--feuille" data-visuel data-envol-image aria-hidden="true">
+        <span class="produit-initiales">TE</span>
+        <span class="produit-ornement"></span>
+        <span class="produit-photo-attente">Photo du produit à venir</span>
+      </div>
+      <h3 class="produit-nom">Tourte aux escargots</h3>
+      <p class="produit-texte">Tourte artisanale garnie d’escargots, dans une farce généreuse et savoureuse.</p>
+      <p class="produit-bas">
+        <span class="produit-prix" data-prix>32 €</span>
+        <button type="button" class="bouton bouton--petit" data-ajouter="tourte-escargots" aria-label="Ajouter Tourte aux escargots à la commande">Ajouter</button>
+      </p>
+    </li><li class="produit" data-produit="tourte-grenouilles" data-prix-unitaire="32" data-unite="piece">
+      <div class="produit-visuel produit-visuel--losange" data-visuel data-envol-image aria-hidden="true">
+        <span class="produit-initiales">TG</span>
+        <span class="produit-ornement"></span>
+        <span class="produit-photo-attente">Photo du produit à venir</span>
+      </div>
+      <h3 class="produit-nom">Tourte aux grenouilles</h3>
+      <p class="produit-texte">Tourte maison aux cuisses de grenouilles, délicatement persillées et parfumées à l’ail.</p>
+      <p class="produit-bas">
+        <span class="produit-prix" data-prix>32 €</span>
+        <button type="button" class="bouton bouton--petit" data-ajouter="tourte-grenouilles" aria-label="Ajouter Tourte aux grenouilles à la commande">Ajouter</button>
+      </p>
+    </li><li class="produit" data-produit="pate-lorrain" data-prix-unitaire="28" data-unite="kg">
+      <div class="produit-visuel produit-visuel--etoile" data-visuel data-envol-image aria-hidden="true">
+        <span class="produit-initiales">PL</span>
+        <span class="produit-ornement"></span>
+        <span class="produit-photo-attente">Photo du produit à venir</span>
+      </div>
+      <h3 class="produit-nom">Pâté lorrain</h3>
+      <p class="produit-texte">Spécialité lorraine en pâte feuilletée, garnie de viande marinée et délicatement assaisonnée.</p>
+      <p class="produit-bas">
+        <span class="produit-prix" data-prix>28 € <small>le kg</small></span>
+        <label class="produit-poids"><span class="visuellement-cache">Quantité de Pâté lorrain</span><select data-poids><option value="0.5">0,5 kg</option><option value="1" selected>1 kg</option><option value="1.5">1,5 kg</option><option value="2">2 kg</option></select></label>
+        <button type="button" class="bouton bouton--petit" data-ajouter="pate-lorrain" aria-label="Ajouter Pâté lorrain à la commande">Ajouter</button>
+      </p>
+    </li><li class="produit" data-produit="foie-gras" data-prix-unitaire="36" data-unite="piece">
+      <div class="produit-visuel produit-visuel--vague" data-visuel data-envol-image aria-hidden="true">
+        <span class="produit-initiales">FG</span>
+        <span class="produit-ornement"></span>
+        <span class="produit-photo-attente">Photo du produit à venir</span>
+      </div>
+      <h3 class="produit-nom">Foie gras de canard maison</h3>
+      <p class="produit-texte">Le chef vous propose pour les fêtes son foie gras de canard maison. <span class="a-completer">Format à compléter</span></p>
+      <p class="produit-bas">
+        <span class="produit-prix" data-prix>36 €</span>
+        <button type="button" class="bouton bouton--petit" data-ajouter="foie-gras" aria-label="Ajouter Foie gras de canard maison à la commande">Ajouter</button>
+      </p>
+    </li><li class="produit" data-produit="gravlax" data-prix-unitaire="22" data-unite="piece">
+      <div class="produit-visuel produit-visuel--arc" data-visuel data-envol-image aria-hidden="true">
+        <span class="produit-initiales">GS</span>
+        <span class="produit-ornement"></span>
+        <span class="produit-photo-attente">Photo du produit à venir</span>
+      </div>
+      <h3 class="produit-nom">Gravlax de saumon maison</h3>
+      <p class="produit-texte">Saumon mariné maison, fondant et parfumé, parfait pour vos apéros et entrées de fête.</p>
+      <p class="produit-bas">
+        <span class="produit-prix" data-prix>22 €</span>
+        <button type="button" class="bouton bouton--petit" data-ajouter="gravlax" aria-label="Ajouter Gravlax de saumon maison à la commande">Ajouter</button>
+      </p>
+    </li><li class="produit" data-produit="tataki-boeuf" data-prix-unitaire="25" data-unite="piece">
+      <div class="produit-visuel produit-visuel--cercle" data-visuel data-envol-image aria-hidden="true">
+        <span class="produit-initiales">TB</span>
+        <span class="produit-ornement"></span>
+        <span class="produit-photo-attente">Photo du produit à venir</span>
+      </div>
+      <h3 class="produit-nom">Tataki de bœuf</h3>
+      <p class="produit-texte">Tataki de bœuf à la japonaise mariné par nos soins.</p>
+      <p class="produit-bas">
+        <span class="produit-prix" data-prix>25 €</span>
+        <button type="button" class="bouton bouton--petit" data-ajouter="tataki-boeuf" aria-label="Ajouter Tataki de bœuf à la commande">Ajouter</button>
+      </p>
+    </li><li class="produit" data-produit="tataki-thon" data-prix-unitaire="25" data-unite="piece">
+      <div class="produit-visuel produit-visuel--grain" data-visuel data-envol-image aria-hidden="true">
+        <span class="produit-initiales">TT</span>
+        <span class="produit-ornement"></span>
+        <span class="produit-photo-attente">Photo du produit à venir</span>
+      </div>
+      <h3 class="produit-nom">Tataki de thon</h3>
+      <p class="produit-texte">Thon snacké à cœur cru, mariné façon japonaise et préparé par nos soins.</p>
+      <p class="produit-bas">
+        <span class="produit-prix" data-prix>25 €</span>
+        <button type="button" class="bouton bouton--petit" data-ajouter="tataki-thon" aria-label="Ajouter Tataki de thon à la commande">Ajouter</button>
+      </p>
+    </li>
+  </ul>
+  <figure class="produits-foie-gras" data-anime>
+    <figure class="media produits-foie-gras-media" data-fx="zoom" style="--cadrage:50% 90%">
+  <picture>
+    <img src="/assets/images/site/foie-gras-brioche-1280.webp" srcset="/assets/images/site/foie-gras-brioche-640.webp 640w, /assets/images/site/foie-gras-brioche-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 30vw" alt="Le foie gras maison du chef, ici servi au restaurant avec sa briochette." width="1280" height="1919" loading="lazy" decoding="async">
+  </picture>
+</figure>
+    <figcaption>Le foie gras maison du chef, ici servi au restaurant avec sa briochette.</figcaption>
+  </figure>
+</section>
+<section class="commande sombre" id="commande" data-masque-barre>
+  <div class="conteneur commande-grille">
+    <form class="commande-form" data-formulaire data-commande action="#" novalidate data-message-texte="Commande simulée : rien n&#39;est envoyé ni payé. Sur le site final, elle partira vers le restaurant.">
+      <p class="surtitre">Votre retrait</p>
+      <h2 data-anime="lignes">Votre retrait</h2>
+      <p data-anime>Retrait au restaurant, 6 Vathier Haye à Moineville. Heures exactes à confirmer : pendant les horaires d’ouverture.</p>
+      <fieldset class="calendrier" data-calendrier>
+    <legend>Jour de retrait : décembre 2026</legend>
+    <div class="calendrier-tete" aria-hidden="true"><span>lun.</span><span>mar.</span><span>mer.</span><span>jeu.</span><span>ven.</span><span>sam.</span><span>dim.</span></div>
+    <div class="calendrier-jours"><span class="jour jour--vide" aria-hidden="true"></span><span class="jour jour--hors" aria-hidden="true"><span>1</span></span><span class="jour jour--hors" aria-hidden="true"><span>2</span></span><span class="jour jour--hors" aria-hidden="true"><span>3</span></span><span class="jour jour--hors" aria-hidden="true"><span>4</span></span><label class="jour"><input type="radio" name="jour" value="2026-12-05" data-jour required><span>5</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-06" data-jour required><span>6</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-07" data-jour required><span>7</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-08" data-jour required><span>8</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-09" data-jour required><span>9</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-10" data-jour required><span>10</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-11" data-jour required><span>11</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-12" data-jour required><span>12</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-13" data-jour required><span>13</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-14" data-jour required><span>14</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-15" data-jour required><span>15</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-16" data-jour required><span>16</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-17" data-jour required><span>17</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-18" data-jour required><span>18</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-19" data-jour required><span>19</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-20" data-jour required><span>20</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-21" data-jour required><span>21</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-22" data-jour required><span>22</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-23" data-jour required><span>23</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-24" data-jour required><span>24</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-25" data-jour required><span>25</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-26" data-jour required><span>26</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-27" data-jour required><span>27</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-28" data-jour required><span>28</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-29" data-jour required><span>29</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-30" data-jour required><span>30</span></label><label class="jour"><input type="radio" name="jour" value="2026-12-31" data-jour required><span>31</span></label></div>
+  </fieldset>
+      <p class="champ-erreur" data-erreur-jour hidden>Choisissez un jour de retrait.</p>
+      <fieldset class="choix-moment">
+        <legend>Moment du retrait</legend>
+        <label class="puce-choix"><input type="radio" name="moment" value="midi" checked><span>Midi</span></label>
+        <label class="puce-choix"><input type="radio" name="moment" value="soir"><span>Soir</span></label>
+      </fieldset>
+      <h3>Vos coordonnées</h3>
+      <div class="champs-2">
+        <div class="champ"><label for="c-prenom">Prénom</label><input id="c-prenom" name="prenom" autocomplete="given-name" required></div>
+        <div class="champ"><label for="c-nom">Nom</label><input id="c-nom" name="nom" autocomplete="family-name" required></div>
+        <div class="champ"><label for="c-tel">Téléphone</label><input id="c-tel" name="tel" type="tel" autocomplete="tel" required></div>
+        <div class="champ"><label for="c-email">E-mail</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <p class="mention-donnees">Vos données servent seulement à répondre à votre demande. <a href="/mentions-legales#confidentialite">Politique de confidentialité</a> (à compléter).</p>
+      <p class="note">Paiement au retrait : à confirmer.</p>
+      <button type="submit" class="bouton">Valider la commande</button>
+      <p data-message-envoi role="status" tabindex="-1" hidden data-texte="Commande simulée : rien n&#39;est envoyé ni payé. Sur le site final, elle partira vers le restaurant."></p>
+    </form>
+    <aside class="panier" data-panier aria-labelledby="panier-titre">
+      <figure class="media panier-media" data-grok data-anime="rideau" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/grok/retrait-kraft-640.webp" srcset="/assets/images/grok/retrait-kraft-640.webp 640w" sizes="(max-width: 760px) 100vw, 30vw" alt="Sacs en papier kraft prêts pour le retrait" width="640" height="953" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+      <h2 id="panier-titre" class="panier-titre">Ma commande</h2>
+      <p class="panier-vide" data-panier-vide>Votre commande est vide : ajoutez un produit.</p>
+      <ul class="panier-lignes" data-panier-lignes></ul>
+      <p class="panier-total"><span>Total</span><strong data-panier-total data-prix>0 €</strong></p>
+      <p class="panier-retrait" data-panier-retrait></p>
+      <p class="champ-erreur" data-erreur-panier hidden>Ajoutez au moins un produit.</p>
+    </aside>
+  </div>
+</section>
+<a class="panier-pastille" href="#commande" data-panier-pastille data-sans-transition hidden aria-label="Voir ma commande"><span class="panier-pastille-nombre" data-panier-nombre>0</span><span data-panier-pastille-total>0 €</span></a>
+<p class="visuellement-cache" aria-live="polite" data-panier-annonce></p>
+<template data-panier-modele><li class="panier-ligne"><span class="panier-ligne-nom"></span><span class="panier-ligne-qte"><button type="button" class="qte-btn" data-moins aria-label="Retirer une unité">−</button><span data-qte></span><button type="button" class="qte-btn" data-plus aria-label="Ajouter une unité">+</button></span><span class="panier-ligne-prix" data-prix></span></li></template>
+<script type="application/json" data-panier-textes>{"articles":"{n} produit(s)","ajoute":"{nom} ajouté à la commande. Total : {total}.","retrait":"Retrait le {jour}, {moment}","midi":"Midi","soir":"Soir","aujourdhui":"aujourd'hui","noms":{"escargots":"Escargots à la crème d'ail","tourte-escargots":"Tourte aux escargots","tourte-grenouilles":"Tourte aux grenouilles","pate-lorrain":"Pâté lorrain","foie-gras":"Foie gras de canard maison","gravlax":"Gravlax de saumon maison","tataki-boeuf":"Tataki de bœuf","tataki-thon":"Tataki de thon"}}</script>
+</main>
+<footer class="pied" id="pied">
+  <div class="conteneur pied-grille">
+    <div>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
+      <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
+    </div>
+    <nav aria-label="Sommaire">
+      <p><strong>Sommaire</strong></p>
+      <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter" aria-current="page">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li></ul>
+    </nav>
+    <div>
+      <p><strong>Confort</strong></p>
+      <ul>
+        <li><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></li>
+        <li><a href="#haut" data-sans-transition>Retour en haut</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="conteneur pied-bas"><p>Maquette : les informations marquées « à compléter » ou « à confirmer » seront fournies par l’établissement.</p><p>© Les Jardins de l’Hacienda</p></div>
+</footer>
+<div data-barre-fixe>
+  <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
+  <a class="bouton" href="#commande" data-sans-transition>Ma commande</a>
+</div>
+<p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
+</body>
+</html>
