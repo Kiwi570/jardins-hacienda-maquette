@@ -5,10 +5,10 @@
    - Menu : Échap le ferme, le focus reste dedans puis revient au bouton, la page est bloquée derrière,
      le bouton revient à « Menu » après un choix.
    - La page en cours (aria-current="page", posé par le générateur) et la section en cours sont signalées. */
-import { html, etat } from './etat.js?v=2';
-import { mesures } from './mesures.js?v=2';
-import { bloquerDefilement, debloquerDefilement } from './defilement.js?v=2';
-import { suivre, lacher } from './gouttiere.js?v=2';
+import { html, etat } from './etat.js?v=3';
+import { mesures } from './mesures.js?v=3';
+import { bloquerDefilement, debloquerDefilement } from './defilement.js?v=3';
+import { suivre, lacher } from './gouttiere.js?v=3';
 
 let menu, bouton, entete;
 let ouvert = false;
@@ -73,7 +73,14 @@ export function initEntete() {
   if (menu && bouton) {
     menu.inert = true;
     menu.setAttribute('aria-hidden', 'true');
-    bouton.addEventListener('click', () => (ouvert ? fermerMenu() : ouvrirMenu()));
+    /* Sans JavaScript, le bouton Menu peut être un lien vers le plan du site (pied de page) ; ici il devient un vrai bouton. */
+    if (bouton.tagName === 'A') {
+      bouton.setAttribute('role', 'button');
+      bouton.addEventListener('keydown', (e) => { if (e.key === ' ') { e.preventDefault(); bouton.click(); } });
+    }
+    bouton.setAttribute('aria-controls', menu.id || 'menu');
+    bouton.setAttribute('aria-expanded', 'false');
+    bouton.addEventListener('click', (e) => { e.preventDefault(); if (ouvert) fermerMenu(); else ouvrirMenu(); });
     document.addEventListener('keydown', (e) => {
       if (!ouvert) return;
       if (e.key === 'Escape') { e.preventDefault(); fermerMenu(); return; }

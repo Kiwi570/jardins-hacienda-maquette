@@ -16,7 +16,7 @@ const palme = (cote) => html`<svg class="palme palme--${cote}" viewBox="0 0 300 
 export default (c) => {
   const photos = c.donnees.galeries.piscine;
   return html`
-${tete(c, { surtitre: c.s('terrasse.surtitre'), titre: c.t('terrasse.titre'), texte: c.t('terrasse.texte'), action: c.t('terrasse.action'), actionHref: c.url('reserver', 'formulaire', 'sujet=journee'), info: c.s('terrasse.info'), image: 'site/piscine-ouverture', alt: c.s('terrasse.alt'), cadrage: '50% 55%', classe: 'page-tete--palmes', avant: html`<div class="palmes" data-effet="palmes" aria-hidden="true">${palme('gauche')}${palme('droite')}</div>` })}
+${tete(c, { surtitre: c.s('terrasse.surtitre'), titre: c.t('terrasse.titre'), titre2: c.t('terrasse.titre2'), texte: c.t('terrasse.texte'), actions: [{ texte: c.t('terrasse.action'), href: c.url('reserver', 'formulaire', 'sujet=journee'), saison: 'ete' }, { texte: c.t('terrasse.actionHiver'), href: c.url('restaurant'), saison: 'hiver' }], info: c.s('terrasse.info'), infoHiver: c.s('terrasse.infoHiver'), image: 'site/piscine-ouverture', alt: c.s('terrasse.alt'), cadrage: '50% 55%', classe: 'page-tete--palmes', avant: html`<div class="palmes" data-effet="palmes" aria-hidden="true">${palme('gauche')}${palme('droite')}</div>` })}
 
 <p class="bandeau-saison" data-saison-seul="hiver">${c.t('terrasse.hors')}</p>
 
@@ -62,7 +62,7 @@ ${tete(c, { surtitre: c.s('terrasse.surtitre'), titre: c.t('terrasse.titre'), te
     <ul class="jours-semaine" data-anime="cascade">
       <li><strong>${c.t('terrasse.vendredi')}</strong><span>${c.t('terrasse.vendrediTexte')}</span></li>
       <li><strong>${c.t('terrasse.samedi')}</strong><span>${c.t('terrasse.samediTexte')}</span></li>
-      <li><strong>${c.t('terrasse.dimanche')}</strong><span>${c.t('terrasse.dimancheTexte')}</span></li>
+      <li><strong>${c.t('terrasse.dimanche')}</strong><span>${c.t('terrasse.dimancheTexte')} ${c.lien('grand-buffet', { classe: 'lien-fleche', texte: c.t('terrasse.dimancheLien') })}</span></li>
     </ul>
     ${c.media({ nom: 'site/broche', alt: c.s('terrasse.altBroche'), classe: 'weekend-media', sizes: '(max-width: 760px) 100vw, 34vw', attrs: 'data-anime="rideau"' })}
   </div>
@@ -89,9 +89,16 @@ ${galerie(c, { id: 'photos', titre: c.t('terrasse.galerieTitre'), region: c.s('t
     <h2 data-anime="lignes">${c.t('terrasse.visiteTitre')}</h2>
     <p data-anime>${c.t('terrasse.visiteTexte')}</p>
     <p class="actions" data-anime>${externe(c, c.site.contact.visite360, c.t('terrasse.visiteLien1'), 'bouton')} ${externe(c, c.site.contact.visite360b, c.t('terrasse.visiteLien2'), 'bouton bouton--contour')}</p>
-    <h2 class="visite-fin" data-anime="lignes">${c.t('terrasse.finTitre')}</h2>
-    <p data-anime>${c.t('terrasse.finTexte')}</p>
-    <p data-anime>${c.lien('reserver', { params: 'sujet=journee', ancre: 'formulaire', classe: 'bouton', texte: c.t('terrasse.action'), attrs: 'data-survol="magnetique"' })}</p>
+    <div data-saison-seul="ete">
+      <h2 class="visite-fin" data-anime="lignes">${c.t('terrasse.finTitre')}</h2>
+      <p data-anime>${c.t('terrasse.finTexte')}</p>
+      <p data-anime>${c.lien('reserver', { params: 'sujet=journee', ancre: 'formulaire', classe: 'bouton', texte: c.t('terrasse.action'), attrs: 'data-survol="magnetique"' })}</p>
+    </div>
+    <div data-saison-seul="hiver">
+      <h2 class="visite-fin" data-anime="lignes">${c.t('terrasse.finTitreHiver')}</h2>
+      <p data-anime>${c.t('terrasse.finTexteHiver')}</p>
+      <p class="actions" data-anime>${c.lien('restaurant', { classe: 'bouton', texte: c.t('terrasse.actionHiver') })} ${externe(c, c.site.contact.instagram, c.t('fiche.instagram'), 'bouton bouton--contour')}</p>
+    </div>
   </div>
 </section>
 ${visionneuse(c)}

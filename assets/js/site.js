@@ -2,9 +2,9 @@
    le menu, le mode calme, les boucles, les mesures et la bibliothèque d'effets (posés par attributs dans les pages).
    Effets propres du plan, chacun marqué data-effet : surface, saison, braises, ardoise, volets, decompte, envol, palmes,
    carte-relief, carte. */
-import { demarrer, boucle, etat, suivre, lacher, bloquerDefilement, debloquerDefilement, rafraichir, quand } from './socle/index.js?v=2';
-import { monterSurface } from './surface.js?v=2';
-import { initPanier, envolDefilement } from './panier.js?v=2';
+import { demarrer, boucle, etat, suivre, lacher, bloquerDefilement, debloquerDefilement, rafraichir, quand } from './socle/index.js?v=3';
+import { monterSurface } from './surface.js?v=3';
+import { initPanier, envolDefilement } from './panier.js?v=3';
 
 const gsap = window.gsap;
 const html = document.documentElement;
@@ -56,11 +56,19 @@ function sceneSaisons() {
   const scene = $('[data-saisons-scene]');
   if (!scene || !gsap || !ST() || etat.calme) return;
   gsap.matchMedia().add('(min-width: 901px)', () => {
+    const repos = () => (html.dataset.saison === 'ete' ? '40%' : '60%');
     const tw = gsap.fromTo(scene, { '--coupe': '104%' }, {
-      '--coupe': '50%', ease: 'none',
+      '--coupe': repos, ease: 'none', invalidateOnRefresh: true,
       scrollTrigger: { trigger: scene, start: 'top 85%', end: 'center 55%', scrub: 0.6 },
     });
     return () => { tw.scrollTrigger && tw.scrollTrigger.kill(); tw.kill(); scene.style.removeProperty('--coupe'); };
+  });
+  /* Un clic sur la saison qui n'est pas affichée bascule le site vers elle (même rideau que l'interrupteur). */
+  scene.addEventListener('click', (e) => {
+    const autre = e.target.closest(html.dataset.saison === 'ete' ? '.saison--hiver' : '.saison--ete');
+    if (!autre || e.target.closest('a, button')) return;
+    const b = $('.bascule-saison--hero') || $('[data-bascule-saison]');
+    b && b.click();
   });
   gsap.matchMedia().add('(max-width: 900px)', () => {
     $$('.saison', scene).forEach((el) => {
@@ -69,6 +77,34 @@ function sceneSaisons() {
       ST().create({ trigger: el, start: 'top 88%', once: true, onEnter: () => gsap.to(media, { scale: 1, duration: 1.6, ease: 'power3.out' }) });
     });
   });
+}
+
+/* ---------- échéances : ce qui est daté disparaît (ou apparaît) une fois la date passée, à l'heure réelle ---------- */
+function initEcheances() {
+  const maintenant = Date.now();
+  $$('[data-masquer-apres]').forEach((el) => { if (new Date(el.dataset.masquerApres).getTime() < maintenant) el.hidden = true; });
+  $$('[data-montrer-apres]').forEach((el) => { if (new Date(el.dataset.montrerApres).getTime() < maintenant) el.hidden = false; });
+}
+
+/* ---------- la carte : sous-navigation qui suit la lecture (rubrique en cours, recentrée sur téléphone) ---------- */
+function initSousNav() {
+  const nav = $('.sous-nav');
+  if (!nav) return;
+  const liens = $$('a[href^="#"]', nav);
+  const cibles = liens.map((a) => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+  let actif = null;
+  const activer = (id) => {
+    if (id === actif) return;
+    actif = id;
+    liens.forEach((a) => { if (a.getAttribute('href') === '#' + id) { a.setAttribute('aria-current', 'true'); a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: etat.calme ? 'auto' : 'smooth' }); } else a.removeAttribute('aria-current'); });
+  };
+  const vus = new Map();
+  const io = new IntersectionObserver((es) => {
+    es.forEach((e) => vus.set(e.target.id, e.isIntersecting));
+    const premier = cibles.find((c) => vus.get(c.id));
+    if (premier) activer(premier.id);
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  cibles.forEach((c) => io.observe(c));
 }
 
 /* ---------- braises : fines braises (hiver) ou pollen doré (été) qui montent dans la section du chef ---------- */
@@ -221,7 +257,8 @@ function initCadeau() {
   const form = $('[data-cadeau]');
   if (!form) return;
   const carte = $('[data-carte-cadeau]');
-  const mEl = $('[data-cadeau-montant]'), tEl = $('[data-cadeau-total]'), pEl = $('[data-cadeau-pour-apercu]');
+  const mEl = $('[data-cadeau-montant]'), tEl = $('[data-cadeau-total]'), pEl = $('[data-cadeau-pour-apercu]'), motEl = $('[data-cadeau-mot-apercu]');
+  const msg = $('[data-message-envoi]', form), simule = msg ? msg.dataset.texte : '';
   const maj = () => {
     const m = +(form.querySelector('[name="montant"]:checked') || {}).value || 50;
     const q = +form.querySelector('[name="quantite"]').value || 1;
@@ -232,6 +269,10 @@ function initCadeau() {
     } else mEl.textContent = String(m);
     tEl.textContent = `${m * q} €`;
     pEl.textContent = pour ? `Pour ${pour}` : ' ';
+    const mot = form.querySelector('[name="mot"]').value.trim();
+    if (motEl) motEl.textContent = mot ? `« ${mot.length > 90 ? mot.slice(0, 88) + '…' : mot} »` : '';
+    /* Ticket affiché après l'envoi simulé. */
+    if (msg) msg.dataset.texte = `${q > 1 ? `${q} cartes de ${m} €` : `Une carte de ${m} €`}${pour ? ` pour ${pour}` : ''} · total ${m * q} €. ${simule}`;
   };
   form.addEventListener('input', maj);
   form.addEventListener('change', maj);
@@ -255,16 +296,49 @@ function initReservation() {
   const form = $('[data-reservation]');
   if (!form) return;
   const sujet = () => (form.querySelector('[name="sujet"]:checked') || {}).value || 'table';
+  const dateChamp = form.querySelector('[data-date-future]');
+  const evenement = form.querySelector('#r-evenement');
+  /* Premier jour possible : aujourd'hui, ou le 1er juin suivant pour une journée festive hors saison. */
+  const premierJour = () => {
+    if (sujet() !== 'journee') return auj;
+    const [a, m] = auj.split('-').map(Number);
+    return m >= 6 && m <= 9 ? auj : `${m > 9 ? a + 1 : a}-06-01`;
+  };
   const maj = () => {
     const s = sujet();
+    /* Blocs du sujet choisi : les autres sont masqués, leurs champs désactivés et non obligatoires (document dans l'ordre : parent avant enfant). */
     $$('[data-si-sujet]', form).forEach((b) => {
-      const visible = b.dataset.siSujet.split(' ').includes(s);
+      const visible = b.dataset.siSujet.split(' ').includes(s) && !b.parentElement.closest('[data-si-sujet][hidden]');
       b.hidden = !visible;
-      $$('input, select, textarea', b).forEach((c) => { c.disabled = !visible; });
+      $$('input, select, textarea', b).forEach((c) => {
+        c.disabled = !visible;
+        if (c.required && !visible) { c.dataset.requis = ''; c.required = false; }
+        else if (visible && 'requis' in c.dataset) c.required = true;
+      });
     });
+    /* Formules de l'événement choisi seulement (ex. Saint-Sylvestre : menu ou accord mets et vins). */
+    $$('[data-formules-pour]', form).forEach((f) => {
+      const oui = s === 'evenement' && evenement && evenement.value === f.dataset.formulesPour;
+      f.hidden = !oui; $$('input', f).forEach((i) => { i.disabled = !oui; });
+    });
+    if (dateChamp) { dateChamp.min = premierJour(); if (dateChamp.value && dateChamp.value < dateChamp.min) dateChamp.value = ''; }
   };
-  form.addEventListener('change', (e) => { if (e.target.name === 'sujet') maj(); });
+  form.addEventListener('change', (e) => { if (e.target.name === 'sujet' || e.target.name === 'evenement') maj(); });
   maj();
+  /* Ticket affiché après l'envoi simulé : ce qui a été demandé, en une ligne. */
+  const msg = $('[data-message-envoi]', form), simule = msg ? msg.dataset.texte : '';
+  const jourLong = (iso) => { try { return new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' }).format(new Date(iso + 'T12:00:00Z')); } catch { return iso; } };
+  form.addEventListener('submit', () => {
+    if (!msg) return;
+    const s = sujet(), parts = [];
+    const actif = (sel) => form.querySelector(sel);
+    if (s === 'evenement' && evenement) parts.push(evenement.selectedOptions[0]?.textContent.trim() || '');
+    const f = actif('[name="formule"]:checked:not(:disabled)'); if (f) parts.push(f.closest('label').textContent.trim());
+    const cv = actif('[name="couverts"]:not(:disabled)'); if (cv) parts.push(cv.value === 'plus' ? '21 couverts et plus' : `${cv.value} couvert${cv.value === '1' ? '' : 's'}`);
+    const dt = actif('[name="date"]:not(:disabled)'); if (dt && dt.value) parts.push(jourLong(dt.value));
+    const sv = actif('[name="service"]:checked:not(:disabled)'); if (sv) parts.push(sv.value === 'soir' ? 'le soir' : 'le midi');
+    msg.dataset.texte = (parts.length ? `Votre demande : ${parts.join(' · ')}. ` : '') + simule;
+  }, true);
   document.addEventListener('submit', (e) => {
     if (e.target !== form) return;
     const d = form.querySelector('[data-date-future]');
@@ -318,7 +392,7 @@ function initEtapes() {
     if (premier) premier.focus();
     return !premier;
   };
-  const aller = (k) => {
+  const aller = (k, { focus = true } = {}) => {
     const avant = cadre.offsetHeight;
     etapes.forEach((e) => { e.hidden = +e.dataset.etape !== k; });
     n = k;
@@ -332,8 +406,11 @@ function initEtapes() {
       requestAnimationFrame(() => { cadre.style.height = apres + 'px'; });
       setTimeout(() => { cadre.style.height = ''; }, 480);
     }
+    /* Étape 4 sur téléphone : le récapitulatif (placé plus bas) est recopié sous les yeux. */
+    const copie = $('[data-recap-copie]', etapes[3]);
+    if (copie) copie.innerHTML = n === 4 && window.matchMedia('(max-width: 860px)').matches ? ($('[data-recap] dl') || {}).outerHTML || '' : '';
     const champ = $('input, select, textarea', etapes[n - 1]);
-    if (champ) champ.focus({ preventScroll: true });
+    if (champ && focus) champ.focus({ preventScroll: true });
   };
   suiv.addEventListener('click', () => { if (verifier(etapes[n - 1])) aller(n + 1); });
   prec.addEventListener('click', () => aller(n - 1));
@@ -352,7 +429,7 @@ function initEtapes() {
     try { history.replaceState(null, '', `?type=${a.dataset.choixType}#demande`); } catch {}
     $('#demande').scrollIntoView({ behavior: etat.calme ? 'auto' : 'smooth' });
   }));
-  aller(1);
+  aller(1, { focus: false });
   if (location.hash === '#demande') cadre.style.height = '';
 }
 
@@ -488,7 +565,7 @@ demarrer({
     }
     /* L'ouverture attend la surface au plus 450 ms : sinon la photo est déjà là, la surface apparaît en fondu ensuite. */
     Promise.race([Promise.resolve(surface && surface.pret), new Promise((r) => setTimeout(r, 450))]).then(surfacePrete, surfacePrete);
-    initSaison(); sceneSaisons(); initBraises(); initArdoise(); initVolets(); initCarte(); initDecompte(); initAgenda();
+    initEcheances(); initSousNav(); initSaison(); sceneSaisons(); initBraises(); initArdoise(); initVolets(); initCarte(); initDecompte(); initAgenda();
     initPalmes(); initCadeau(); initReservation(); initEtapes(); initVisionneuse(); initVideo(); initFaq(); initPauseSurface();
     initPanier(); envolDefilement();
     preparerTitre();

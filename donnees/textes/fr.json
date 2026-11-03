@@ -76,7 +76,7 @@
     },
     "emporter": {
       "titre": "À emporter pour les fêtes : Les Jardins de l'Hacienda",
-      "description": "Escargots, tourtes, pâté lorrain, foie gras maison, gravlax et tatakis à retirer du 05/12 au 31/12 à Moineville.",
+      "description": "Escargots, tourtes, pâté lorrain, foie gras maison, gravlax et tatakis à retirer du 5 au 31 décembre à Moineville.",
       "nav": "À emporter",
       "partageAlt": "Les incontournables des fêtes à emporter",
       "accroche": "Les incontournables des fêtes, à emporter"
@@ -192,7 +192,8 @@
       "moment": "En ce moment",
       "prochaine": "Prochain rendez-vous",
       "altHiver": "La salle du restaurant, ses tables rondes en verre et sa cheminée en pierre",
-      "altEte": "La piscine des Jardins de l'Hacienda entourée de palmiers"
+      "altEte": "La piscine des Jardins de l'Hacienda entourée de palmiers",
+      "sousTitreCourt": "Moineville · à 15 km de Metz"
     },
     "saisons": {
       "surtitre": "Deux saisons, une adresse",
@@ -250,7 +251,7 @@
     "receptions": {
       "surtitre": "Réceptions",
       "titre": "Un instant magique avec vos proches",
-      "mots": "Mariage · Baptême · Anniversaire · Pot de départ",
+      "mots": "Mariage · Baptême · Anniversaire · Pot de départ",
       "texte": "Mariages, baptêmes, anniversaires ou pots de départ : une ambiance raffinée et des prestations sur mesure, au bord de l'eau ou au coin du feu.",
       "lien": "Préparer une réception",
       "alt": "Une réception de mariage aux Jardins de l'Hacienda"
@@ -258,7 +259,7 @@
     "offrir": {
       "surtitre": "Offrir & emporter",
       "emporterTitre": "Les incontournables des fêtes",
-      "emporterTexte": "Escargots, tourtes, pâté lorrain, foie gras maison… À retirer du 05/12 au 31/12.",
+      "emporterTexte": "Escargots, tourtes, pâté lorrain, foie gras maison… À retirer du 5 au 31 décembre.",
       "emporterLien": "Commander à emporter",
       "cadeauTitre": "La carte cadeau",
       "cadeauTexte": "Valable 6 mois sur toute la carte du chef, pour offrir un moment aux Jardins.",
@@ -270,6 +271,25 @@
       "texte": "À Moineville, à côté de Sainte-Marie-aux-Chênes, proche de Metz, Nancy, Thionville et du Luxembourg.",
       "horaires": "Horaires d'ouverture : à compléter",
       "carte": "Carte d'accès : Moineville et les villes proches"
+    },
+    "moment": {
+      "titre": "En ce moment",
+      "sylvestreSur": "Jeudi 31 décembre",
+      "sylvestreTitre": "Saint-Sylvestre",
+      "sylvestreTexte": "Menu de fête en cinq temps, soirée animée par DJ Laurent Geymet.",
+      "emporterSur": "Du 5 au 31 décembre",
+      "emporterTitre": "Les incontournables des fêtes",
+      "emporterTexte": "Escargots, tourtes, foie gras maison… à commander, puis à retirer au restaurant.",
+      "cadeauSur": "Toute l'année",
+      "cadeauTitre": "La carte cadeau",
+      "cadeauTexte": "Valable 6 mois sur toute la carte du chef.",
+      "journeeSur": "Mardi, mercredi, jeudi",
+      "journeeTitre": "Les journées festives",
+      "journeeTexte": "Déjeuner, puis la piscine dès 14 h 30, jusqu'à 19 h.",
+      "weekendSur": "Vendredi, samedi, dimanche",
+      "weekendTitre": "Le week-end",
+      "weekendTexte": "Service midi et soir le vendredi, soirée le samedi, Grand Buffet le dimanche.",
+      "voir": "Découvrir"
     }
   },
   "ardoise": {
@@ -308,9 +328,9 @@
   "emporter": {
     "barreCommande": "Ma commande",
     "surtitre": "À emporter",
-    "titre": "Les incontournables des fêtes",
-    "texte": "Choisissez vos produits, puis le jour et le moment du retrait, du 05/12 au 31/12, pendant les horaires d'ouverture du restaurant.",
-    "info": "Retrait du 05/12 au 31/12 · 6 Vathier Haye, Moineville",
+    "titre": "Les incontournables",
+    "texte": "Choisissez vos produits, puis le jour et le moment du retrait, du 5 au 31 décembre, pendant les horaires d'ouverture du restaurant.",
+    "info": "Retrait du 5 au 31 décembre · 6 Vathier Haye, Moineville",
     "action": "Composer ma commande",
     "alt": "Une table de fêtes dressée, bougies et branches de sapin",
     "produitsTitre": "Nos produits à emporter",
@@ -348,11 +368,12 @@
     "ajoute": "{nom} ajouté à la commande. Total : {total}.",
     "visuelACompleter": "Photo du produit à venir",
     "foieGrasNote": "Le foie gras maison du chef, ici servi au restaurant avec sa briochette.",
-    "retraitResume": "Retrait le {jour}, {moment}"
+    "retraitResume": "Retrait le {jour}, {moment}",
+    "titre2": "des fêtes"
   },
   "terrasse": {
     "surtitre": "La terrasse & la piscine",
-    "titre": "Au bord de l'eau, sous les palmiers",
+    "titre": "Au bord de l'eau,",
     "texte": "Évadez-vous au bord de notre piscine, une véritable oasis de détente. Profitez du soleil, plongez dans l'eau cristalline et laissez-vous bercer par le calme environnant.",
     "info": "Journées festives de juin à septembre : mardi, mercredi, jeudi, de 12 h à 19 h",
     "action": "Réserver une journée",
@@ -379,7 +400,7 @@
     "samedi": "Samedi",
     "samediTexte": "Soirée et restauration le soir.",
     "dimanche": "Dimanche",
-    "dimancheTexte": "Le Grand Buffet, de 13 h à 15 h 30 ; accès à la piscine à partir de 14 h 30.",
+    "dimancheTexte": "Le Grand Buffet, servi de 13 h à 15 h 30 ; accès à la piscine à partir de 14 h 30.",
     "poolTitre": "Les pool parties",
     "poolTexte": "Vivez des soirées inoubliables avec nos pool parties, où la fête et le plaisir sont au rendez-vous. Dansez sous les étoiles, savourez des cocktails et plongez dans une ambiance festive et conviviale.",
     "galerieTitre": "La piscine en images",
@@ -395,12 +416,18 @@
     "videoLecture": "Relancer la vidéo",
     "altJournee": "La piscine, ses palmiers et l'arche en rotin en forme de cœur",
     "altBroche": "Viande cuite à la broche pour le buffet",
-    "altFresque": "Fresque colorée au H des Jardins de l'Hacienda"
+    "altFresque": "Fresque colorée au H des Jardins de l'Hacienda",
+    "titre2": "sous les palmiers",
+    "actionHiver": "Découvrir le restaurant",
+    "infoHiver": "Les journées festives reprennent en juin",
+    "finTitreHiver": "En attendant l'été",
+    "finTexteHiver": "La salle et sa cheminée vous accueillent tout l'hiver ; les journées festives reprennent en juin.",
+    "dimancheLien": "La fiche du Grand Buffet"
   },
   "mariages": {
     "altRecap": "Une table de mariage dressée au bord de la piscine",
     "surtitre": "Mariages & réceptions",
-    "titre": "Le plus beau jour, dans un cadre idyllique",
+    "titre": "Le plus beau jour,",
     "texte": "Notre espace mariage offre une ambiance romantique et raffinée, parfaite pour des souvenirs inoubliables. Découvrez nos prestations sur mesure pour une journée unique.",
     "info": "Mariage · baptême · anniversaire · pot de départ",
     "action": "Préparer ma réception",
@@ -412,7 +439,7 @@
     "r4": "Accès aux personnes à mobilité réduite",
     "r5": "30 % à la signature, le solde un mois avant",
     "typesTitre": "Toutes vos réceptions",
-    "typesTexte": "Un instant magique avec vos proches : nos prestations s'adaptent à chaque célébration.",
+    "typesTexte": "Un mariage se prépare ici ; pour un baptême, un anniversaire ou un pot de départ, chaque carte mène à la page Fêtes privées.",
     "t1": "Mariage",
     "t2": "Baptême",
     "t3": "Anniversaire",
@@ -434,7 +461,7 @@
     "etapeSur": "Étape {n} sur 4",
     "type": "Type de réception",
     "date": "Date souhaitée",
-    "dateAide": "Une date approximative suffit.",
+    "dateAide": "Facultatif : laissez vide si la date n'est pas encore fixée.",
     "invites": "Nombre d'invités",
     "moment": "Moment",
     "dejeuner": "Déjeuner",
@@ -448,20 +475,28 @@
     "recapVide": "à préciser",
     "envoyer": "Envoyer ma demande",
     "altLumiere": "Lumière dorée à travers les palmes sur une terrasse en pierre",
-    "recapTexte": "Vérifiez votre demande dans le récapitulatif, puis envoyez-la : nous revenons vers vous pour construire votre journée."
+    "recapTexte": "Vérifiez votre demande, puis envoyez-la : l'établissement revient vers vous pour construire votre journée.",
+    "titre2": "dans un cadre idyllique",
+    "conditions": "Conditions de paiement : 30 % à la signature, le solde un mois avant",
+    "noteDecider": "Capacité assise, formules et tarifs :"
   },
   "agenda": {
     "surtitre": "Agenda",
-    "titre": "Les rendez-vous des Jardins",
+    "titre": "Les rendez‑vous",
     "texte": "De nouveaux événements variés chaque mois pour votre plus grand plaisir !",
     "action": "Réserver",
     "alt": "Confettis dorés sur fond de nuit",
     "aVenirTitre": "À venir",
     "passesTitre": "Déjà passés",
     "vide": "Aucun événement annoncé pour le moment : suivez-nous sur les réseaux.",
-    "voir": "Voir la soirée",
+    "voir": "Voir le détail",
     "reserver": "Réserver",
-    "affiche": "Affiche : {titre}"
+    "affiche": "Affiche : {titre}",
+    "titre2": "des Jardins",
+    "aussiSur": "Aussi en décembre",
+    "aussiTitre": "Les incontournables des fêtes",
+    "aussiTexte": "À commander, puis à retirer au restaurant du 5 au 31 décembre.",
+    "aussiLien": "Commander"
   },
   "sylvestre": {
     "surtitre": "Agenda · jeudi 31 décembre 2026",
@@ -486,12 +521,12 @@
   },
   "infos": {
     "surtitre": "Infos pratiques",
-    "titre": "Tout pour venir aux Jardins",
+    "titre": "Tout pour venir",
     "texte": "Horaires, journées festives, piscine, réservation et accès : l'essentiel en un coup d'œil.",
     "action": "Réserver",
     "alt": "La terrasse des Jardins de l'Hacienda",
     "horairesTitre": "Horaires",
-    "horairesTexte": "Horaires d'ouverture du restaurant : à compléter. Aucun statut « ouvert » n'est affiché tant qu'ils ne sont pas fournis.",
+    "horairesTexte": "Horaires d'ouverture du restaurant :",
     "festivesTitre": "Journées festives",
     "festivesTexte": "De juin à septembre : mardi, mercredi et jeudi, de 12 h à 19 h. Déjeuner jusqu'à 14 h 30, puis piscine, extérieurs et espaces détente jusqu'à 19 h, avec un service boissons et snacking l'après-midi.",
     "barTitre": "Accès bar",
@@ -507,11 +542,13 @@
     "altRoute": "Route de campagne entre les champs, aux abords de Moineville",
     "altOuverture": "L'entrée des Jardins de l'Hacienda, entre oliviers et lauriers fleuris",
     "altPiscine": "La piscine entourée de palmiers et de paillotes",
-    "altBar": "Le bar en bois sous sa paillote"
+    "altBar": "Le bar en bois sous sa paillote",
+    "titre2": "aux Jardins",
+    "eteTitre": "Saison d'été · de juin à septembre"
   },
   "cadeau": {
     "surtitre": "Carte cadeau",
-    "titre": "Offrez un moment aux Jardins",
+    "titre": "Offrez un moment",
     "texte": "Un repas au coin du feu, une journée au bord de l'eau : la carte cadeau se compose en quelques secondes.",
     "info": "Valable 6 mois sur toute la carte",
     "action": "Composer ma carte",
@@ -530,11 +567,13 @@
     "simule": "Paiement simulé : rien n'est débité. Sur le site final, le paiement se fera en ligne.",
     "conditions": "Valable 6 mois sur toute la carte proposée par le chef, à présenter impérativement à votre arrivée ; ne peut être échangée contre des espèces.",
     "altVisuel": "Le visuel actuel de la carte cadeau",
-    "paiementACompleter": "Moyens de paiement en ligne : à compléter."
+    "paiementACompleter": "Moyens de paiement en ligne : à compléter.",
+    "carteValidite": "Valable 6 mois",
+    "titre2": "aux Jardins"
   },
   "reserver": {
     "surtitre": "Réserver",
-    "titre": "Une table vous attend",
+    "titre": "Une table",
     "texte": "Toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert confirme la réservation, le reste est réglé sur place.",
     "action": "Remplir la demande",
     "alt": "La salle du restaurant",
@@ -556,7 +595,14 @@
     "joindreTitre": "Nous joindre",
     "joindreTexte": "Une question, une demande particulière ? Appelez-nous ou écrivez-nous.",
     "altTable": "Une table dressée pour deux",
-    "altFenetre": "Une table dressée près des baies vitrées"
+    "altFenetre": "Une table dressée près des baies vitrées",
+    "formule": "Formule",
+    "parPersonne": "par personne",
+    "receptionTexte": "Pour un mariage ou une fête, la demande en quatre étapes vous guide pas à pas.",
+    "receptionMariage": "Un mariage",
+    "receptionFete": "Une fête privée",
+    "evenementNote": "La date et l'horaire sont ceux de l'événement. Un acompte par couvert confirme la réservation (montant à compléter).",
+    "titre2": "vous attend"
   },
   "mentions": {
     "titre": "Mentions légales",
@@ -588,15 +634,16 @@
     "alt": "Tissu de lin naturel posé sur une pierre claire"
   },
   "introuvable": {
-    "titre": "Table introuvable",
+    "titre": "Table",
     "texte": "Cette page n'est pas dressée, ou ne l'est plus.",
     "retour": "Revenir à l'accueil",
     "carte": "Voir la carte",
-    "alt": "Des tables dressées dans la salle du restaurant"
+    "alt": "Des tables dressées dans la salle du restaurant",
+    "titre2": "introuvable"
   },
   "restaurant": {
     "surtitre": "Le restaurant",
-    "titre": "Au coin du feu, la cuisine du chef",
+    "titre": "Au coin du feu,",
     "texte": "Une cuisine de qualité, un décor élégant et chaleureux : le restaurant des Jardins se prête aussi bien aux repas en famille qu'aux dîners en amoureux.",
     "action": "Réserver une table",
     "info": "Horaires d'ouverture : à compléter",
@@ -619,11 +666,12 @@
     "s4": "Horaires d'ouverture et capacité de la salle :",
     "altSavoir": "Une table dressée près des baies vitrées",
     "finTitre": "Réserver votre table",
-    "finTexte": "En ligne, ou par téléphone si vous avez une question."
+    "finTexte": "En ligne, ou par téléphone si vous avez une question.",
+    "titre2": "la cuisine du chef"
   },
   "fetes": {
     "surtitre": "Fêtes privées",
-    "titre": "Un instant magique avec vos proches",
+    "titre": "Un instant magique",
     "texte": "Baptême, anniversaire ou pot de départ : au bord de l'eau l'été, au coin du feu l'hiver.",
     "action": "Préparer ma fête",
     "info": "Baptême · anniversaire · pot de départ",
@@ -642,7 +690,8 @@
     "galerieRegion": "Photos de buffets et de desserts servis aux Jardins",
     "demandeTitre": "Préparer votre fête",
     "demandeTexte": "Quatre étapes, environ deux minutes : l'établissement revient vers vous pour construire votre journée.",
-    "altRecap": "Un buffet de desserts au bord de la piscine"
+    "altRecap": "Un buffet de desserts au bord de la piscine",
+    "titre2": "avec vos proches"
   },
   "fiche": {
     "passeTitre": "Cette soirée a eu lieu",
@@ -726,5 +775,9 @@
       "titre": "Maquette",
       "texte": "Dans cette maquette, rien n'est envoyé : les formulaires, la commande et la carte cadeau sont simulés."
     }
+  },
+  "pied": {
+    "fin": "À bientôt",
+    "fin2": "aux Jardins"
   }
 }

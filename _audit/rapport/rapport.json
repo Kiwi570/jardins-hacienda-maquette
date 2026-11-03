@@ -8,12 +8,11 @@
     "robots.txt": 1,
     "numéro de version": 1,
     "langues": 1,
-    "mesures": 33,
-    "balayage": 3
+    "mesures": 884,
+    "balayage": 16
   },
   "infos": [
-    "Numéro de version des fichiers : ?v=2",
-    "Audit standard : étapes lourdes sur /, /agenda/grand-buffet, /agenda/soiree-libanaise.",
+    "Numéro de version des fichiers : ?v=3",
     "Accessibilité : axe-core 4.12.1 en plus des contrôles intégrés."
   ]
 }

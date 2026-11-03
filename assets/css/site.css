@@ -62,7 +62,7 @@ em, .italique { font-style: italic; }
 .bouton--clair { background: var(--creme-texte); color: var(--brun); }
 .bouton--clair:hover { background: #fff; }
 .bouton--petit { min-height: 44px; padding: .5em 1.1em; font-size: .95rem; }
-.sombre .bouton:not(.bouton--clair):not(.bouton--contour) { background: var(--lueur); color: var(--brun); }
+.sombre .bouton:not(.bouton--clair):not(.bouton--contour), .hero .bouton:not(.bouton--clair):not(.bouton--contour), .page-tete .bouton:not(.bouton--clair):not(.bouton--contour), [data-menu] .bouton:not(.bouton--contour) { background: var(--accent); color: var(--creme-texte); box-shadow: 0 0 0 1px rgba(240,217,176,.22), 0 10px 30px -12px rgba(232,131,58,.75); }
 
 /* En-tête : opaque, logo du client. */
 [data-entete] { background: var(--fond); }
@@ -77,7 +77,6 @@ em, .italique { font-style: italic; }
 [data-menu] { color: var(--creme-texte); }
 [data-menu] .menu-lien { color: var(--creme-texte); font-weight: 400; }
 [data-menu] .menu-lien[aria-current] { color: var(--lueur); font-style: italic; }
-[data-menu] .bouton:not(.bouton--contour) { background: var(--lueur); color: var(--brun); }
 .menu-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .menu-reseaux a { display: inline-flex; align-items: center; min-height: 44px; }
 html.menu-ouvert [data-entete] { background: var(--menu-fond, var(--fond-sombre)); color: var(--creme-texte); border-color: transparent; }
@@ -117,7 +116,7 @@ html[data-saison="ete"] .hero-ombre { background:
 .hero-l2 { font-style: italic; color: #f0d9b0; padding-left: .5em; }
 .hero-texte { max-width: 34em; font-size: clamp(1.05rem, .98rem + .4vw, 1.3rem); margin-bottom: 1.1em; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: clamp(16px, 3vh, 32px); }
-.hero .bouton:not(.bouton--clair) { background: var(--lueur); color: var(--brun); }
+
 .hero-bas { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 16px; border-top: 1px solid rgba(246,239,229,.28); }
 .hero-info { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 0; font-size: .98rem; }
 .hero-info a { color: inherit; font-weight: 700; text-underline-offset: .2em; }
@@ -166,7 +165,7 @@ main > section { position: relative; }
 .saisons { padding-block: var(--section) calc(var(--section) * .6); }
 .saisons-tete { margin-bottom: clamp(24px, 4vw, 48px); }
 .saisons-tete h2 { max-width: 14em; }
-.saisons-scene { position: relative; width: min(100% - 2 * var(--gouttiere), 1480px); margin-inline: auto; height: clamp(460px, 78svh, 820px); border-radius: calc(var(--rayon) * 1.4); overflow: hidden; color: var(--creme-texte); --coupe: 50%; }
+.saisons-scene { position: relative; width: min(100% - 2 * var(--gouttiere), var(--largeur)); margin-inline: auto; height: clamp(460px, 78svh, 820px); border-radius: calc(var(--rayon) * 1.4); overflow: hidden; color: var(--creme-texte); --coupe: 50%; }
 .saison { position: absolute; inset: 0; }
 .saison .media { position: absolute; inset: 0; border-radius: 0; }
 .saison::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
@@ -175,18 +174,19 @@ main > section { position: relative; }
 .saison--ete { clip-path: polygon(var(--coupe) 0, 100% 0, 100% 100%, calc(var(--coupe) - 7%) 100%); }
 .saison-texte { position: absolute; z-index: 1; bottom: clamp(20px, 4vw, 48px); max-width: min(30em, 40%); }
 .saison--hiver .saison-texte { left: clamp(20px, 4vw, 56px); }
-.saison--ete .saison-texte { right: clamp(20px, 4vw, 56px); text-align: right; }
+.saison--ete .saison-texte { right: clamp(20px, 4vw, 56px); text-align: right; max-width: min(30em, 34%); }
 .saison-texte .surtitre { color: #f0d9b0; }
 .saison-texte h3 { font-size: clamp(1.7rem, 1.2rem + 2vw, 3rem); font-style: italic; margin-bottom: .3em; }
 .saison-texte p { margin-bottom: .5em; }
 .saison-detail { font-weight: 700; }
-.saisons-couture { position: absolute; top: 0; bottom: 0; left: var(--coupe); width: 2px; background: linear-gradient(180deg, transparent, #f0d9b0 20%, #f0d9b0 80%, transparent); transform: skewX(-3.5deg); transform-origin: 0 100%; z-index: 2; pointer-events: none; }
+/* Le liseré doré suit exactement la coupe en biais, quelle que soit la taille de la scène. */
+.saisons-couture { position: absolute; inset: 0; background: linear-gradient(180deg, transparent, #f0d9b0 18%, #f0d9b0 82%, transparent); clip-path: polygon(calc(var(--coupe) - 1px) 0, calc(var(--coupe) + 1px) 0, calc(var(--coupe) - 7% + 1px) 100%, calc(var(--coupe) - 7% - 1px) 100%); z-index: 2; pointer-events: none; }
 .saisons-bascule { margin-top: 24px; display: flex; justify-content: center; }
 @media (max-width: 900px) {
   .saisons-scene { height: auto; display: grid; gap: 16px; overflow: visible; border-radius: 0; }
   .saison { position: relative; inset: auto; border-radius: var(--rayon); overflow: hidden; aspect-ratio: 4 / 5; }
   .saison--ete { clip-path: none; }
-  .saison-texte { max-width: none; left: 20px !important; right: 20px !important; text-align: left !important; }
+  .saison-texte, .saison--ete .saison-texte { max-width: none; left: 20px !important; right: 20px !important; text-align: left !important; }
   .saisons-couture { display: none; }
 }
 
@@ -240,11 +240,11 @@ main > section { position: relative; }
 }
 
 /* Le lieu : galerie épinglée (taille des cartes tirée de la hauteur disponible). */
-.galerie.ecran { overflow: hidden; padding-bottom: calc(var(--barres-h) + 24px); }
+.galerie.ecran { overflow: hidden; overflow: clip; padding-bottom: calc(var(--barres-h) + 24px); }
 .galerie-tete { flex: none; }
 .galerie-tete h2 { font-size: clamp(2rem, min(5vw, 7.5vh), 4.2rem); margin-bottom: .2em; }
 .galerie-tete p { margin: 0 0 clamp(10px, 2vh, 20px); max-width: 40em; }
-.galerie-piste { display: flex; gap: clamp(12px, 2vw, 28px); padding-inline: var(--gouttiere); scroll-padding-inline: var(--gouttiere); width: max-content; }
+.galerie-piste { display: flex; gap: clamp(12px, 2vw, 28px); padding-inline: max(var(--gouttiere), (100vw - var(--largeur)) / 2); scroll-padding-inline: max(var(--gouttiere), (100vw - var(--largeur)) / 2); width: max-content; }
 .carte-lieu, .carte-photo { height: 100%; display: flex; flex-direction: column; aspect-ratio: 3 / 4.1; flex: none; }
 .carte-photo { aspect-ratio: 4 / 5; text-decoration: none; border-radius: var(--rayon); }
 .carte-lieu-media, .carte-photo-media { flex: 1 1 auto; min-height: 0; }
@@ -261,13 +261,18 @@ html.calme .galerie.ecran.epingle, html:not(.js) .galerie.ecran.epingle { height
 html.calme .galerie-piste, html:not(.js) .galerie-piste { width: auto; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
 html.calme :is(.carte-lieu, .carte-photo), html:not(.js) :is(.carte-lieu, .carte-photo) { flex: 0 0 min(380px, 78vw); height: auto; scroll-snap-align: start; }
 html.calme :is(.carte-lieu-media, .carte-photo-media), html:not(.js) :is(.carte-lieu-media, .carte-photo-media) { aspect-ratio: 3 / 4; flex: none; }
-@media (max-width: 760px) {
+@media (max-width: 760px), (max-height: 500px) {
   .galerie.ecran.epingle { height: auto; min-height: 0; }
   .galerie-piste { width: auto; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
   .carte-lieu, .carte-photo { flex: 0 0 78vw; height: auto; aspect-ratio: auto; scroll-snap-align: start; }
   .carte-lieu-media, .carte-photo-media { aspect-ratio: 4 / 5; flex: none; }
   .galerie-aide { display: block; }
   .galerie-progres { display: none; }
+}
+/* Écran large mais bas (téléphone à l'horizontale) : la galerie défile au doigt, cartes à la mesure de la hauteur. */
+@media (min-width: 761px) and (max-height: 500px) {
+  .carte-lieu, .carte-photo { flex-basis: min(40vw, 340px); }
+  .carte-lieu-media, .carte-photo-media { aspect-ratio: 4 / 3; }
 }
 @media (hover: none) { .galerie-aide { display: block; } }
 
@@ -283,7 +288,7 @@ html.calme :is(.carte-lieu-media, .carte-photo-media), html:not(.js) :is(.carte-
 .agenda-passes h3 { font-size: 1.2rem; }
 .agenda-passes ul { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 10px; }
 .evenement-passe { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 14px 0; border-top: 1px solid rgba(246,239,229,.2); opacity: .78; }
-.evenement-passe-titre { font-family: var(--police-titres); font-size: 1.15rem; text-decoration: line-through; text-decoration-thickness: 1px; }
+.evenement-passe-titre { font-family: var(--police-titres); font-size: 1.15rem; }
 .evenement-passe-date { grid-column: 1; font-size: .92rem; }
 .evenement-passe .etiquette { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
 @media (max-width: 900px) {
@@ -333,14 +338,14 @@ html.calme :is(.carte-lieu-media, .carte-photo-media), html:not(.js) :is(.carte-
 .adresse a { font-weight: 700; }
 .note-google { font-weight: 600; }
 .venir-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.carte-acces { margin: 0; max-width: 460px; justify-self: center; width: 100%; }
+.carte-acces { margin: 0; max-width: 460px; justify-self: end; width: 100%; }
 .carte-acces svg { width: 100%; height: auto; }
 .carte-cadre { fill: var(--creme-2); stroke: var(--ligne); pointer-events: none; }
 .carte-route { pointer-events: none; fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; opacity: .9; }
 .carte-ville circle { fill: var(--brun); }
 .carte-ville text { font: 600 15px var(--police-texte); fill: var(--brun); paint-order: stroke; stroke: var(--creme-2); stroke-width: 6px; stroke-linejoin: round; }
-.carte-ville--centre circle { fill: var(--rouge-logo); stroke: var(--creme); stroke-width: 4; }
-.carte-ville--centre text { font: italic 600 20px var(--police-titres); fill: var(--rouge-logo); }
+.carte-ville--centre circle { fill: var(--braise); stroke: var(--creme); stroke-width: 4; }
+.carte-ville--centre text { font: italic 600 20px var(--police-titres); fill: var(--braise); }
 @media (max-width: 860px) { .venir-grille, .acces { grid-template-columns: 1fr; } }
 
 /* ---------- Pages intérieures ---------- */
@@ -354,9 +359,14 @@ html[data-saison="ete"] .page-tete-fond::after { background: linear-gradient(0de
 .page-titre { font-size: clamp(2.6rem, min(7.4vw, 12vh), 7rem); line-height: .98; margin-bottom: .3em; max-width: 13em; font-weight: 400; letter-spacing: -.025em; }
 .page-intro { max-width: 36em; font-size: clamp(1.02rem, .96rem + .35vw, 1.22rem); }
 .page-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin: 0; }
-.page-tete .bouton { background: var(--lueur); color: var(--brun); }
+
 .page-info { font-weight: 700; }
 .page-tete--court { min-height: min(68svh, 620px); }
+/* Entête court sur téléphone : le texte occupe presque toute la photo, un voile en plus garde le contraste. */
+@media (max-width: 760px) {
+  .page-tete--court .page-tete-fond::before { content: ''; position: absolute; inset: 0; z-index: 1; background: rgba(20,13,10,.32); }
+  html[data-saison="ete"] .page-tete--court .page-tete-fond::before { background: rgba(10,32,28,.32); }
+}
 .page-tete--court [data-sommaire] ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0 18px; }
 .page-tete--court [data-sommaire] a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; font-weight: 600; }
 .page-tete--court [data-sommaire] a[aria-current] { color: var(--lueur); }
@@ -458,13 +468,16 @@ label.jour:has(input:disabled) { background: transparent; opacity: .45; text-dec
 .puce-choix input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
 .puce-choix span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid currentColor; font-weight: 700; transition: background-color .25s, color .25s; }
 .puce-choix input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--creme-texte); }
-.sombre .puce-choix input:checked + span { background: var(--lueur); border-color: var(--lueur); color: var(--brun); }
+.sombre .puce-choix input:checked + span { background: var(--creme-texte); border-color: var(--creme-texte); color: var(--brun); }
 .puce-choix input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
 .champ-libelle { font-weight: 600; display: block; margin-bottom: 6px; }
 fieldset.champ { border: 0; padding: 0; }
-.champs-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; align-items: start; }
+.champs-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 16px; align-items: start; }
 .champ > input:not([type="radio"]):not([type="checkbox"]), .champ > select { height: 48px; }
-.champs-3 { display: grid; grid-template-columns: 1fr 1.2fr .8fr; gap: 0 16px; }
+/* Un champ suit la largeur de sa colonne, même étroite (sa taille par défaut ne pousse plus la grille). */
+.champ { grid-template-columns: minmax(0, 1fr); }
+.champ > :is(input:not([type="radio"]):not([type="checkbox"]), select, textarea) { min-width: 0; width: 100%; }
+.champs-3 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, .8fr); gap: 0 16px; }
 @media (max-width: 640px) { .champs-2, .champs-3 { grid-template-columns: 1fr; } }
 .panier { position: sticky; top: calc(var(--entete-h) + 20px); padding: clamp(18px, 2.6vw, 28px); border-radius: calc(var(--rayon) * 1.2); background: rgba(246,239,229,.07); box-shadow: inset 0 0 0 1px rgba(246,239,229,.18); }
 .panier-media { aspect-ratio: 16 / 9; margin-bottom: 16px; }
@@ -577,7 +590,7 @@ html.calme .pool-video video { display: none; }
 .avis { padding-block: var(--section); overflow: hidden; isolation: isolate; color: var(--creme-texte); }
 .avis-fond { position: absolute; inset: 0; border-radius: 0; z-index: -2; }
 .avis::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,13,10,.82), rgba(20,13,10,.5) 75%, rgba(20,13,10,.3)); z-index: -1; }
-.avis-contenu { max-width: 820px; }
+.avis-contenu > * { max-width: 820px; }
 @media (max-width: 760px) { .avis::before { background: rgba(20,13,10,.72); } }
 .avis-citation { margin: 0 0 18px; }
 .avis-citation p { font-family: var(--police-titres); font-style: italic; font-size: clamp(2rem, 1.4rem + 3vw, 4rem); line-height: 1.05; margin-bottom: .3em; }
@@ -710,7 +723,7 @@ html.calme .saisons-scene { --coupe: 50%; }
 /* Fonds générés : la mention « Illustration générée » en haut, loin des vraies photos posées dessus. */
 :is(.journee-fond, .weekend-fond, .infos-fond) .mention-ia { top: 10px; bottom: auto; }
 /* Pied de page sur téléphone : le sommaire sur deux colonnes. */
-@media (max-width: 560px) { .pied nav ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; } }
+.pied nav ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(16px, 2vw, 32px); }
 
 /* Contrôles de l'audit : zones tactiles, fonds sombres connus sous les textes posés sur photo, en-tête sur téléphone. */
 .entete-logo { min-width: 44px; }
@@ -747,3 +760,106 @@ html[data-saison="ete"] :is(.hero-surtitre, .page-tete .surtitre) { background: 
 .fiche-date-jour { font-family: var(--police-titres); font-size: clamp(2.2rem, 1.6rem + 2vw, 3.4rem); line-height: 1.05; white-space: nowrap; }
 .fiche-date-mois { font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .8rem; }
 @media (max-width: 560px) { .fiche-passee-grille { grid-template-columns: 1fr; } .fiche-date { width: 120px; } }
+
+/* ===== v3 : expérience et finitions ===== */
+/* Deuxième ligne des titres de pages, comme sur l'accueil : italique champagne, légèrement décalée. */
+.page-titre-l2 { display: block; font-style: italic; color: #f0d9b0; padding-left: .5em; }
+@media (max-width: 560px) { .page-titre-l2 { padding-left: 0; } }
+/* Surtitre de l'accueil : version courte sur téléphone. */
+.hero-surtitre-court { display: none; }
+@media (max-width: 560px) { .hero-surtitre-long { display: none; } .hero-surtitre-court { display: inline; } }
+/* En ce moment (accueil). */
+.moment { padding-block: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px); }
+.moment-titre { margin-bottom: clamp(18px, 3vw, 32px); }
+.moment-grille { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); }
+.moment-lien { display: grid; gap: 6px; height: 100%; padding: 12px 12px 18px; border-radius: calc(var(--rayon) * 1.2); background: var(--creme-2); color: inherit; text-decoration: none; transition: background-color .3s, box-shadow .3s; }
+.moment-lien:hover { background: color-mix(in srgb, var(--creme-2) 70%, var(--accent) 12%); }
+.moment-media { aspect-ratio: 16 / 10; margin-bottom: 8px; }
+.moment-media img { transition: scale .6s var(--courbe); }
+.moment-lien:hover .moment-media img { scale: 1.05; }
+.moment-sur { font: 700 .78rem/1.3 var(--police-texte); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.moment-nom { margin: 0; font-size: clamp(1.3rem, 1.1rem + .8vw, 1.7rem); }
+.moment-texte { color: var(--texte-doux); }
+.moment-voir { margin-top: auto; padding-top: 6px; font-weight: 700; }
+@media (max-width: 860px) { .moment-grille { grid-template-columns: 1fr; } .moment-lien { grid-template-columns: 38% minmax(0, 1fr); column-gap: 14px; align-items: start; } .moment-media { grid-row: 1 / span 5; aspect-ratio: 1; margin: 0; } }
+/* Infos pratiques : la saison d'été regroupée sous son titre. */
+.infos-grille .info-bloc--horaires { grid-column: span 2; }
+.infos-ete-titre { grid-column: 1 / -1; margin: 18px 0 0; font: 700 .8rem/1.3 var(--police-texte); letter-spacing: .14em; text-transform: uppercase; color: var(--brun); }
+@media (max-width: 960px) { .infos-grille .info-bloc--horaires { grid-column: 1 / -1; } }
+/* La carte : sous-navigation alignée, rubrique en cours, fondu au bord sur téléphone. */
+.sous-nav ul { padding-inline: 0; }
+.sous-nav a { position: relative; }
+.sous-nav a[aria-current] { color: var(--accent); }
+.sous-nav a[aria-current]::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px; background: var(--accent); border-radius: 2px; }
+@media (max-width: 760px) { .sous-nav ul { -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); padding-right: 32px; } }
+/* Deux saisons : hors saison, le panneau de l'autre saison reste court ; un clic dessus change la saison. */
+html:not([data-saison="ete"]) .saison--ete :is(.saison-detail, .mention-alcool, p:not(.surtitre)) { display: none; }
+html[data-saison="ete"] .saison--hiver p:not(.surtitre) { display: none; }
+html:not([data-saison="ete"]) .saison--ete, html[data-saison="ete"] .saison--hiver { cursor: pointer; }
+@media (max-width: 900px) {
+  .saison--hiver::after { background: linear-gradient(0deg, rgba(20,13,10,.92), rgba(20,13,10,.6) 55%, rgba(20,13,10,0) 88%); }
+  .saison--ete::after { background: linear-gradient(0deg, rgba(10,32,28,.92), rgba(10,32,28,.6) 55%, rgba(10,32,28,0) 88%); }
+}
+/* Sections sombres : fond d'attente sombre (jamais de rectangle crème pendant le chargement). */
+.sombre .media, .avis .media, .page-tete .media { background: var(--fond-sombre-2, #2a1d17); }
+/* Puces de choix : la puce cochée en brun avec une coche, distincte du bouton principal ; anneau de focus plus doux. */
+.puce-choix input:checked + span { background: var(--brun); border-color: var(--brun); color: var(--creme-texte); box-shadow: none; }
+.puce-choix input:checked + span::before { content: '✓\00a0'; }
+.puce-choix input:focus-visible + span { outline: 2px solid color-mix(in srgb, var(--accent) 60%, transparent); outline-offset: 3px; }
+/* Rythme : deux sections claires qui se suivent ne doublent pas leur marge. */
+main > section:not(.sombre):not(.galerie):not(.hero):not(.page-tete):not(.avis):not(.journee):not(.weekend) + section:not(.sombre):not(.galerie):not(.avis):not(.journee):not(.weekend):not(.infos-grille-section) { padding-top: calc(var(--section) * .45); }
+/* Carte cadeau : le prénom et le petit mot à la plume. */
+.carte-cadeau-pour { font-family: 'Caveat', var(--police-titres); font-size: 1.6rem; font-weight: 600; }
+.carte-cadeau-mot { margin: 2px 0 0; font-family: 'Caveat', var(--police-titres); font-size: 1.15rem; line-height: 1.2; opacity: .9; }
+/* Saint-Sylvestre : le menu comme un carton de fête. */
+.sylvestre-menu > div:first-child { padding: clamp(24px, 4vw, 48px); border-radius: 14px; background: var(--nuit); color: var(--creme-texte); box-shadow: inset 0 0 0 1px rgba(240,217,176,.55), inset 0 0 0 9px var(--nuit), inset 0 0 0 10px rgba(240,217,176,.35); }
+.sylvestre-menu > div:first-child h2 { text-align: center; color: #f0d9b0; }
+.sylvestre-menu .menu-fete li { border-color: rgba(240,217,176,.18); text-align: center; }
+.sylvestre-menu .menu-fete em { color: #f0d9b0; font-style: normal; letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; }
+.sylvestre-menu .menu-fete span, .sylvestre-menu .liste-points li, .sylvestre-menu .mention-alcool { color: rgba(246,239,229,.82); }
+.sylvestre-menu .menu-tarif { line-height: 1.15; text-align: center; color: #f0d9b0; }
+.sylvestre-menu .liste-points li::before { background: #f0d9b0; }
+.sylvestre-menu .actions { justify-content: center; }
+.sylvestre-menu .bouton--contour { color: var(--creme-texte); }
+.sylvestre-menu .frise-etape::before { background: var(--nuit); box-shadow: 0 0 0 3px #f0d9b0; }
+.sylvestre-menu .frise-heure { color: #f0d9b0; }
+.sylvestre-menu .frise-texte { color: rgba(246,239,229,.78); }
+.sylvestre-menu .frise-titre { color: var(--creme-texte); }
+/* Fiches des soirées passées : photo désaturée ; Soirée libanaise : l'affiche floue en fond, nette à droite. */
+.page-tete--passee .page-tete-media img { filter: grayscale(.55); }
+.page-tete--affiche .page-tete-media img { filter: blur(22px) brightness(.5) grayscale(.3); scale: 1.15; }
+.page-tete-affiche { position: absolute; z-index: 1; right: max(var(--gouttiere), (100vw - var(--largeur)) / 2); bottom: calc(var(--barres-h) + clamp(40px, 9vh, 96px)); width: clamp(180px, 22vw, 320px); margin: 0; rotate: 3deg; box-shadow: 0 30px 60px -25px rgba(0,0,0,.8); }
+.page-tete-affiche-media { aspect-ratio: 4 / 5; }
+@media (max-width: 860px) { .page-tete-affiche { display: none; } }
+/* Agenda : la vente des fêtes, à côté des événements. */
+.agenda-aussi { margin-top: clamp(24px, 4vw, 40px); display: grid; grid-template-columns: minmax(120px, 220px) 1fr; gap: clamp(16px, 3vw, 32px); align-items: center; padding: clamp(16px, 2vw, 24px); border-radius: calc(var(--rayon) * 1.2); box-shadow: inset 0 0 0 1px var(--ligne); }
+.agenda-aussi h3 { margin: 0 0 6px; }
+.agenda-aussi-media { aspect-ratio: 4 / 3; }
+@media (max-width: 560px) { .agenda-aussi { grid-template-columns: 1fr; } }
+/* Demande en étapes : récapitulatif recopié à l'étape 4 sur téléphone. */
+.recap-copie dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; margin: 12px 0; padding: 14px; border-radius: var(--rayon); background: var(--creme-2); }
+.recap-copie dt { font-weight: 700; }
+.recap-copie dd { margin: 0; }
+@media (max-width: 860px) { .recap-media { aspect-ratio: 21 / 8; } }
+/* Réserver : formule et liens vers les demandes de réception. */
+.evenement-resume .note, .reception-liens p { margin: 0 0 12px; }
+/* Pied de page : une vraie fin sombre, avec l'action principale. */
+.pied { background: var(--fond-sombre); color: var(--creme-texte); border-top: 0; }
+.pied a, .pied button.lien { color: var(--creme-texte); }
+.pied .a-completer-texte, .pied-bas { color: rgba(246,239,229,.72); }
+.pied-fin { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 18px 40px; padding-bottom: clamp(32px, 5vw, 56px); margin-bottom: clamp(32px, 5vw, 56px); border-bottom: 1px solid rgba(240,217,176,.18); }
+.pied-fin-titre { margin: 0; font-family: var(--police-titres); font-size: clamp(2.6rem, 1.6rem + 4vw, 5.4rem); line-height: 1; letter-spacing: -.02em; }
+.pied-fin-titre em { display: block; padding-left: .5em; color: #f0d9b0; }
+.pied-fin .bouton:not(.bouton--contour) { background: var(--accent); color: var(--creme-texte); box-shadow: 0 0 0 1px rgba(240,217,176,.22), 0 10px 30px -12px rgba(232,131,58,.75); }
+.pied-logo img { filter: none; }
+/* En-tête : le bouton Menu reste visible sur ordinateur, pour les pages qui ne tiennent pas dans l'en-tête. */
+/* Bouton Menu toujours là (le menu complet, les deux saisons) ; sur téléphone, il remplace les liens de l'en-tête.
+   Sans JavaScript, c'est un lien vers le plan du site en pied de page. */
+[data-menu-bouton] { display: inline-flex; align-items: center; text-decoration: none; }
+@media (max-width: 760px) {
+  [data-nav] { display: none; }
+  .entete-actions { margin-left: auto; }
+  html:not(.js) { --barres-h: 72px; }
+}
+/* Sans JavaScript, personne ne mesure si les liens tiennent : en dessous de la largeur où ils tiennent, le bouton Menu suffit. */
+@media (max-width: 1079px) { html:not(.js) [data-nav] { display: none; } html:not(.js) .entete-actions { margin-left: auto; } }

@@ -10,7 +10,7 @@
       data-fx="parallaxe"   image qui glisse dans son cadre (data-fx-force = déplacement en %, 10 par défaut ; bords jamais visibles)
       data-fx="zoom"        image qui se resserre pendant qu'elle entre dans l'écran
       data-fx="trace"       traits SVG qui se dessinent au défilement et finissent tracés en entier
-      data-fx="galerie"     section épinglée dont la piste [data-galerie] défile à l'horizontale (761 px et plus)
+      data-fx="galerie"     section tenue à l'écran (sticky) dont la piste [data-galerie] défile à l'horizontale (761 px de large et 501 px de haut au moins)
       data-fx="onde"        image WebGL qui ondule selon la vitesse de défilement, loupe douce sous la souris (onde.js)
    3. Effets au survol, souris seulement (ils ne comptent jamais comme effets de section) :
       data-survol="magnetique"  bouton attiré par la souris
@@ -22,7 +22,7 @@
    Mode calme, secours, retour arrière, retour à la section : rien ne bouge à l'arrivée, tout est dans son état final.
    Sans JavaScript : contenu normal. Aucune lecture de mise en page pendant le défilement : les textes sont découpés
    à l'avance, pendant les temps morts, et rétablis quand le défilement s'arrête. */
-import { html, etat, quand, stockage } from './etat.js?v=2';
+import { html, etat, quand, stockage } from './etat.js?v=3';
 
 const ENTREES = ['lignes', 'mots', 'cascade', 'rideau'];
 const decoupes = new Set();
@@ -221,17 +221,28 @@ function galerie(el, gsap) {
   const piste = el.querySelector('[data-galerie]');
   if (!piste) return;
   const barre = el.querySelector('[data-fx-progres]') || el.querySelector('.galerie-progres span');
-  gsap.matchMedia().add('(min-width: 761px)', () => {
+  gsap.matchMedia().add('(min-width: 761px) and (min-height: 501px)', () => {
     /* Épinglée, la piste ne défile plus d'elle-même : elle sort de la tabulation et n'est plus une région
        (elle le redevient en mode calme, sans JavaScript et sur téléphone, où elle défile à l'horizontale). */
     const garde = ['tabindex', 'role', 'aria-label'].map((a) => [a, piste.getAttribute(a)]);
     garde.forEach(([a]) => piste.removeAttribute(a));
     /* Largeur utile sans la barre de défilement : la dernière carte s'arrête bien au bord. */
     const distance = () => Math.max(0, piste.scrollWidth - document.documentElement.clientWidth);
+    /* Tenue par position: sticky dans un conteneur aussi haut que le trajet, plutôt qu'épinglée par ScrollTrigger :
+       c'est le navigateur qui la garde en place pendant le défilement natif, sans image en retard à l'entrée ni à la sortie. */
+    const colle = document.createElement('div');
+    colle.className = 'galerie-colle';
+    el.parentNode.insertBefore(colle, el);
+    colle.appendChild(el);
+    el.style.position = 'sticky';
+    el.style.top = '0px';
+    const hauteur = () => { colle.style.height = `${el.offsetHeight + distance()}px`; };
+    hauteur();
+    window.ScrollTrigger.addEventListener('refreshInit', hauteur);
     const tw = gsap.fromTo(piste, { x: 0 }, {
       x: () => -distance(), ease: 'none',
       scrollTrigger: {
-        trigger: el, start: 'top top', end: () => '+=' + distance(), pin: true, anticipatePin: 1, scrub: 0.6, invalidateOnRefresh: true,
+        trigger: colle, start: 'top top', end: () => '+=' + distance(), scrub: 0.6, invalidateOnRefresh: true,
         onUpdate: (st) => { if (barre) barre.style.transform = `scaleX(${st.progress})`; },
       },
     });
@@ -241,10 +252,19 @@ function galerie(el, gsap) {
       if (!st || !carte || !distance()) return;
       const p = Math.min(1, Math.max(0, (carte.offsetLeft - 40) / distance()));
       window.scrollTo({ top: st.start + p * (st.end - st.start), behavior: 'instant' });
+      /* Sans attendre le lissage : la carte qui a le focus est à l'écran tout de suite. */
+      window.ScrollTrigger.update();
+      const lissage = st.getTween();
+      if (lissage) lissage.progress(1);
+      el.scrollLeft = 0;
     };
     piste.addEventListener('focusin', focus);
     return () => {
       piste.removeEventListener('focusin', focus);
+      window.ScrollTrigger.removeEventListener('refreshInit', hauteur);
+      colle.parentNode.insertBefore(el, colle);
+      colle.remove();
+      el.style.position = ''; el.style.top = '';
       garde.forEach(([a, v]) => { if (v !== null) piste.setAttribute(a, v); });
     };
   });
@@ -328,7 +348,7 @@ export function initEffets() {
   faire('[data-fx="galerie"]', galerie);
   try { survol(gsap); } catch (err) { console.error('[effets] survol', err); }
   if (document.querySelector('[data-fx="onde"]')) {
-    return import('./onde.js?v=2').then((m) => m.initOnde()).catch((err) => console.error('[effets] onde', err));
+    return import('./onde.js?v=3').then((m) => m.initOnde()).catch((err) => console.error('[effets] onde', err));
   }
   return Promise.resolve();
 }

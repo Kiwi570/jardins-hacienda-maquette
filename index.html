@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="2" data-curseur>
+<html lang="fr" data-v="3" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -43,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 <style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=2">
-<link rel="stylesheet" href="/assets/css/site.css?v=2">
-<link rel="modulepreload" href="/assets/js/site.js?v=2">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
+<link rel="stylesheet" href="/assets/css/socle.css?v=3">
+<link rel="stylesheet" href="/assets/css/site.css?v=3">
+<link rel="modulepreload" href="/assets/js/site.js?v=3">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=2"></script>
+<script type="module" src="/assets/js/site.js?v=3"></script>
 <meta name="theme-color" content="#f4ece1">
 <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -84,11 +84,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
     </a>
     <nav data-nav aria-label="Navigation principale">
-      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
+      <ul><li data-saison-seul="hiver"><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li data-saison-seul="hiver"><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li data-saison-seul="ete"><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li data-saison-seul="ete"><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
     </nav>
     <div class="entete-actions">
-      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
-      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+      <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver">Réserver</a>
+      <a href="#pied-nav" data-menu-bouton data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></a>
     </div>
   </div>
 </header>
@@ -116,11 +116,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     <div class="hero-ombre" aria-hidden="true"></div>
   </div>
   <div class="hero-contenu conteneur">
-    <p class="surtitre hero-surtitre" data-anime="gsap">Restaurant &amp; lieu de réception à Moineville, à 15 km de Metz</p>
+    <p class="surtitre hero-surtitre" data-anime="gsap"><span class="hero-surtitre-long">Restaurant &amp; lieu de réception à Moineville, à 15 km de Metz</span><span class="hero-surtitre-court">Moineville · à 15 km de Metz</span></p>
     <h1 class="hero-titre" data-intro-titre data-superpose><span class="hero-l1" data-anime="gsap">Les Jardins</span> <span class="hero-l2" data-anime="gsap">de l’Hacienda</span></h1>
     <p class="hero-texte" data-anime="gsap"><span data-saison-seul="hiver">La cuisine de saison du chef Régis Clauss, servie au coin du feu, et des soirées pour finir l’année en beauté.</span><span data-saison-seul="ete">De juin à septembre, les journées festives : déjeuner au bord de l’eau, puis l’après-midi au soleil, sous les palmiers.</span></p>
     <p class="hero-actions" data-anime="gsap">
-      <a href="/reserver" class="bouton" data-libelle="Réserver" data-action-principale data-survol="magnetique">Réserver une table</a>
+      <a href="/reserver#formulaire" class="bouton" data-libelle="Réserver" data-action-principale data-survol="magnetique">Réserver une table</a>
       <a href="/la-carte" class="bouton bouton--clair" data-libelle="La carte">Voir la carte</a>
     </p>
     <div class="hero-bas" data-anime="gsap">
@@ -132,6 +132,72 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     </div>
   </div>
   <button type="button" class="pause-animation" data-pause-surface aria-pressed="false" data-libelle-pause="Mettre l’animation en pause" data-libelle-lecture="Reprendre l’animation"><span class="visuellement-cache" data-libelle-bouton>Mettre l’animation en pause</span><span class="pause-icone" aria-hidden="true"></span></button>
+</section>
+<section class="moment conteneur" id="en-ce-moment">
+  <h2 class="moment-titre" data-anime="lignes">En ce moment</h2>
+  <ul class="moment-grille" data-anime="cascade">
+    <li class="moment-tuile" data-saison-seul="hiver" data-masquer-apres="2027-01-01T00:00:00+01:00">
+      <a class="moment-lien" href="/agenda/saint-sylvestre">
+        <figure class="media moment-media" style="--cadrage:50% 28%">
+  <picture>
+    <img src="/assets/images/site/affiche-saint-sylvestre-1254.webp" srcset="/assets/images/site/affiche-saint-sylvestre-640.webp 640w, /assets/images/site/affiche-saint-sylvestre-1254.webp 1254w" sizes="(max-width: 760px) 90vw, 30vw" alt="" width="1254" height="1254" loading="lazy" decoding="async">
+  </picture>
+</figure>
+        <span class="moment-sur">Jeudi 31 décembre</span>
+        <h3 class="moment-nom">Saint-Sylvestre</h3>
+        <span class="moment-texte">Menu de fête en cinq temps, soirée animée par DJ Laurent Geymet.</span>
+        <span class="moment-voir" aria-hidden="true">Découvrir →</span>
+      </a>
+    </li><li class="moment-tuile" data-saison-seul="hiver" data-masquer-apres="2026-12-31T23:59:59+01:00">
+      <a class="moment-lien" href="/a-emporter">
+        <figure class="media moment-media" data-grok style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/table-fetes-mobile-640.webp 640w" sizes="(max-width: 760px) 90vw, 30vw">
+    <img src="/assets/images/grok/table-fetes-1168.webp" srcset="/assets/images/grok/table-fetes-640.webp 640w, /assets/images/grok/table-fetes-1168.webp 1168w" sizes="(max-width: 760px) 90vw, 30vw" alt="" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+        <span class="moment-sur">Du 5 au 31 décembre</span>
+        <h3 class="moment-nom">Les incontournables des fêtes</h3>
+        <span class="moment-texte">Escargots, tourtes, foie gras maison… à commander, puis à retirer au restaurant.</span>
+        <span class="moment-voir" aria-hidden="true">Découvrir →</span>
+      </a>
+    </li><li class="moment-tuile" data-saison-seul="ete">
+      <a class="moment-lien" href="/terrasse-piscine#journee">
+        <figure class="media moment-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/journee-festive-1280.webp" srcset="/assets/images/site/journee-festive-640.webp 640w, /assets/images/site/journee-festive-1280.webp 1280w, /assets/images/site/journee-festive-1536.webp 1536w" sizes="(max-width: 760px) 90vw, 30vw" alt="" width="1280" height="1707" loading="lazy" decoding="async">
+  </picture>
+</figure>
+        <span class="moment-sur">Mardi, mercredi, jeudi</span>
+        <h3 class="moment-nom">Les journées festives</h3>
+        <span class="moment-texte">Déjeuner, puis la piscine dès 14 h 30, jusqu’à 19 h.</span>
+        <span class="moment-voir" aria-hidden="true">Découvrir →</span>
+      </a>
+    </li><li class="moment-tuile" data-saison-seul="ete">
+      <a class="moment-lien" href="/terrasse-piscine#weekend">
+        <figure class="media moment-media" style="--cadrage:50% 50%">
+  <picture>
+    <img src="/assets/images/site/broche-1280.webp" srcset="/assets/images/site/broche-640.webp 640w, /assets/images/site/broche-1280.webp 1280w" sizes="(max-width: 760px) 90vw, 30vw" alt="" width="1280" height="853" loading="lazy" decoding="async">
+  </picture>
+</figure>
+        <span class="moment-sur">Vendredi, samedi, dimanche</span>
+        <h3 class="moment-nom">Le week-end</h3>
+        <span class="moment-texte">Service midi et soir le vendredi, soirée le samedi, Grand Buffet le dimanche.</span>
+        <span class="moment-voir" aria-hidden="true">Découvrir →</span>
+      </a>
+    </li><li class="moment-tuile">
+      <a class="moment-lien" href="/carte-cadeau">
+        <figure class="media moment-media" data-grok style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/cadeau-kraft-mobile-640.webp 640w" sizes="(max-width: 760px) 90vw, 30vw">
+    <img src="/assets/images/grok/cadeau-kraft-1168.webp" srcset="/assets/images/grok/cadeau-kraft-640.webp 640w, /assets/images/grok/cadeau-kraft-1168.webp 1168w" sizes="(max-width: 760px) 90vw, 30vw" alt="" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+        <span class="moment-sur">Toute l’année</span>
+        <h3 class="moment-nom">La carte cadeau</h3>
+        <span class="moment-texte">Valable 6 mois sur toute la carte du chef.</span>
+        <span class="moment-voir" aria-hidden="true">Découvrir →</span>
+      </a>
+    </li>
+  </ul>
 </section>
 <section class="saisons" id="saisons">
   <div class="conteneur saisons-tete">
@@ -185,25 +251,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <p class="chef-sous" data-anime>Une signature culinaire entre tradition et créativité</p>
       <p data-anime>À la tête de notre restaurant, Régis Clauss, un chef passionné et créatif, sublime les produits de saison pour offrir une cuisine authentique et pleine de caractère. Chaque semaine, il réinvente sa carte en vous proposant des suggestions uniques, inspirées par la nature et le terroir.</p>
       <p data-anime>Laissez-vous séduire par une expérience culinaire riche en découvertes et venez partager un moment d’exception dans un cadre convivial. Toute l’équipe des Jardins de l’Hacienda vous attend avec impatience !</p>
-    </div>
-  </div>
-  <div class="conteneur chef-ardoise">
-    <div class="ardoise " data-effet="ardoise">
-  <figure class="media ardoise-fond" data-grok style="--cadrage:50% 50%">
-  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/ardoise-mobile-640.webp 640w" sizes="(max-width: 760px) 100vw, 60vw">
-    <img src="/assets/images/grok/ardoise-1168.webp" srcset="/assets/images/grok/ardoise-640.webp 640w, /assets/images/grok/ardoise-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 60vw" alt="Une ardoise vierge" width="1168" height="784" loading="lazy" decoding="async">
-  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
-</figure>
-  <div class="ardoise-texte">
-    <p class="ardoise-titre craie"><span>L’ardoise du moment</span></p>
-    <svg class="ardoise-trait" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" data-fx="trace"><path d="M4 16 C 90 6, 200 22, 396 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-    <ul class="ardoise-liste craie"><li><span>Entrée du moment : à compléter</span></li><li><span>Plat du moment : à compléter</span></li><li><span>Dessert du moment : à compléter</span></li><li><span>Annoncées aussi à la voix, en salle</span></li></ul>
-  </div>
-  <span class="ardoise-chiffon" aria-hidden="true"></span>
-</div>
-    <div class="chef-ardoise-texte">
-      <p data-anime>Chaque semaine, le chef imagine des suggestions à l’ardoise, annoncées à la voix et sur nos réseaux.</p>
-      <p data-anime><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="bouton bouton--clair">Les suggestions sur Instagram</a></p>
+      <p class="actions" data-anime><a href="/restaurant" class="bouton bouton--clair" data-libelle="Le restaurant">Le restaurant</a> <a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="bouton bouton--contour">Les suggestions sur Instagram</a></p>
     </div>
   </div>
 </section>
@@ -303,11 +351,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
         <h3 class="evenement-titre">Saint-Sylvestre</h3>
         <p>Menu de fête en cinq temps, formule accord mets et vins, soirée animée par DJ Laurent Geymet.</p>
         <div class="decompte " data-decompte="2027-01-01T00:00:00+01:00" data-effet="decompte" role="timer" aria-label="Avant le 31 décembre, minuit">
-  <p class="visuellement-cache" data-decompte-texte>59 jours, 0 heures, 7 minutes</p>
-  <div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="jours" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:5" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:9" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">jours</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="heures" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:0" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:0" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">heures</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="minutes" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:0" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:7" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">minutes</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="secondes" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:1" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:9" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">secondes</span></div>
+  <p class="visuellement-cache" data-decompte-texte>58 jours, 20 heures, 25 minutes</p>
+  <div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="jours" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:5" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:8" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">jours</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="heures" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:2" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:0" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">heures</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="minutes" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:2" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:5" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">minutes</span></div><div class="decompte-unite" aria-hidden="true"><span class="decompte-chiffres" data-unite="secondes" data-taille="2"><span class="chiffre-boite"><span class="chiffre-bande" style="--n:2" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="chiffre-boite"><span class="chiffre-bande" style="--n:5" data-audit-ignorer><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></span><span class="decompte-libelle">secondes</span></div>
 </div>
         <p class="evenement-actions">
-          <a href="/reserver?sujet=evenement&amp;evenement=saint-sylvestre" class="bouton" data-libelle="Réserver">Réserver la soirée</a>
+          <a href="/reserver?sujet=evenement&amp;evenement=saint-sylvestre#formulaire" class="bouton" data-libelle="Réserver">Réserver la soirée</a>
           <a href="/agenda/saint-sylvestre" class="bouton bouton--clair" data-libelle="Saint-Sylvestre">Voir la soirée</a>
         </p>
       </div>
@@ -320,11 +368,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
 </section>
 <section class="receptions" id="receptions">
-  <p class="receptions-mots" data-anime="mots" aria-hidden="true">Mariage · Baptême · Anniversaire · Pot de départ</p>
+  <p class="receptions-mots" data-anime="mots" aria-hidden="true">Mariage · Baptême · Anniversaire · Pot de départ</p>
   <div class="conteneur receptions-grille">
     <figure class="media receptions-media" data-fx="zoom" style="--cadrage:50% 50%">
   <picture>
-    <img src="/assets/images/site/lieu-mariages-1280.webp" srcset="/assets/images/site/lieu-mariages-640.webp 640w, /assets/images/site/lieu-mariages-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Une réception de mariage aux Jardins de l’Hacienda" width="1280" height="1707" loading="lazy" decoding="async">
+    <img src="/assets/images/site/mariage-g6-1280.webp" srcset="/assets/images/site/mariage-g6-640.webp 640w, /assets/images/site/mariage-g6-1280.webp 1280w" sizes="(max-width: 760px) 100vw, 50vw" alt="Une réception de mariage aux Jardins de l’Hacienda" width="1280" height="1707" loading="lazy" decoding="async">
   </picture>
 </figure>
     <div>
@@ -350,11 +398,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </picture>
 </figure>
       <h2>Les incontournables des fêtes</h2>
-      <p>Escargots, tourtes, pâté lorrain, foie gras maison… À retirer du 05/12 au 31/12.</p>
+      <p>Escargots, tourtes, pâté lorrain, foie gras maison… À retirer du 5 au 31 décembre.</p>
       <p><a href="/a-emporter" class="bouton" data-libelle="À emporter">Commander à emporter</a></p>
     </article>
     <article class="offrir-carte">
-      <div class="mini-carte-cadeau" data-survol="incline" aria-hidden="true"><img src="/assets/images/logo-hacienda-96.png" alt="" width="44" height="44" loading="lazy"><span class="mini-carte-nom">Carte cadeau</span><span class="mini-carte-montant">25 – 200 €</span></div>
+      <div class="mini-carte-cadeau" data-survol="incline" aria-hidden="true"><img src="/assets/images/logo-hacienda-96.png" alt="" width="44" height="44" loading="lazy"><span class="mini-carte-nom">Carte cadeau</span><span class="mini-carte-montant">Valable 6 mois</span></div>
       <h2>La carte cadeau</h2>
       <p>Valable 6 mois sur toute la carte du chef, pour offrir un moment aux Jardins.</p>
       <p><a href="/carte-cadeau" class="bouton bouton--contour" data-libelle="Carte cadeau">Offrir une carte</a></p>
@@ -374,7 +422,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <p class="a-completer-texte" data-anime>Horaires d’ouverture : à compléter</p>
       <p class="note-google" data-anime>4,5/5 sur Google · environ 1 400 avis <span class="a-confirmer">à confirmer</span></p>
       <p class="venir-actions" data-anime>
-        <a href="/reserver" class="bouton" data-libelle="Réserver">Réserver</a>
+        <a href="/reserver#formulaire" class="bouton" data-libelle="Réserver">Réserver</a>
         <a href="https://www.google.com/maps/search/?api=1&amp;query=6%20Vathier%20Haye%2054580%20Moineville" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="bouton bouton--contour">Itinéraire</a>
       </p>
     </div>
@@ -391,13 +439,17 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </section>
 </main>
 <footer class="pied" id="pied">
+  <div class="conteneur pied-fin">
+    <p class="pied-fin-titre">À bientôt <em>aux Jardins</em></p>
+    <p class="actions"><a href="/reserver#formulaire" class="bouton" data-libelle="Réserver">Réserver</a> <a class="bouton bouton--contour" href="tel:+33618212810">Appeler 06 18 21 28 10</a></p>
+  </div>
   <div class="conteneur pied-grille">
     <div>
-      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
       <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
       <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
     </div>
-    <nav aria-label="Sommaire">
+    <nav id="pied-nav" aria-label="Sommaire">
       <p><strong>Sommaire</strong></p>
       <ul><li><a href="/" data-libelle="Accueil" aria-current="page">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/fetes-privees" data-libelle="Fêtes privées">Fêtes privées</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li><li><a href="/confidentialite" data-libelle="Confidentialité">Confidentialité</a></li></ul>
     </nav>
@@ -413,7 +465,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </footer>
 <div data-barre-fixe>
   <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
-  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+  <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver">Réserver</a>
 </div>
 <p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
 </body>

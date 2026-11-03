@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="2" data-curseur>
+<html lang="fr" data-v="3" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -43,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 <style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=2">
-<link rel="stylesheet" href="/assets/css/site.css?v=2">
-<link rel="modulepreload" href="/assets/js/site.js?v=2">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
+<link rel="stylesheet" href="/assets/css/socle.css?v=3">
+<link rel="stylesheet" href="/assets/css/site.css?v=3">
+<link rel="modulepreload" href="/assets/js/site.js?v=3">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=2"></script>
+<script type="module" src="/assets/js/site.js?v=3"></script>
 <meta name="theme-color" content="#f4ece1">
 <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -84,11 +84,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
     </a>
     <nav data-nav aria-label="Navigation principale">
-      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
+      <ul><li data-saison-seul="hiver"><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li data-saison-seul="hiver"><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li data-saison-seul="ete"><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li data-saison-seul="ete"><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
     </nav>
     <div class="entete-actions">
-      <a class="bouton" href="/reserver" data-libelle="Réserver" aria-current="page">Réserver</a>
-      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+      <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver" aria-current="page">Réserver</a>
+      <a href="#pied-nav" data-menu-bouton data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></a>
     </div>
   </div>
 </header>
@@ -100,7 +100,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
 </div>
 <main id="contenu" tabindex="-1">
-<section class="page-tete " id="debut">
+<section class="page-tete page-tete--court" id="debut">
   <div class="page-tete-fond">
     <figure class="media page-tete-media" data-fx="parallaxe" style="--cadrage:50% 55%">
   <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/site/reserver-ouverture-mobile-640.webp 640w, /assets/images/site/reserver-ouverture-mobile-1280.webp 1280w" sizes="100vw">
@@ -110,7 +110,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
   <div class="page-tete-texte conteneur">
     <p class="surtitre">Réserver</p>
-    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Une table vous attend</h1>
+    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Une table <span class="page-titre-l2">vous attend</span></h1>
     <p class="page-intro" data-anime>Toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert confirme la réservation, le reste est réglé sur place.</p>
     <p class="page-actions"><a class="bouton" href="#formulaire" data-action-principale data-survol="magnetique">Remplir la demande</a><span class="page-info" data-info-cle>Appeler : 06 18 21 28 10</span></p>
   </div>
@@ -122,11 +122,20 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     <fieldset class="champ"><legend class="champ-libelle">Vous souhaitez</legend>
       <div class="puces"><label class="puce-choix"><input type="radio" name="sujet" value="table" checked data-sujet><span>Réserver une table</span></label><label class="puce-choix"><input type="radio" name="sujet" value="journee" data-sujet><span>Réserver une journée festive</span></label><label class="puce-choix"><input type="radio" name="sujet" value="evenement" data-sujet><span>Réserver un événement</span></label><label class="puce-choix"><input type="radio" name="sujet" value="reception" data-sujet><span>Organiser une réception</span></label><label class="puce-choix"><input type="radio" name="sujet" value="question" data-sujet><span>Poser une question</span></label></div>
     </fieldset>
-    <div class="champ" data-si-sujet="evenement" hidden><label for="r-evenement">Événement</label><select id="r-evenement" name="evenement"><option value="saint-sylvestre">Saint-Sylvestre : jeudi 31 décembre 2026</option></select></div>
+    <div class="champ" data-si-sujet="evenement" hidden><label for="r-evenement">Événement</label><select id="r-evenement" name="evenement"><option value="saint-sylvestre" data-date="2026-12-31">Saint-Sylvestre : jeudi 31 décembre 2026</option></select></div>
+    <div class="evenement-resume" data-si-sujet="evenement" hidden>
+      <fieldset class="champ" data-formules-pour="saint-sylvestre"><legend class="champ-libelle">Formule</legend>
+        <div class="puces"><label class="puce-choix"><input type="radio" name="formule" value="menu" checked><span>Le menu · 120 €</span></label><label class="puce-choix"><input type="radio" name="formule" value="accord"><span>Avec l’accord mets et vins · 170 €</span></label></div></fieldset>
+      <p class="note">La date et l’horaire sont ceux de l’événement. Un acompte par couvert confirme la réservation (montant à compléter).</p>
+    </div>
+    <div class="reception-liens" data-si-sujet="reception" hidden>
+      <p>Pour un mariage ou une fête, la demande en quatre étapes vous guide pas à pas.</p>
+      <p class="actions"><a href="/mariages#demande" class="bouton" data-libelle="Mariages">Un mariage</a> <a href="/fetes-privees#demande" class="bouton bouton--contour" data-libelle="Fêtes privées">Une fête privée</a></p>
+    </div>
     <p class="note" data-si-sujet="journee" hidden>Journées festives : de juin à septembre, le mardi, le mercredi et le jeudi, de 12 h à 19 h. Déjeuner, puis piscine à partir de 14 h 30.</p>
-    <div class="champs-3" data-si-sujet="table journee evenement reception">
-      <div class="champ"><label for="r-date">Date</label><input id="r-date" name="date" type="date" data-date-future required></div>
-      <div class="champ" data-si-sujet="table evenement reception"><span class="champ-libelle" id="l-service">Service</span><div class="puces" role="radiogroup" aria-labelledby="l-service"><label class="puce-choix"><input type="radio" name="service" value="midi" checked><span>Midi</span></label><label class="puce-choix"><input type="radio" name="service" value="soir"><span>Soir</span></label></div></div>
+    <div class="champs-3" data-si-sujet="table journee evenement">
+      <div class="champ" data-si-sujet="table journee"><label for="r-date">Date</label><input id="r-date" name="date" type="date" data-date-future required></div>
+      <div class="champ" data-si-sujet="table"><span class="champ-libelle" id="l-service">Service</span><div class="puces" role="radiogroup" aria-labelledby="l-service"><label class="puce-choix"><input type="radio" name="service" value="midi" checked><span>Midi</span></label><label class="puce-choix"><input type="radio" name="service" value="soir"><span>Soir</span></label></div></div>
       <div class="champ"><label for="r-couverts">Nombre de couverts</label><select id="r-couverts" name="couverts"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="plus">21 +</option></select></div>
     </div>
     <div class="champs-2">
@@ -138,7 +147,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     <div class="champ"><label for="r-message">Message (facultatif)</label><textarea id="r-message" name="message" rows="4"></textarea></div>
     <p class="mention-donnees">Vos données servent seulement à répondre à votre demande. <a href="/confidentialite">Politique de confidentialité</a>.</p>
     <button type="submit" class="bouton">Envoyer la demande</button>
-    <p data-message-envoi role="status" tabindex="-1" hidden></p>
+    <p data-message-envoi data-texte="Demande simulée : rien n&#39;a été envoyé. Sur le site final, elle partira vers l&#39;établissement." role="status" tabindex="-1" hidden></p>
   </form>
   <aside class="joindre">
     <figure class="media joindre-media" data-fx="parallaxe" data-fx-force="7" style="--cadrage:50% 50%">
@@ -155,13 +164,17 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </section>
 </main>
 <footer class="pied" id="pied">
+  <div class="conteneur pied-fin">
+    <p class="pied-fin-titre">À bientôt <em>aux Jardins</em></p>
+    <p class="actions"><a href="/reserver#formulaire" class="bouton" data-libelle="Réserver">Réserver</a> <a class="bouton bouton--contour" href="tel:+33618212810">Appeler 06 18 21 28 10</a></p>
+  </div>
   <div class="conteneur pied-grille">
     <div>
-      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
       <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
       <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
     </div>
-    <nav aria-label="Sommaire">
+    <nav id="pied-nav" aria-label="Sommaire">
       <p><strong>Sommaire</strong></p>
       <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/fetes-privees" data-libelle="Fêtes privées">Fêtes privées</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver" aria-current="page">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li><li><a href="/confidentialite" data-libelle="Confidentialité">Confidentialité</a></li></ul>
     </nav>
@@ -177,7 +190,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </footer>
 <div data-barre-fixe>
   <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
-  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+  <a class="bouton" href="#formulaire" data-sans-transition>Remplir la demande</a>
 </div>
 <p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
 </body>

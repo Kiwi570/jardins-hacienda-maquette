@@ -29,7 +29,10 @@ export const aConfirmer = (c) => html`<span class="a-confirmer">${c.s('commun.aC
 export const externe = (c, href, texte, classe = '', attrs = '') => html`<a href="${href}" target="_blank" rel="noopener" aria-describedby="nouvel-onglet"${classe ? brut(` class="${classe}"`) : ''}${brut(attrs ? ' ' + attrs : '')}>${texte}</a>`;
 
 /* Tête de page intérieure : titre, texte, action principale et information clé au-dessus de la ligne de flottaison. */
-export function tete(c, { surtitre: st, titre, texte, action, actionHref, info, image, alt, cadrage = '50% 50%', cadrageMobile, attrsMedia = 'data-fx="parallaxe"', avant = '', apres = '', classe = '' }) {
+export function tete(c, { surtitre: st, titre, titre2, texte, action, actionHref, actions, info, infoHiver, image, alt, cadrage = '50% 50%', cadrageMobile, attrsMedia = 'data-fx="parallaxe"', avant = '', apres = '', classe = '' }) {
+  /* actions : [{ texte, href, saison, externe }] — une action par saison (data-saison-seul), ou un lien externe (nouvel onglet). */
+  const liste = actions || (action ? [{ texte: action, href: actionHref }] : []);
+  const bouton = (a) => html`<a class="bouton" href="${a.href}" data-action-principale${a.saison ? brut(` data-saison-seul="${a.saison}"`) : ''}${a.externe ? brut(' target="_blank" rel="noopener" aria-describedby="nouvel-onglet"') : brut(' data-survol="magnetique"')}>${a.texte}</a>`;
   return html`<section class="page-tete ${classe}" id="debut">
   <div class="page-tete-fond">
     ${c.media({ nom: image, alt, cadrage, cadrageMobile, priorite: true, classe: 'page-tete-media', sizes: '100vw', attrs: attrsMedia })}
@@ -37,9 +40,9 @@ export function tete(c, { surtitre: st, titre, texte, action, actionHref, info, 
   ${avant}
   <div class="page-tete-texte conteneur">
     ${surtitre(st)}
-    <h1 class="page-titre" data-anime="lignes" data-intro-titre>${titre}</h1>
+    <h1 class="page-titre" data-anime="lignes" data-intro-titre>${titre}${titre2 ? html` <span class="page-titre-l2">${titre2}</span>` : ''}</h1>
     ${texte ? html`<p class="page-intro" data-anime>${texte}</p>` : ''}
-    <p class="page-actions">${action ? html`<a class="bouton" href="${actionHref}" data-action-principale data-survol="magnetique">${action}</a>` : ''}${info ? html`<span class="page-info" data-info-cle>${info}</span>` : ''}</p>
+    <p class="page-actions">${liste.map(bouton)}${info && infoHiver ? html`<span class="page-info" data-info-cle><span data-saison-seul="ete">${info}</span><span data-saison-seul="hiver">${infoHiver}</span></span>` : info ? html`<span class="page-info" data-info-cle>${info}</span>` : ''}</p>
   </div>
   ${apres}
 </section>`;
@@ -124,11 +127,12 @@ export function galerie(c, { id, titre, region, photos, surtitreTexte, texte }) 
 
 /* Demande de réception en quatre étapes, récapitulatif en direct (initEtapes, site.js). Partagée par Mariages et Fêtes privées :
    types = [[clé de texte, image, valeur]] ; le premier type est coché (l'adresse ?type= le change). */
-export function demandeReception(c, { types, titre, texte, image, alt }) {
+export function demandeReception(c, { types, titre, texte, image, alt, conditions = '' }) {
   return html`<section class="demande conteneur" id="demande">
   <div class="demande-tete">
     <h2 data-anime="lignes">${titre}</h2>
     <p data-anime>${texte}</p>
+    ${conditions}
     <ol class="etapes-liste" aria-hidden="true">${['e1', 'e2', 'e3', 'e4'].map((k, i) => html`<li data-etape-repere="${i + 1}">${c.t('mariages.' + k)}</li>`)}</ol>
   </div>
   <div class="demande-grille">
@@ -162,6 +166,7 @@ export function demandeReception(c, { types, titre, texte, image, alt }) {
         <fieldset class="etape" data-etape="4" hidden>
           <legend>${c.t('mariages.e4')}</legend>
           <p>${c.t('mariages.recapTexte')}</p>
+          <div class="recap-copie" data-recap-copie></div>
           <p class="mention-donnees">${c.tb('commun.donnees')}</p>
         </fieldset>
       </div>
@@ -170,7 +175,7 @@ export function demandeReception(c, { types, titre, texte, image, alt }) {
         <button type="button" class="bouton" data-etape-suiv>${c.t('commun.suivant')}</button>
         <button type="submit" class="bouton" data-etape-envoyer hidden>${c.t('mariages.envoyer')}</button>
       </p>
-      <p data-message-envoi role="status" tabindex="-1" hidden></p>
+      <p data-message-envoi data-texte="${c.s('commun.simule')}" role="status" tabindex="-1" hidden></p>
     </form>
     <aside class="recap" data-recap aria-labelledby="recap-titre">
       ${c.media({ nom: image, alt, cadrage: '50% 55%', classe: 'recap-media', sizes: '(max-width: 860px) 90vw, 28vw' })}

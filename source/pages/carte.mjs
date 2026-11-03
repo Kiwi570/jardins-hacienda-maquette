@@ -18,23 +18,13 @@ export default (c) => {
   const e = nums('entrees'), p = nums('plats');
   const info = c.s('carte.info', { entreesMin: Math.min(...e), entreesMax: Math.max(...e), platsMin: Math.min(...p), platsMax: Math.max(...p) });
   return html`
-${tete(c, { surtitre: c.s('carte.surtitre'), titre: c.t('carte.titre'), texte: c.t('carte.texte'), action: c.t('carte.action'), actionHref: c.url('reserver'), info, image: 'site/carte-ouverture', alt: c.s('carte.alt'), cadrage: '60% 50%' })}
+${tete(c, { surtitre: c.s('carte.surtitre'), titre: c.t('carte.titre'), texte: c.t('carte.texte'), action: c.t('carte.action'), actionHref: c.url('reserver', 'formulaire'), info, image: 'site/carte-ouverture', alt: c.s('carte.alt'), cadrage: '60% 50%' })}
 
 <nav class="sous-nav" aria-label="${c.s('carte.sousNav')}">
   <ul class="conteneur">${S.map((s) => html`<li><a href="#${s.id}" data-sans-transition>${s.titre}</a></li>`)}<li><a href="#allergenes" data-sans-transition>${c.t('carte.allergenesTitre')}</a></li></ul>
 </nav>
 
-<section class="ardoise-section sombre" id="ardoise">
-  <div class="conteneur ardoise-grille">
-    ${ardoise(c)}
-    <div>
-      ${surtitre(c.s('carte.ardoiseSurtitre'))}
-      <h2 data-anime="lignes">${c.t('carte.ardoiseTitre')}</h2>
-      <p data-anime>${c.t('ardoise.texte')}</p>
-      <p data-anime>${externe(c, c.site.contact.instagram, c.t('ardoise.reseaux'), 'bouton bouton--clair')}</p>
-    </div>
-  </div>
-</section>
+
 
 <section class="carte-complete conteneur" id="la-carte">
   <h2 class="visuellement-cache">${c.t('carte.titre')}</h2>
@@ -51,6 +41,18 @@ ${tete(c, { surtitre: c.s('carte.surtitre'), titre: c.t('carte.titre'), texte: c
   <p class="carte-prix" data-anime>${c.t('carte.prix')}</p>
 </section>
 
+<section class="ardoise-section sombre" id="ardoise">
+  <div class="conteneur ardoise-grille">
+    ${ardoise(c)}
+    <div>
+      ${surtitre(c.s('carte.ardoiseSurtitre'))}
+      <h2 data-anime="lignes">${c.t('carte.ardoiseTitre')}</h2>
+      <p data-anime>${c.t('ardoise.texte')}</p>
+      <p data-anime>${externe(c, c.site.contact.instagram, c.t('ardoise.reseaux'), 'bouton bouton--clair')}</p>
+    </div>
+  </div>
+</section>
+
 <section class="allergenes conteneur" id="allergenes">
   ${c.media({ nom: 'grok/marche-saison', alt: c.s('carte.altMarche'), classe: 'allergenes-media', sizes: '(max-width: 760px) 100vw, 34vw', attrs: 'data-fx="parallaxe" data-fx-force="7"' })}
   <div>
@@ -59,7 +61,7 @@ ${tete(c, { surtitre: c.s('carte.surtitre'), titre: c.t('carte.titre'), texte: c
     <p data-anime>${c.t('carte.boissonsTexte')} ${aCompleter(c)}</p>
     <h2 class="allergenes-fin" data-anime="lignes">${c.t('carte.finTitre')}</h2>
     <p data-anime>${c.t('carte.finTexte')}</p>
-    <p class="actions" data-anime>${c.lien('reserver', { classe: 'bouton', texte: c.t('carte.action'), attrs: 'data-survol="magnetique"' })} ${c.lien('emporter', { classe: 'bouton bouton--contour', texte: c.t('carte.finEmporter') })}</p>
+    <p class="actions" data-anime>${c.lien('reserver', { ancre: 'formulaire', classe: 'bouton', texte: c.t('carte.action'), attrs: 'data-survol="magnetique"' })} ${c.lien('emporter', { classe: 'bouton bouton--contour', texte: c.t('carte.finEmporter') })}</p>
   </div>
 </section>
 `;

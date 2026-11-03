@@ -11,6 +11,15 @@ export default (c) => {
   const prochains = evts.filter((e) => aVenir(e)).sort((a, b) => a.dates[0].localeCompare(b.dates[0]));
   const passes = evts.filter((e) => !aVenir(e)).sort((a, b) => b.dates.at(-1).localeCompare(a.dates.at(-1)));
   const p = prochains[0];
+  /* En ce moment : l'actualité de la saison, juste sous le premier écran (une tuile disparaît après sa date). */
+  const sylvestre = evts.find((e) => e.id === 'saint-sylvestre');
+  const tuiles = [
+    ...(sylvestre && aVenir(sylvestre) ? [{ cle: 'sylvestre', image: 'site/affiche-saint-sylvestre', cadrage: '50% 28%', href: c.url('saint-sylvestre'), saison: 'hiver', fin: finEvenement(sylvestre) }] : []),
+    { cle: 'emporter', image: 'grok/table-fetes', href: c.url('emporter'), saison: 'hiver', fin: `${c.donnees.emporter.fin}T23:59:59+01:00` },
+    { cle: 'journee', image: 'site/journee-festive', href: c.url('terrasse', 'journee'), saison: 'ete' },
+    { cle: 'weekend', image: 'site/broche', href: c.url('terrasse', 'weekend'), saison: 'ete' },
+    { cle: 'cadeau', image: 'grok/cadeau-kraft', href: c.url('cadeau') },
+  ];
   const sections = c.donnees.carte.sections;
   const extrait = [['entrees', [0, 3]], ['plats', [2, 4]], ['desserts', [0, 3]]].map(([id, idx]) => {
     const s = sections.find((x) => x.id === id);
@@ -31,11 +40,11 @@ export default (c) => {
     <div class="hero-ombre" aria-hidden="true"></div>
   </div>
   <div class="hero-contenu conteneur">
-    <p class="surtitre hero-surtitre" data-anime="gsap">${c.t('accueil.hero.sousTitre')}</p>
+    <p class="surtitre hero-surtitre" data-anime="gsap"><span class="hero-surtitre-long">${c.t('accueil.hero.sousTitre')}</span><span class="hero-surtitre-court">${c.t('accueil.hero.sousTitreCourt')}</span></p>
     <h1 class="hero-titre" data-intro-titre data-superpose><span class="hero-l1" data-anime="gsap">${c.t('accueil.hero.titre1')}</span> <span class="hero-l2" data-anime="gsap">${c.t('accueil.hero.titre2')}</span></h1>
     <p class="hero-texte" data-anime="gsap"><span data-saison-seul="hiver">${c.t('accueil.hero.texteHiver')}</span><span data-saison-seul="ete">${c.t('accueil.hero.texteEte')}</span></p>
     <p class="hero-actions" data-anime="gsap">
-      ${c.lien('reserver', { classe: 'bouton', texte: c.t('accueil.hero.action'), attrs: 'data-action-principale data-survol="magnetique"' })}
+      ${c.lien('reserver', { ancre: 'formulaire', classe: 'bouton', texte: c.t('accueil.hero.action'), attrs: 'data-action-principale data-survol="magnetique"' })}
       ${c.lien('carte', { classe: 'bouton bouton--clair', texte: c.t('accueil.hero.action2') })}
     </p>
     <div class="hero-bas" data-anime="gsap">
@@ -47,6 +56,21 @@ export default (c) => {
     </div>
   </div>
   <button type="button" class="pause-animation" data-pause-surface aria-pressed="false" data-libelle-pause="${c.s('commun.animationPause')}" data-libelle-lecture="${c.s('commun.animationReprise')}"><span class="visuellement-cache" data-libelle-bouton>${c.t('commun.animationPause')}</span><span class="pause-icone" aria-hidden="true"></span></button>
+</section>
+
+<section class="moment conteneur" id="en-ce-moment">
+  <h2 class="moment-titre" data-anime="lignes">${c.t('accueil.moment.titre')}</h2>
+  <ul class="moment-grille" data-anime="cascade">
+    ${tuiles.map((t) => html`<li class="moment-tuile"${t.saison ? brut(` data-saison-seul="${t.saison}"`) : ''}${t.fin ? brut(` data-masquer-apres="${t.fin}"`) : ''}>
+      <a class="moment-lien" href="${t.href}">
+        ${c.media({ nom: t.image, alt: '', cadrage: t.cadrage || '50% 50%', classe: 'moment-media', sizes: '(max-width: 760px) 90vw, 30vw' })}
+        <span class="moment-sur">${c.t(`accueil.moment.${t.cle}Sur`)}</span>
+        <h3 class="moment-nom">${c.t(`accueil.moment.${t.cle}Titre`)}</h3>
+        <span class="moment-texte">${c.t(`accueil.moment.${t.cle}Texte`)}</span>
+        <span class="moment-voir" aria-hidden="true">${c.t('accueil.moment.voir')} →</span>
+      </a>
+    </li>`)}
+  </ul>
 </section>
 
 <section class="saisons" id="saisons">
@@ -90,13 +114,7 @@ export default (c) => {
       <p class="chef-sous" data-anime>${c.t('accueil.chef.sousTitre')}</p>
       <p data-anime>${c.t('accueil.chef.texte1')}</p>
       <p data-anime>${c.t('accueil.chef.texte2')}</p>
-    </div>
-  </div>
-  <div class="conteneur chef-ardoise">
-    ${ardoise(c)}
-    <div class="chef-ardoise-texte">
-      <p data-anime>${c.t('ardoise.texte')}</p>
-      <p data-anime>${externe(c, c.site.contact.instagram, c.t('ardoise.reseaux'), 'bouton bouton--clair')}</p>
+      <p class="actions" data-anime>${c.lien('restaurant', { classe: 'bouton bouton--clair', texte: c.t('pages.restaurant.nav') })} ${externe(c, c.site.contact.instagram, c.t('ardoise.reseaux'), 'bouton bouton--contour')}</p>
     </div>
   </div>
 </section>
@@ -154,7 +172,7 @@ export default (c) => {
         <p>${p.texte}</p>
         ${p.fin ? decompte(c, p.fin, { libelle: c.s('accueil.agenda.decompte') }) : ''}
         <p class="evenement-actions">
-          ${c.lien('reserver', { params: `sujet=evenement&evenement=${p.id}`, classe: 'bouton', texte: c.t('accueil.agenda.reserver') })}
+          ${c.lien('reserver', { ancre: 'formulaire', params: `sujet=evenement&evenement=${p.id}`, classe: 'bouton', texte: c.t('accueil.agenda.reserver') })}
           ${p.page ? c.lien(p.page, { classe: 'bouton bouton--clair', texte: c.t('accueil.agenda.voir') }) : ''}
         </p>
       </div>
@@ -170,7 +188,7 @@ export default (c) => {
 <section class="receptions" id="receptions">
   <p class="receptions-mots" data-anime="mots" aria-hidden="true">${c.t('accueil.receptions.mots')}</p>
   <div class="conteneur receptions-grille">
-    ${c.media({ nom: 'site/lieu-mariages', alt: c.s('accueil.receptions.alt'), classe: 'receptions-media', sizes: '(max-width: 760px) 100vw, 50vw', attrs: 'data-fx="zoom"' })}
+    ${c.media({ nom: 'site/mariage-g6', alt: c.s('accueil.receptions.alt'), classe: 'receptions-media', sizes: '(max-width: 760px) 100vw, 50vw', attrs: 'data-fx="zoom"' })}
     <div>
       ${surtitre(c.s('accueil.receptions.surtitre'))}
       <h2 data-anime="lignes">${c.t('accueil.receptions.titre')}</h2>
@@ -195,7 +213,7 @@ export default (c) => {
       <p>${c.lien('emporter', { classe: 'bouton', texte: c.t('accueil.offrir.emporterLien') })}</p>
     </article>
     <article class="offrir-carte">
-      <div class="mini-carte-cadeau" data-survol="incline" aria-hidden="true"><img src="/assets/images/logo-hacienda-96.png" alt="" width="44" height="44" loading="lazy"><span class="mini-carte-nom">${c.t('cadeau.carteNom')}</span><span class="mini-carte-montant">25 – 200 €</span></div>
+      <div class="mini-carte-cadeau" data-survol="incline" aria-hidden="true"><img src="/assets/images/logo-hacienda-96.png" alt="" width="44" height="44" loading="lazy"><span class="mini-carte-nom">${c.t('cadeau.carteNom')}</span><span class="mini-carte-montant">${c.t('cadeau.carteValidite')}</span></div>
       <h2>${c.t('accueil.offrir.cadeauTitre')}</h2>
       <p>${c.t('accueil.offrir.cadeauTexte')}</p>
       <p>${c.lien('cadeau', { classe: 'bouton bouton--contour', texte: c.t('accueil.offrir.cadeauLien') })}</p>
@@ -216,7 +234,7 @@ export default (c) => {
       <p class="a-completer-texte" data-anime>${c.t('accueil.venir.horaires')}</p>
       <p class="note-google" data-anime>${c.t('commun.googleNote')} ${aConfirmer(c)}</p>
       <p class="venir-actions" data-anime>
-        ${c.lien('reserver', { classe: 'bouton', texte: c.t('commun.actionEntete') })}
+        ${c.lien('reserver', { ancre: 'formulaire', classe: 'bouton', texte: c.t('commun.actionEntete') })}
         ${externe(c, 'https://www.google.com/maps/search/?api=1&query=6%20Vathier%20Haye%2054580%20Moineville', c.t('commun.itineraire'), 'bouton bouton--contour')}
       </p>
     </div>

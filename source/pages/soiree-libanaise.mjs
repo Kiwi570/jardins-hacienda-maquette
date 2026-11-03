@@ -6,7 +6,7 @@ import { tete, surtitre, externe } from '../composants.mjs';
 export const page = { cle: 'soiree-libanaise', fichier: 'agenda/soiree-libanaise', imagePartage: 'site/libanaise-ouverture-1280.webp' };
 
 export default (c) => html`
-${tete(c, { surtitre: c.s('libanaise.surtitre'), titre: c.t('libanaise.titre'), texte: c.t('libanaise.texte'), action: c.t('fiche.prochains'), actionHref: c.url('agenda', 'a-venir'), info: c.s('libanaise.info'), image: 'site/libanaise-ouverture', alt: c.s('libanaise.alt'), cadrage: '50% 50%', classe: 'page-tete--sombre' })}
+${tete(c, { surtitre: c.s('libanaise.surtitre'), titre: c.t('libanaise.titre'), texte: c.t('libanaise.texte'), action: c.t('fiche.prochains'), actionHref: c.url('agenda', 'a-venir'), info: c.s('libanaise.info'), image: 'site/affiche-soiree-libanaise', alt: '', cadrage: '50% 40%', classe: 'page-tete--sombre page-tete--affiche page-tete--passee', apres: html`<figure class="page-tete-affiche" aria-hidden="true">${c.media({ nom: 'site/affiche-soiree-libanaise', alt: '', classe: 'page-tete-affiche-media', sizes: '(max-width: 760px) 40vw, 24vw' })}</figure>` })}
 
 <section class="fiche-passee sombre" id="passee">
   <div class="conteneur fiche-passee-grille">

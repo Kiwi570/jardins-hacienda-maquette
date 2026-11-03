@@ -6,16 +6,17 @@ import { tete, surtitre, carteAcces, externe, aCompleter } from '../composants.m
 export const page = { cle: 'infos', fichier: 'infos-pratiques', imagePartage: 'site/infos-ouverture-1280.webp' };
 
 export default (c) => html`
-${tete(c, { surtitre: c.s('infos.surtitre'), titre: c.t('infos.titre'), texte: c.t('infos.texte'), action: c.t('infos.action'), actionHref: c.url('reserver'), info: `${c.site.contact.adresse} · ${c.site.contact.telephone}`, image: 'site/infos-ouverture', alt: c.s('infos.altOuverture'), cadrage: '50% 60%' })}
+${tete(c, { surtitre: c.s('infos.surtitre'), titre: c.t('infos.titre'), titre2: c.t('infos.titre2'), texte: c.t('infos.texte'), actions: [{ texte: c.t('commun.itineraire'), href: 'https://www.google.com/maps/search/?api=1&query=6%20Vathier%20Haye%2054580%20Moineville', externe: true }], info: `${c.site.contact.adresse} · ${c.site.contact.telephone}`, image: 'site/infos-ouverture', alt: c.s('infos.altOuverture'), cadrage: '50% 60%', classe: 'page-tete--court' })}
 
 <section class="infos-grille-section" id="horaires">
   ${c.media({ nom: 'grok/pierre-chaux', alt: '', classe: 'infos-fond', sizes: '100vw', attrs: 'data-fx="parallaxe" data-fx-force="6"' })}
   <div class="conteneur infos-grille" data-anime="cascade">
     <article class="info-bloc info-bloc--horaires"><h2>${c.t('infos.horairesTitre')}</h2><p>${c.t('infos.horairesTexte')} ${aCompleter(c)}</p></article>
+    <article class="info-bloc"><h2>${c.t('infos.resaTitre')}</h2><p>${c.t('infos.resaTexte')}</p><p>${c.lien('reserver', { ancre: 'formulaire', classe: 'lien-fleche', texte: c.t('commun.actionEntete') })}</p></article>
+    <p class="infos-ete-titre">${c.t('infos.eteTitre')}</p>
     <article class="info-bloc"><h2>${c.t('infos.festivesTitre')}</h2><p>${c.t('infos.festivesTexte')}</p></article>
     <article class="info-bloc"><h2>${c.t('infos.barTitre')}</h2><p>${c.t('infos.barTexte')}</p></article>
     <article class="info-bloc"><h2>${c.t('infos.piscineTitre')}</h2><p>${c.t('infos.piscineTexte')}</p></article>
-    <article class="info-bloc"><h2>${c.t('infos.resaTitre')}</h2><p>${c.t('infos.resaTexte')}</p><p>${c.lien('reserver', { classe: 'lien-fleche', texte: c.t('commun.actionEntete') })}</p></article>
   </div>
 </section>
 
@@ -39,6 +40,6 @@ ${tete(c, { surtitre: c.s('infos.surtitre'), titre: c.t('infos.titre'), texte: c
 <section class="faq conteneur" id="faq" data-sans-visuel>
   <h2 data-anime="lignes">${c.t('infos.faqTitre')}</h2>
   <div class="faq-liste">${c.donnees.faq.map((f) => html`<details class="faq-item" data-anime><summary>${f.q}</summary><div class="faq-reponse"><p>${f.r}</p></div></details>`)}</div>
-  <p class="actions" data-anime>${c.lien('reserver', { classe: 'bouton', texte: c.t('commun.actionEntete'), attrs: 'data-survol="magnetique"' })} <a class="bouton bouton--contour" href="tel:${c.site.contact.telephoneLien}">${c.t('commun.appeler')} ${c.site.contact.telephone}</a></p>
+  <p class="actions" data-anime>${c.lien('reserver', { ancre: 'formulaire', classe: 'bouton', texte: c.t('commun.actionEntete'), attrs: 'data-survol="magnetique"' })} <a class="bouton bouton--contour" href="tel:${c.site.contact.telephoneLien}">${c.t('commun.appeler')} ${c.site.contact.telephone}</a></p>
 </section>
 `;

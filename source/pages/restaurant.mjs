@@ -1,12 +1,12 @@
 /* Le restaurant (modèle des pages de lieu, comme Terrasse & piscine) : la salle au coin du feu, braises de la cheminée,
    l'ardoise du chef, la salle en images (galerie épinglée et visionneuse), l'essentiel à savoir, la réservation. */
 import { html } from '../../outils/gabarit.mjs';
-import { tete, surtitre, ardoise, externe, galerie, visionneuse, aCompleter } from '../composants.mjs';
+import { tete, surtitre, externe, galerie, visionneuse, aCompleter } from '../composants.mjs';
 
 export const page = { cle: 'restaurant', fichier: 'restaurant', imagePartage: 'site/restaurant-ouverture-1280.webp' };
 
 export default (c) => html`
-${tete(c, { surtitre: c.s('restaurant.surtitre'), titre: c.t('restaurant.titre'), texte: c.t('restaurant.texte'), action: c.t('restaurant.action'), actionHref: c.url('reserver', 'formulaire'), info: c.s('restaurant.info'), image: 'site/restaurant-ouverture', alt: c.s('restaurant.alt'), cadrage: '50% 50%' })}
+${tete(c, { surtitre: c.s('restaurant.surtitre'), titre: c.t('restaurant.titre'), titre2: c.t('restaurant.titre2'), texte: c.t('restaurant.texte'), action: c.t('restaurant.action'), actionHref: c.url('reserver', 'formulaire'), info: c.s('restaurant.info'), image: 'site/restaurant-ouverture', alt: c.s('restaurant.alt'), cadrage: '50% 50%' })}
 
 <section class="chef feu sombre" id="cheminee">
   <canvas class="braises" data-braises data-effet="braises" aria-hidden="true"></canvas>
@@ -23,15 +23,13 @@ ${tete(c, { surtitre: c.s('restaurant.surtitre'), titre: c.t('restaurant.titre')
 
 ${galerie(c, { id: 'photos', titre: c.t('restaurant.galerieTitre'), region: c.s('restaurant.galerieRegion'), photos: c.donnees.galeries.restaurant })}
 
-<section class="ardoise-section sombre" id="ardoise">
-  <div class="conteneur ardoise-grille">
-    ${ardoise(c)}
-    <div>
-      ${surtitre(c.s('restaurant.chefSurtitre'))}
-      <h2 data-anime="lignes">${c.t('restaurant.chefTitre')}</h2>
-      <p data-anime>${c.t('restaurant.chefTexte')}</p>
-      <p class="actions" data-anime>${c.lien('carte', { classe: 'bouton bouton--clair', texte: c.t('restaurant.chefLien') })} ${externe(c, c.site.contact.instagram, c.t('ardoise.reseaux'), 'bouton bouton--contour')}</p>
-    </div>
+<section class="terrasse-intro conteneur" id="chef">
+  ${c.media({ nom: 'site/chef', alt: c.s('accueil.chef.alt'), cadrage: '30% 35%', classe: 'terrasse-intro-media', sizes: '(max-width: 760px) 100vw, 45vw', attrs: 'data-fx="parallaxe" data-fx-force="6"' })}
+  <div>
+    ${surtitre(c.s('restaurant.chefSurtitre'))}
+    <h2 data-anime="lignes">${c.t('restaurant.chefTitre')}</h2>
+    <p data-anime>${c.t('restaurant.chefTexte')}</p>
+    <p class="actions" data-anime>${c.lien('carte', { classe: 'bouton', texte: c.t('restaurant.chefLien') })} ${externe(c, c.site.contact.instagram, c.t('ardoise.reseaux'), 'bouton bouton--contour')}</p>
   </div>
 </section>
 

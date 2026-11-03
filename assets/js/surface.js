@@ -4,7 +4,7 @@
    Règles tenues : densité de pixels limitée (1,25 ordinateur, 1 téléphone), qualité qui baisse seule si les images
    prennent trop de temps, rendu seulement à l'écran, onglet visible, hors mode calme (boucle du socle), bouton pause,
    photo d'origine dessous (repli sans WebGL ou contexte perdu). */
-import { boucle, etat } from './socle/index.js?v=2';
+import { boucle, etat } from './socle/index.js?v=3';
 
 const VS = 'attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
 const FS = `precision mediump float;

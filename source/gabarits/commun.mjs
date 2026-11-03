@@ -6,7 +6,14 @@ import { html, brut } from '../../outils/gabarit.mjs';
    l'interrupteur Été / Hiver la change pour la visite en cours (sessionStorage). Posée avant le premier affichage. */
 const saisonJs = (c) => `(function(){var d=document.documentElement,s=null;try{s=sessionStorage.getItem('hacienda:saison')}catch(e){}if(s!=='ete'&&s!=='hiver'){var m=+new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',month:'numeric'}).format(new Date());s=${JSON.stringify(c.site.saisons.moisEte)}.indexOf(m)>-1?'ete':'hiver'}d.setAttribute('data-saison',s)})();`;
 const saisonCss = (c) => { const e = c.site.saisons.ete; return `html[data-saison="ete"]{--voile-fond:${e.voile};--ouverture-fond:${e.ouverture};--menu-fond:${e.menu}}`; };
-const entete_ = (c) => (c.site.navigationEntete || c.site.navigation).filter((cle) => c.pages[cle] && (c.pages[cle].langues || c.langues).includes(c.l));
+/* En-tête : une liste par saison ({ hiver: [...], ete: [...] }) ; un lien d'une seule saison porte data-saison-seul. */
+const entete_ = (c) => {
+  const n = c.site.navigationEntete || c.site.navigation;
+  const ok = (cle) => c.pages[cle] && (c.pages[cle].langues || c.langues).includes(c.l);
+  if (Array.isArray(n)) return n.filter(ok).map((cle) => [cle, '']);
+  const toutes = [...new Set([...n.hiver, ...n.ete])].filter(ok);
+  return toutes.map((cle) => [cle, n.hiver.includes(cle) && n.ete.includes(cle) ? '' : n.hiver.includes(cle) ? 'hiver' : 'ete']);
+};
 const externe = (c, href, texte, classe = '') => html`<a href="${href}" target="_blank" rel="noopener" aria-describedby="nouvel-onglet"${classe ? brut(` class="${classe}"`) : ''}>${texte}</a>`;
 const navigation = (c) => c.site.navigation.filter((cle) => c.pages[cle] && (c.pages[cle].langues || c.langues).includes(c.l));
 
@@ -63,12 +70,12 @@ function entete(c) {
       <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">${c.site.nom}</span>
     </a>
     <nav data-nav aria-label="${c.s('commun.navigation')}">
-      <ul>${entete_(c).map((k) => html`<li>${c.lien(k)}</li>`)}</ul>
+      <ul>${entete_(c).map(([k, saison]) => html`<li${saison ? brut(` data-saison-seul="${saison}"`) : ''}>${c.lien(k)}</li>`)}</ul>
     </nav>
     <div class="entete-actions">
       ${autreLangue.map((a) => html`<a class="entete-langue" href="${a.url}" hreflang="${a.l}" lang="${a.l}" data-langue="${a.l}" aria-label="${c.s('commun.langueAutre')}">${a.l}</a>`)}
       ${c.site.actionEntete ? html`<a class="bouton" href="${c.url(c.site.actionEntete.page, c.site.actionEntete.ancre || '')}" data-libelle="${c.libelle(c.site.actionEntete.page)}"${c.page.cle === c.site.actionEntete.page ? brut(' aria-current="page"') : ''}>${c.t('commun.actionEntete')}</a>` : ''}
-      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="${c.s('commun.menu')}" data-libelle-fermer="${c.s('commun.fermer')}"><span data-libelle-bouton>${c.t('commun.menu')}</span></button>
+      <a href="#pied-nav" data-menu-bouton data-libelle-ouvrir="${c.s('commun.menu')}" data-libelle-fermer="${c.s('commun.fermer')}"><span data-libelle-bouton>${c.t('commun.menu')}</span></a>
     </div>
   </div>
 </header>
@@ -84,13 +91,17 @@ function entete(c) {
 
 function pied(c) {
   return html`<footer class="pied" id="pied">
+  <div class="conteneur pied-fin">
+    <p class="pied-fin-titre">${c.t('pied.fin')} <em>${c.t('pied.fin2')}</em></p>
+    <p class="actions">${c.lien('reserver', { ancre: 'formulaire', classe: 'bouton', texte: c.t('commun.actionEntete') })} <a class="bouton bouton--contour" href="tel:${c.site.contact.telephoneLien}">${c.t('commun.appeler')} ${c.site.contact.telephone}</a></p>
+  </div>
   <div class="conteneur pied-grille">
     <div>
-      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>${c.site.nom}</strong></p>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56" loading="lazy"><strong>${c.site.nom}</strong></p>
       <p>${c.t('commun.introLigne')}<br>${c.site.contact.adresse}<br><a href="tel:${c.site.contact.telephoneLien}">${c.site.contact.telephone}</a><br><span class="a-completer-texte">${c.t('commun.emailACompleter')}</span></p>
       <p><strong>${c.t('commun.suivre')}</strong><br>${externe(c, c.site.contact.instagram, c.t('commun.instagram'))} · ${externe(c, c.site.contact.facebook, c.t('commun.facebook'))}</p>
     </div>
-    <nav aria-label="${c.s('commun.sommaire')}">
+    <nav id="pied-nav" aria-label="${c.s('commun.sommaire')}">
       <p><strong>${c.t('commun.sommaire')}</strong></p>
       <ul>${navigation(c).map((k) => html`<li>${c.lien(k)}</li>`)}<li>${c.lien('mentions-legales')}</li><li>${c.lien('confidentialite')}</li></ul>
     </nav>
@@ -110,9 +121,11 @@ function barre(c) {
   const a = c.site.actionEntete;
   /* Une page peut proposer sa propre action dans la barre du téléphone (À emporter : « Ma commande »). */
   const b = c.page.barre;
+  /* barre : { ancre, texte } (dans la page) ou { page, ancre, params, texte } (vers une autre page). */
   return html`<div data-barre-fixe>
   <a class="bouton bouton--contour" href="tel:${c.site.contact.telephoneLien}">${c.t('commun.appeler')}</a>
-  ${b ? html`<a class="bouton" href="#${b.ancre}" data-sans-transition>${c.t(b.texte)}</a>`
+  ${b && !b.page ? html`<a class="bouton" href="#${b.ancre}" data-sans-transition>${c.t(b.texte)}</a>`
+    : b ? html`<a class="bouton" href="${c.url(b.page, b.ancre || '', b.params || '')}" data-libelle="${c.libelle(b.page)}">${c.t(b.texte)}</a>`
     : a ? html`<a class="bouton" href="${c.url(a.page, a.ancre || '')}" data-libelle="${c.libelle(a.page)}">${c.t('commun.actionEntete')}</a>` : ''}
 </div>`;
 }

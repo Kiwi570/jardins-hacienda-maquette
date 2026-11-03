@@ -1,7 +1,7 @@
 /* Commande à emporter : une seule source (localStorage « hacienda:panier »), identique dans tous les onglets
    (événement storage), donnée abîmée nettoyée sans bloquer le site, panier vidé après une commande simulée.
    Effet propre « envol » : au défilement, les produits montent ; à l'ajout, le visuel s'envole vers le panier. */
-import { etat } from './socle/index.js?v=2';
+import { etat } from './socle/index.js?v=3';
 
 const CLE = 'hacienda:panier';
 const ls = () => { try { return window.localStorage; } catch { return null; } };
@@ -139,6 +139,16 @@ export function initPanier() {
     if (sansProduit || sansJour) {
       e.preventDefault(); e.stopImmediatePropagation();
       (sansJour ? form.querySelector('[data-jour]:not(:disabled)') : zone.querySelector('[data-ajouter]'))?.focus();
+      return;
+    }
+    /* Ticket affiché après la commande simulée : retrait, nombre de produits, total (avant que le panier se vide). */
+    const msg = form.querySelector('[data-message-envoi]');
+    if (msg) {
+      msg.dataset.base = msg.dataset.base || msg.dataset.texte;
+      let jour = d.jour;
+      try { jour = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' }).format(new Date(d.jour + 'T12:00:00Z')); } catch {}
+      const n = nombre(), t = total();
+      msg.dataset.texte = `Votre commande : ${n} produit${n > 1 ? 's' : ''} · ${String(Math.round(t * 100) / 100).replace('.', ',')}\u00a0€ · retrait ${jour}, ${d.moment === 'soir' ? 'le soir' : 'le midi'}. ${msg.dataset.base}`;
     }
   }, true);
   form.addEventListener('submit', () => {

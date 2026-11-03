@@ -7,22 +7,24 @@ Adresse prévue : https://jardins-hacienda-maquette.vercel.app — la maquette n
 
 | Page | Adresse | Ce qu'elle montre |
 |---|---|---|
-| Accueil | `/` | Intro, surface d'eau (été) ou de braise (hiver), les deux saisons, le chef et l'ardoise, extrait de la carte, le lieu, l'agenda, les réceptions, la carte cadeau, l'accès |
+| Accueil | `/` | Intro, surface d'eau (été) ou de braise (hiver), « En ce moment » selon la saison, les deux saisons, le chef, extrait de la carte, le lieu, l'agenda, les réceptions, la carte cadeau, l'accès |
 | La carte | `/la-carte` | Toute la carte avec ses prix, l'ardoise, les allergènes |
 | À emporter | `/a-emporter` | Produits des fêtes, panier, jour et moment de retrait (commande simulée) |
 | Terrasse & piscine | `/terrasse-piscine` | Journée festive, règles, week-end, pool parties (vidéo), galerie, visite 360° |
-| Le restaurant | `/restaurant` | La salle au coin du feu, braises, ardoise du chef, salle en images, bon à savoir |
+| Le restaurant | `/restaurant` | La salle au coin du feu, braises, salle en images, le chef, bon à savoir |
 | Mariages & réceptions | `/mariages` | Repères, types de réception, galerie, avis, demande en quatre étapes (simulée) |
 | Fêtes privées | `/fetes-privees` | Baptême, anniversaire, pot de départ, deux saisons, buffets en images, demande en quatre étapes (simulée) |
 | Agenda | `/agenda` | Événements à venir avec compte à rebours, événements passés (tri automatique à la date du jour) |
 | Saint-Sylvestre | `/agenda/saint-sylvestre` | Fiche d'événement : compte à rebours, menu, tarifs, affiche |
 | Infos pratiques | `/infos-pratiques` | Horaires, journées festives, accès bar, piscine, réservation, accès, questions fréquentes |
 | Carte cadeau | `/carte-cadeau` | Carte composée en direct : montant, quantité, total (simulé) |
-| Réserver | `/reserver` | Table, événement, réception ou question ; préremplie depuis les autres pages (simulé) |
+| Réserver | `/reserver` | Table, journée festive, soirée de l'agenda (avec formule), réception ou question ; préremplie depuis les autres pages (simulé) |
 | Soirée libanaise, Grand Buffet | `/agenda/soiree-libanaise`, `/agenda/grand-buffet` | Fiches des soirées passées : programme, tarif, affiche, photos |
 | Mentions légales | `/mentions-legales` | Éditeur, hébergeur, crédits (à compléter) |
 | Confidentialité | `/confidentialite` | Données des formulaires, usages, conservation, droits (à compléter) |
 | Page introuvable | `/404` | « Table introuvable » |
+
+v3 : audit de l'expérience et ajustements (voir `CHANGELOG.md`). Menu du haut selon la saison : `navigationEntete` dans `donnees/site.json` (listes `hiver` et `ete`).
 
 Ajoutées en v2 : Le restaurant, Fêtes privées, les fiches des soirées passées, Confidentialité. Les séminaires ne figurent pas sur le site actuel : ils ne sont pas proposés dans la maquette tant que l'établissement ne les confirme pas.
 
@@ -151,7 +153,7 @@ Effets génériques testés (mode calme, retour arrière, téléphone, audit) : 
 | `data-fx="parallaxe"` | Image qui glisse dans son cadre au défilement | `data-fx-force` : déplacement en % (10) ; agrandie d'office, bords jamais visibles |
 | `data-fx="zoom"` | Image qui se resserre en entrant dans l'écran | `data-fx-force` : agrandissement de départ en % (18) |
 | `data-fx="trace"` | Traits SVG qui se dessinent au défilement | Tous les traits du SVG, ou ceux marqués `data-fx-trait` ; finissent tracés en entier |
-| `data-fx="galerie"` | Section épinglée, piste `[data-galerie]` qui défile à l'horizontale | Ordinateur et tablette (761 px et plus) ; barre `[data-fx-progres]` ou `.galerie-progres span` |
+| `data-fx="galerie"` | Section tenue à l'écran (position sticky dans un conteneur `.galerie-colle` créé par le script, aussi haut que le trajet), piste `[data-galerie]` qui défile à l'horizontale | Écran d'au moins 761 px de large et 501 px de haut ; barre `[data-fx-progres]` ou `.galerie-progres span` |
 | `data-fx="onde"` | Image WebGL qui ondule selon la vitesse de défilement, loupe douce sous la souris | Canvas visible seulement pendant le mouvement ; image d'origine dessous ; 6 par page au plus ; `data-fx-force` (1) |
 | `data-survol="magnetique"` | Bouton attiré par la souris | Souris seulement ; ne compte pas comme effet de section |
 | `data-survol="incline"` | Carte qui s'incline en 3D | Souris seulement ; `data-survol-force` en degrés (7) |
@@ -189,8 +191,10 @@ demarrer({
 | `data-voile`, `data-voile-libelle` | Voile de transition et nom de la page d'arrivée. |
 | `data-gouttiere` | Sur un panneau qui couvre l'écran : couleur de la bande de la barre de défilement quand son fond est une image ou un dégradé. |
 | `data-recouvrement` | Fenêtre plein écran du projet (visionneuse, panier) : l'audit contrôle les bords de l'écran pendant qu'elle est ouverte. |
-| `data-entete`, `data-nav`, `data-menu`, `data-menu-bouton` | En-tête, navigation, menu, bouton Menu. |
-| `data-barre-fixe` | Barre fixe du bas (téléphone). `data-masque-barre` : zone où elle se masque. |
+| `data-entete`, `data-nav`, `data-menu`, `data-menu-bouton` | En-tête, navigation, menu, bouton Menu. Le bouton peut être un lien `<a href="#pied-nav">` : sans JavaScript il mène au plan du site, avec il ouvre le menu (rôle bouton, touche Espace). |
+| `data-barre-fixe` | Barre fixe du bas (téléphone). `data-masque-barre` : zone où elle se masque. Dans le projet, `barre` dans `export const page` choisit son bouton : `{ ancre, texte }` ou `{ page, ancre, params, texte }`. |
+| `data-masquer-apres`, `data-montrer-apres` (projet) | Date et heure ISO : l'élément disparaît (ou apparaît) après ce moment, à l'heure du visiteur (tuiles « En ce moment », encart À emporter de l'agenda). |
+| `data-saison-seul` (projet) | `hiver` ou `ete` : l'élément n'apparaît que dans cette saison (menu du haut, boutons et textes de saison). |
 | `data-action-principale`, `data-info-cle` | Bouton principal et information clé du premier écran. |
 | `data-entete-cache` | Scène épinglée pendant laquelle l'en-tête se cache. |
 | `data-plein-ecran` | Section plein écran vérifiée par le test « tient dans l'écran ». |

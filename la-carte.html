@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="2" data-curseur>
+<html lang="fr" data-v="3" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -43,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 <style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=2">
-<link rel="stylesheet" href="/assets/css/site.css?v=2">
-<link rel="modulepreload" href="/assets/js/site.js?v=2">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
+<link rel="stylesheet" href="/assets/css/socle.css?v=3">
+<link rel="stylesheet" href="/assets/css/site.css?v=3">
+<link rel="modulepreload" href="/assets/js/site.js?v=3">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=2"></script>
+<script type="module" src="/assets/js/site.js?v=3"></script>
 <meta name="theme-color" content="#f4ece1">
 <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -84,11 +84,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
     </a>
     <nav data-nav aria-label="Navigation principale">
-      <ul><li><a href="/la-carte" data-libelle="La carte" aria-current="page">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
+      <ul><li data-saison-seul="hiver"><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/la-carte" data-libelle="La carte" aria-current="page">La carte</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li data-saison-seul="hiver"><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li data-saison-seul="ete"><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li data-saison-seul="ete"><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
     </nav>
     <div class="entete-actions">
-      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
-      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+      <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver">Réserver</a>
+      <a href="#pied-nav" data-menu-bouton data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></a>
     </div>
   </div>
 </header>
@@ -112,35 +112,12 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     <p class="surtitre">La carte du restaurant</p>
     <h1 class="page-titre" data-anime="lignes" data-intro-titre>La carte</h1>
     <p class="page-intro" data-anime>Notre chef Régis Clauss sublime actuellement notre carte avec des suggestions à l’ardoise. Fidèle à sa passion pour les produits frais et de saison, il fait de chaque plat une invitation à la gourmandise et au réconfort.</p>
-    <p class="page-actions"><a class="bouton" href="/reserver" data-action-principale data-survol="magnetique">Réserver une table</a><span class="page-info" data-info-cle>Entrées de 9 à 21 € · plats de 21 à 26 €</span></p>
+    <p class="page-actions"><a class="bouton" href="/reserver#formulaire" data-action-principale data-survol="magnetique">Réserver une table</a><span class="page-info" data-info-cle>Entrées de 9 à 21 € · plats de 21 à 26 €</span></p>
   </div>
 </section>
 <nav class="sous-nav" aria-label="Rubriques de la carte">
   <ul class="conteneur"><li><a href="#entrees" data-sans-transition>Nos entrées</a></li><li><a href="#plats" data-sans-transition>Nos plats</a></li><li><a href="#partager" data-sans-transition>À partager</a></li><li><a href="#desserts" data-sans-transition>Nos desserts</a></li><li><a href="#allergenes" data-sans-transition>Allergènes</a></li></ul>
 </nav>
-<section class="ardoise-section sombre" id="ardoise">
-  <div class="conteneur ardoise-grille">
-    <div class="ardoise " data-effet="ardoise">
-  <figure class="media ardoise-fond" data-grok style="--cadrage:50% 50%">
-  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/ardoise-mobile-640.webp 640w" sizes="(max-width: 760px) 100vw, 60vw">
-    <img src="/assets/images/grok/ardoise-1168.webp" srcset="/assets/images/grok/ardoise-640.webp 640w, /assets/images/grok/ardoise-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 60vw" alt="Une ardoise vierge" width="1168" height="784" loading="lazy" decoding="async">
-  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
-</figure>
-  <div class="ardoise-texte">
-    <p class="ardoise-titre craie"><span>L’ardoise du moment</span></p>
-    <svg class="ardoise-trait" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" data-fx="trace"><path d="M4 16 C 90 6, 200 22, 396 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-    <ul class="ardoise-liste craie"><li><span>Entrée du moment : à compléter</span></li><li><span>Plat du moment : à compléter</span></li><li><span>Dessert du moment : à compléter</span></li><li><span>Annoncées aussi à la voix, en salle</span></li></ul>
-  </div>
-  <span class="ardoise-chiffon" aria-hidden="true"></span>
-</div>
-    <div>
-      <p class="surtitre">Selon le marché</p>
-      <h2 data-anime="lignes">Les suggestions du chef</h2>
-      <p data-anime>Chaque semaine, le chef imagine des suggestions à l’ardoise, annoncées à la voix et sur nos réseaux.</p>
-      <p data-anime><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="bouton bouton--clair">Les suggestions sur Instagram</a></p>
-    </div>
-  </div>
-</section>
 <section class="carte-complete conteneur" id="la-carte">
   <h2 class="visuellement-cache">La carte</h2>
   <div class="volets volets--complet" data-volets data-effet="volets">
@@ -190,6 +167,29 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
   <p class="carte-prix" data-anime>Prix nets en euros, service compris.</p>
 </section>
+<section class="ardoise-section sombre" id="ardoise">
+  <div class="conteneur ardoise-grille">
+    <div class="ardoise " data-effet="ardoise">
+  <figure class="media ardoise-fond" data-grok style="--cadrage:50% 50%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/ardoise-mobile-640.webp 640w" sizes="(max-width: 760px) 100vw, 60vw">
+    <img src="/assets/images/grok/ardoise-1168.webp" srcset="/assets/images/grok/ardoise-640.webp 640w, /assets/images/grok/ardoise-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 60vw" alt="Une ardoise vierge" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+  <div class="ardoise-texte">
+    <p class="ardoise-titre craie"><span>L’ardoise du moment</span></p>
+    <svg class="ardoise-trait" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" data-fx="trace"><path d="M4 16 C 90 6, 200 22, 396 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    <ul class="ardoise-liste craie"><li><span>Entrée du moment : à compléter</span></li><li><span>Plat du moment : à compléter</span></li><li><span>Dessert du moment : à compléter</span></li><li><span>Annoncées aussi à la voix, en salle</span></li></ul>
+  </div>
+  <span class="ardoise-chiffon" aria-hidden="true"></span>
+</div>
+    <div>
+      <p class="surtitre">Selon le marché</p>
+      <h2 data-anime="lignes">Les suggestions du chef</h2>
+      <p data-anime>Chaque semaine, le chef imagine des suggestions à l’ardoise, annoncées à la voix et sur nos réseaux.</p>
+      <p data-anime><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet" class="bouton bouton--clair">Les suggestions sur Instagram</a></p>
+    </div>
+  </div>
+</section>
 <section class="allergenes conteneur" id="allergenes">
   <figure class="media allergenes-media" data-grok data-fx="parallaxe" data-fx-force="7" style="--cadrage:50% 50%">
   <picture>
@@ -202,18 +202,22 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     <p data-anime>Vins, cocktails et boissons : la carte des boissons est <span class="a-completer">à compléter</span></p>
     <h2 class="allergenes-fin" data-anime="lignes">Une table vous attend</h2>
     <p data-anime>Réservez en ligne, ou découvrez les incontournables des fêtes à emporter.</p>
-    <p class="actions" data-anime><a href="/reserver" class="bouton" data-libelle="Réserver" data-survol="magnetique">Réserver une table</a> <a href="/a-emporter" class="bouton bouton--contour" data-libelle="À emporter">À emporter</a></p>
+    <p class="actions" data-anime><a href="/reserver#formulaire" class="bouton" data-libelle="Réserver" data-survol="magnetique">Réserver une table</a> <a href="/a-emporter" class="bouton bouton--contour" data-libelle="À emporter">À emporter</a></p>
   </div>
 </section>
 </main>
 <footer class="pied" id="pied">
+  <div class="conteneur pied-fin">
+    <p class="pied-fin-titre">À bientôt <em>aux Jardins</em></p>
+    <p class="actions"><a href="/reserver#formulaire" class="bouton" data-libelle="Réserver">Réserver</a> <a class="bouton bouton--contour" href="tel:+33618212810">Appeler 06 18 21 28 10</a></p>
+  </div>
   <div class="conteneur pied-grille">
     <div>
-      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
       <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
       <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
     </div>
-    <nav aria-label="Sommaire">
+    <nav id="pied-nav" aria-label="Sommaire">
       <p><strong>Sommaire</strong></p>
       <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte" aria-current="page">La carte</a></li><li><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/fetes-privees" data-libelle="Fêtes privées">Fêtes privées</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li><li><a href="/confidentialite" data-libelle="Confidentialité">Confidentialité</a></li></ul>
     </nav>
@@ -229,7 +233,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </footer>
 <div data-barre-fixe>
   <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
-  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+  <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver">Réserver</a>
 </div>
 <p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
 </body>

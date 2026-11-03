@@ -1,5 +1,5 @@
 [
-  { "id": "saint-sylvestre", "titre": { "fr": "Saint-Sylvestre" }, "dates": ["2026-12-31"], "fin": "2027-01-01T00:00:00+01:00", "affiche": "site/affiche-saint-sylvestre", "page": "saint-sylvestre",
+  { "id": "saint-sylvestre", "titre": { "fr": "Saint-Sylvestre" }, "dates": ["2026-12-31"], "fin": "2027-01-01T00:00:00+01:00", "affiche": "site/affiche-saint-sylvestre", "page": "saint-sylvestre", "formules": [{ "id": "menu", "libelle": { "fr": "Le menu" }, "prix": 120 }, { "id": "accord", "libelle": { "fr": "Avec l'accord mets et vins" }, "prix": 170 }],
     "texte": { "fr": "Menu de fête en cinq temps, formule accord mets et vins, soirée animée par DJ Laurent Geymet." },
     "tarif": { "fr": "120 € le menu · 170 € avec l'accord mets et vins" } },
   { "id": "soiree-libanaise", "titre": { "fr": "Soirée libanaise" }, "dates": ["2026-10-31"], "image": "site/affiche-soiree-libanaise", "affiche": "site/affiche-soiree-libanaise", "page": "soiree-libanaise",

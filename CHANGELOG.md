@@ -2,6 +2,53 @@
 
 Chaque version ajoute sa partie en tête de ce fichier, construite en comparant l'archive précédente et la nouvelle, jamais de mémoire.
 
+## v3 — audit de l'expérience et ajustements
+
+**Parcours**
+- Accueil : nouvelle section « En ce moment » sous le premier écran, qui suit la saison (Saint-Sylvestre et commandes à emporter en hiver, journée festive et week-ends en été, carte cadeau toute l'année) ; une tuile disparaît d'elle-même après sa date.
+- Menu du haut selon la saison : en hiver Le restaurant, La carte, Agenda, À emporter, Mariages ; en été Terrasse & piscine, La carte, Agenda, Mariages, Infos. Le bouton Menu reste visible sur grand écran.
+- Tous les boutons « Réserver » mènent directement au formulaire.
+- Barre d'action en bas d'écran sur mobile pour Réserver, Mariages, Fêtes privées, Carte cadeau, À emporter et la fiche Saint-Sylvestre.
+- Réserver : sujets réorganisés (table, journée festive, soirée de l'agenda, réception, question) ; pour la Saint-Sylvestre, choix entre le menu (120 €) et l'accord mets et vins (170 €) ; une réception renvoie vers les demandes Mariages ou Fêtes privées.
+- Mariages : les cartes Baptême, Anniversaire et Pot de départ ouvrent la demande de Fêtes privées déjà préremplie ; conditions rappelées sous le formulaire.
+- Agenda : encart « À emporter » pendant la période des commandes ; bouton « Voir le détail » sur chaque soirée.
+- Infos pratiques : bouton Itinéraire, horaires et réservation en tête, puis la saison d'été.
+- Terrasse & piscine : texte et boutons adaptés quand on la consulte en hiver.
+
+**Design**
+- Titres de page sur deux lignes (accroche puis suite), entêtes plus courts sur les pages pratiques.
+- Bouton principal unifié (fond braise, texte crème) partout, y compris sur fond sombre.
+- Pied de page sombre avec une invitation finale (Réserver, Appeler) et le logo clair.
+- Le restaurant : la section de la cheminée et le portrait du chef réorganisés, galerie resserrée à quatre photos.
+- Fêtes privées : trois types en cartes, deux saisons illustrées, galerie.
+- Carte : l'ardoise du chef passe après la carte.
+- Soirée libanaise : l'affiche en entier, sur un fond flouté de la même affiche.
+- Carte cadeau : le mot doux s'affiche sur la carte pendant la saisie, validité « 6 mois » rappelée.
+- Alignements, espacements entre sections claires, cases cochées plus visibles, carte d'accès centrée sur la braise.
+
+**Corrections de l'audit complet**
+- Galeries photo : tenues à l'écran par le navigateur (position sticky) au lieu d'être épinglées en JavaScript ; plus de saut quand elles s'arrêtent ni quand elles repartent. Sur un téléphone tenu à l'horizontale, elles défilent au doigt.
+- En-tête : sur téléphone, le logo et le bouton Menu seulement ; sans JavaScript, le bouton Menu mène au plan du site en pied de page.
+- Accueil : le liseré doré suit exactement la coupe entre les deux saisons, à toutes les tailles d'écran.
+- Contraste : heures de la frise du Grand Buffet sur la carte sombre, entêtes courts sur téléphone (voile plus dense).
+- Carte cadeau : les champs ne débordent plus de la colonne sur tablette.
+- Agenda : plus de bouton Réserver sur une soirée passée.
+- Mariages et Fêtes privées : la photo du récapitulatif reste visible sur téléphone (en bandeau).
+- Au clavier, une photo de galerie qui reçoit le focus arrive à l'écran sans attendre.
+
+**Retours après envoi (simulés)**
+- Réservation, demande de réception, commande à emporter et carte cadeau : un message récapitule ce qui a été demandé (date, formule, produits, total, retrait).
+- Demande en quatre étapes : sur mobile, le récapitulatif peut être copié.
+
+**Accessibilité et confort**
+- Liens qui ouvrent un nouvel onglet annoncés aux lecteurs d'écran.
+- Intro plus fluide : la surface animée attend la fin de l'intro.
+- Typographie : apostrophes typographiques automatiques, dates écrites en toutes lettres (« du 5 au 31 décembre »).
+
+**Technique**
+- Numéro de version des fichiers : ?v=3.
+- Fichiers retirés (images plus utilisées) : `assets/images/site/brasero-640.webp`, `brasero-1080.webp`, `fetes-ete-640.webp`, `libanaise-ouverture-640.webp`, `libanaise-ouverture-mobile-640.webp`, `libanaise-ouverture-mobile-1280.webp`, `piscine-nuit-640.webp`, `piscine-nuit-960.webp`, `restaurant-g5-640.webp`, `restaurant-g5-1280.webp`, `restaurant-g6-640.webp`, `restaurant-g6-1280.webp`.
+
 ## v2 — les pages des modèles
 
 **Pages ajoutées**

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="2" data-curseur>
+<html lang="fr" data-v="3" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -43,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 <style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=2">
-<link rel="stylesheet" href="/assets/css/site.css?v=2">
-<link rel="modulepreload" href="/assets/js/site.js?v=2">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
+<link rel="stylesheet" href="/assets/css/socle.css?v=3">
+<link rel="stylesheet" href="/assets/css/site.css?v=3">
+<link rel="modulepreload" href="/assets/js/site.js?v=3">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=2"></script>
+<script type="module" src="/assets/js/site.js?v=3"></script>
 <meta name="theme-color" content="#f4ece1">
 <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -84,11 +84,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
     </a>
     <nav data-nav aria-label="Navigation principale">
-      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
+      <ul><li data-saison-seul="hiver"><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li data-saison-seul="hiver"><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li data-saison-seul="ete"><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li data-saison-seul="ete"><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li></ul>
     </nav>
     <div class="entete-actions">
-      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
-      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+      <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver">Réserver</a>
+      <a href="#pied-nav" data-menu-bouton data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></a>
     </div>
   </div>
 </header>
@@ -110,7 +110,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
   <div class="page-tete-texte conteneur">
     <p class="surtitre">404</p>
-    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Table introuvable</h1>
+    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Table <span class="page-titre-l2">introuvable</span></h1>
     <p class="page-intro" data-anime>Cette page n’est pas dressée, ou ne l’est plus.</p>
     <p class="page-actions"><a class="bouton" href="/" data-action-principale data-survol="magnetique">Revenir à l’accueil</a></p>
   </div>
@@ -118,13 +118,17 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </section>
 </main>
 <footer class="pied" id="pied">
+  <div class="conteneur pied-fin">
+    <p class="pied-fin-titre">À bientôt <em>aux Jardins</em></p>
+    <p class="actions"><a href="/reserver#formulaire" class="bouton" data-libelle="Réserver">Réserver</a> <a class="bouton bouton--contour" href="tel:+33618212810">Appeler 06 18 21 28 10</a></p>
+  </div>
   <div class="conteneur pied-grille">
     <div>
-      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
       <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
       <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
     </div>
-    <nav aria-label="Sommaire">
+    <nav id="pied-nav" aria-label="Sommaire">
       <p><strong>Sommaire</strong></p>
       <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/fetes-privees" data-libelle="Fêtes privées">Fêtes privées</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li><li><a href="/confidentialite" data-libelle="Confidentialité">Confidentialité</a></li></ul>
     </nav>
@@ -140,7 +144,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </footer>
 <div data-barre-fixe>
   <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
-  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+  <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver">Réserver</a>
 </div>
 <p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
 </body>

@@ -6,7 +6,7 @@ import { tete, surtitre, externe, galerie, visionneuse } from '../composants.mjs
 export const page = { cle: 'grand-buffet', fichier: 'agenda/grand-buffet', imagePartage: 'site/buffet-ouverture-1080.webp' };
 
 export default (c) => html`
-${tete(c, { surtitre: c.s('buffet.surtitre'), titre: c.t('buffet.titre'), texte: c.t('buffet.texte'), action: c.t('fiche.prochains'), actionHref: c.url('agenda', 'a-venir'), info: c.s('buffet.info'), image: 'site/buffet-ouverture', alt: c.s('buffet.alt'), cadrage: '50% 60%', classe: 'page-tete--sombre' })}
+${tete(c, { surtitre: c.s('buffet.surtitre'), titre: c.t('buffet.titre'), texte: c.t('buffet.texte'), action: c.t('fiche.prochains'), actionHref: c.url('agenda', 'a-venir'), info: c.s('buffet.info'), image: 'site/buffet-ouverture', alt: c.s('buffet.alt'), cadrage: '50% 60%', classe: 'page-tete--sombre page-tete--passee' })}
 
 <section class="fiche-passee sombre" id="passee">
   <div class="conteneur fiche-passee-grille">

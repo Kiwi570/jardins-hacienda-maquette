@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="2" data-curseur>
+<html lang="fr" data-v="3" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -43,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 <style>html[data-saison="ete"]{--voile-fond:#163b33;--ouverture-fond:#7e3a22;--menu-fond:#163b33}</style>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=2">
-<link rel="stylesheet" href="/assets/css/site.css?v=2">
-<link rel="modulepreload" href="/assets/js/site.js?v=2">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
+<link rel="stylesheet" href="/assets/css/socle.css?v=3">
+<link rel="stylesheet" href="/assets/css/site.css?v=3">
+<link rel="modulepreload" href="/assets/js/site.js?v=3">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=2"></script>
+<script type="module" src="/assets/js/site.js?v=3"></script>
 <meta name="theme-color" content="#f4ece1">
 <link rel="icon" href="/assets/images/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -84,11 +84,11 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <img src="/assets/images/logo-hacienda-96.png" alt="" width="40" height="40"><span class="entete-nom">Les Jardins de l’Hacienda</span>
     </a>
     <nav data-nav aria-label="Navigation principale">
-      <ul><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques" aria-current="page">Infos pratiques</a></li></ul>
+      <ul><li data-saison-seul="hiver"><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li data-saison-seul="hiver"><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li data-saison-seul="ete"><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li data-saison-seul="ete"><a href="/infos-pratiques" data-libelle="Infos pratiques" aria-current="page">Infos pratiques</a></li></ul>
     </nav>
     <div class="entete-actions">
-      <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
-      <button type="button" data-menu-bouton aria-controls="menu" aria-expanded="false" data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></button>
+      <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver">Réserver</a>
+      <a href="#pied-nav" data-menu-bouton data-libelle-ouvrir="Menu" data-libelle-fermer="Fermer"><span data-libelle-bouton>Menu</span></a>
     </div>
   </div>
 </header>
@@ -100,7 +100,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   <p><button type="button" class="lien" data-calme-bascule data-libelle-reduire="Réduire les animations" data-libelle-retablir="Rétablir les animations" data-libelle-systeme="Animations réduites par le réglage de votre appareil"><span data-libelle-bouton>Réduire les animations</span></button></p>
 </div>
 <main id="contenu" tabindex="-1">
-<section class="page-tete " id="debut">
+<section class="page-tete page-tete--court" id="debut">
   <div class="page-tete-fond">
     <figure class="media page-tete-media" data-fx="parallaxe" style="--cadrage:50% 60%">
   <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/site/infos-ouverture-mobile-640.webp 640w, /assets/images/site/infos-ouverture-mobile-1280.webp 1280w" sizes="100vw">
@@ -110,9 +110,9 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
   <div class="page-tete-texte conteneur">
     <p class="surtitre">Infos pratiques</p>
-    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Tout pour venir aux Jardins</h1>
+    <h1 class="page-titre" data-anime="lignes" data-intro-titre>Tout pour venir <span class="page-titre-l2">aux Jardins</span></h1>
     <p class="page-intro" data-anime>Horaires, journées festives, piscine, réservation et accès : l’essentiel en un coup d’œil.</p>
-    <p class="page-actions"><a class="bouton" href="/reserver" data-action-principale data-survol="magnetique">Réserver</a><span class="page-info" data-info-cle>6 Vathier Haye, 54580 Moineville · 06 18 21 28 10</span></p>
+    <p class="page-actions"><a class="bouton" href="https://www.google.com/maps/search/?api=1&amp;query=6%20Vathier%20Haye%2054580%20Moineville" data-action-principale target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Itinéraire</a><span class="page-info" data-info-cle>6 Vathier Haye, 54580 Moineville · 06 18 21 28 10</span></p>
   </div>
 </section>
 <section class="infos-grille-section" id="horaires">
@@ -122,11 +122,12 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure>
   <div class="conteneur infos-grille" data-anime="cascade">
-    <article class="info-bloc info-bloc--horaires"><h2>Horaires</h2><p>Horaires d’ouverture du restaurant : à compléter. Aucun statut « ouvert » n’est affiché tant qu’ils ne sont pas fournis. <span class="a-completer">à compléter</span></p></article>
+    <article class="info-bloc info-bloc--horaires"><h2>Horaires</h2><p>Horaires d’ouverture du restaurant : <span class="a-completer">à compléter</span></p></article>
+    <article class="info-bloc"><h2>Réservation</h2><p>Toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert est demandé (montant à compléter), le reste est réglé sur place.</p><p><a href="/reserver#formulaire" class="lien-fleche" data-libelle="Réserver">Réserver</a></p></article>
+    <p class="infos-ete-titre">Saison d’été · de juin à septembre</p>
     <article class="info-bloc"><h2>Journées festives</h2><p>De juin à septembre : mardi, mercredi et jeudi, de 12 h à 19 h. Déjeuner jusqu’à 14 h 30, puis piscine, extérieurs et espaces détente jusqu’à 19 h, avec un service boissons et snacking l’après-midi.</p></article>
     <article class="info-bloc"><h2>Accès bar</h2><p>Pendant les journées festives, à partir de 15 h 30 seulement et sous réserve de disponibilité. Droit d’entrée, tenue correcte exigée ; l’établissement se réserve le droit d’entrée.</p></article>
     <article class="info-bloc"><h2>Piscine et confort</h2><p>Des vestiaires et des douches sont à votre disposition avant l’accès à la piscine.</p></article>
-    <article class="info-bloc"><h2>Réservation</h2><p>Toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert est demandé (montant à compléter), le reste est réglé sur place.</p><p><a href="/reserver" class="lien-fleche" data-libelle="Réserver">Réserver</a></p></article>
   </div>
 </section>
 <section class="infos-photos conteneur" id="lieu">
@@ -166,18 +167,22 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </section>
 <section class="faq conteneur" id="faq" data-sans-visuel>
   <h2 data-anime="lignes">Questions fréquentes</h2>
-  <div class="faq-liste"><details class="faq-item" data-anime><summary>Faut-il réserver ?</summary><div class="faq-reponse"><p>Oui : toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert confirme la réservation (montant à compléter), le reste est réglé sur place.</p></div></details><details class="faq-item" data-anime><summary>Peut-on venir seulement boire un verre ?</summary><div class="faq-reponse"><p>Lors des journées festives, à partir de 15 h 30, sous réserve de disponibilité. Un droit d’entrée est demandé, une tenue correcte est exigée et l’établissement se réserve le droit d’entrée.</p></div></details><details class="faq-item" data-anime><summary>Quand la piscine est-elle accessible ?</summary><div class="faq-reponse"><p>Pendant la saison d’été, lors des journées festives, après le déjeuner à partir de 14 h 30 et jusqu’à 19 h. Le dimanche du Grand Buffet, à partir de 14 h 30.</p></div></details><details class="faq-item" data-anime><summary>Y a-t-il des vestiaires ?</summary><div class="faq-reponse"><p>Oui, des vestiaires et des douches sont à votre disposition avant l’accès à la piscine.</p></div></details><details class="faq-item" data-anime><summary>Peut-on se garer sur place ?</summary><div class="faq-reponse"><p>Stationnement : informations à compléter par l’établissement.</p></div></details><details class="faq-item" data-anime><summary>Avez-vous un menu enfant ?</summary><div class="faq-reponse"><p>Oui, pour les enfants jusqu’à 10 ans : un plat et un dessert à 16 €.</p></div></details><details class="faq-item" data-anime><summary>Peut-on commander à emporter ?</summary><div class="faq-reponse"><p>Oui, les incontournables des fêtes sont à retirer du 05/12 au 31/12, pendant les horaires d’ouverture du restaurant.</p></div></details><details class="faq-item" data-anime><summary>Le lieu est-il accessible aux personnes à mobilité réduite ?</summary><div class="faq-reponse"><p>D’après des annuaires de lieux de réception, oui : à confirmer par l’établissement.</p></div></details></div>
-  <p class="actions" data-anime><a href="/reserver" class="bouton" data-libelle="Réserver" data-survol="magnetique">Réserver</a> <a class="bouton bouton--contour" href="tel:+33618212810">Appeler 06 18 21 28 10</a></p>
+  <div class="faq-liste"><details class="faq-item" data-anime><summary>Faut-il réserver ?</summary><div class="faq-reponse"><p>Oui : toutes les réservations se font en ligne. Pour certains événements, un acompte par couvert confirme la réservation (montant à compléter), le reste est réglé sur place.</p></div></details><details class="faq-item" data-anime><summary>Peut-on venir seulement boire un verre ?</summary><div class="faq-reponse"><p>Lors des journées festives, à partir de 15 h 30, sous réserve de disponibilité. Un droit d’entrée est demandé, une tenue correcte est exigée et l’établissement se réserve le droit d’entrée.</p></div></details><details class="faq-item" data-anime><summary>Quand la piscine est-elle accessible ?</summary><div class="faq-reponse"><p>Pendant la saison d’été, lors des journées festives, après le déjeuner à partir de 14 h 30 et jusqu’à 19 h. Le dimanche du Grand Buffet, à partir de 14 h 30.</p></div></details><details class="faq-item" data-anime><summary>Y a-t-il des vestiaires ?</summary><div class="faq-reponse"><p>Oui, des vestiaires et des douches sont à votre disposition avant l’accès à la piscine.</p></div></details><details class="faq-item" data-anime><summary>Peut-on se garer sur place ?</summary><div class="faq-reponse"><p>Stationnement : informations à compléter par l’établissement.</p></div></details><details class="faq-item" data-anime><summary>Avez-vous un menu enfant ?</summary><div class="faq-reponse"><p>Oui, pour les enfants jusqu’à 10 ans : un plat et un dessert à 16 €.</p></div></details><details class="faq-item" data-anime><summary>Peut-on commander à emporter ?</summary><div class="faq-reponse"><p>Oui, les incontournables des fêtes sont à retirer du 5 au 31 décembre, pendant les horaires d’ouverture du restaurant.</p></div></details><details class="faq-item" data-anime><summary>Le lieu est-il accessible aux personnes à mobilité réduite ?</summary><div class="faq-reponse"><p>D’après des annuaires de lieux de réception, oui : à confirmer par l’établissement.</p></div></details></div>
+  <p class="actions" data-anime><a href="/reserver#formulaire" class="bouton" data-libelle="Réserver" data-survol="magnetique">Réserver</a> <a class="bouton bouton--contour" href="tel:+33618212810">Appeler 06 18 21 28 10</a></p>
 </section>
 </main>
 <footer class="pied" id="pied">
+  <div class="conteneur pied-fin">
+    <p class="pied-fin-titre">À bientôt <em>aux Jardins</em></p>
+    <p class="actions"><a href="/reserver#formulaire" class="bouton" data-libelle="Réserver">Réserver</a> <a class="bouton bouton--contour" href="tel:+33618212810">Appeler 06 18 21 28 10</a></p>
+  </div>
   <div class="conteneur pied-grille">
     <div>
-      <p class="pied-logo"><img src="/assets/images/logo-hacienda-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
+      <p class="pied-logo"><img src="/assets/images/logo-hacienda-clair-96.png" alt="" width="56" height="56" loading="lazy"><strong>Les Jardins de l’Hacienda</strong></p>
       <p>Restaurant &amp; lieu de réception · Moineville<br>6 Vathier Haye, 54580 Moineville<br><a href="tel:+33618212810">06 18 21 28 10</a><br><span class="a-completer-texte">E-mail : à compléter</span></p>
       <p><strong>Nous suivre</strong><br><a href="https://www.instagram.com/lesjardinsdel.hacienda/" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Instagram</a> · <a href="https://www.facebook.com/lesjardinsdelhacienda54" target="_blank" rel="noopener" aria-describedby="nouvel-onglet">Facebook</a></p>
     </div>
-    <nav aria-label="Sommaire">
+    <nav id="pied-nav" aria-label="Sommaire">
       <p><strong>Sommaire</strong></p>
       <ul><li><a href="/" data-libelle="Accueil">Accueil</a></li><li><a href="/la-carte" data-libelle="La carte">La carte</a></li><li><a href="/restaurant" data-libelle="Le restaurant">Le restaurant</a></li><li><a href="/terrasse-piscine" data-libelle="Terrasse &amp; piscine">Terrasse &amp; piscine</a></li><li><a href="/mariages" data-libelle="Mariages">Mariages</a></li><li><a href="/fetes-privees" data-libelle="Fêtes privées">Fêtes privées</a></li><li><a href="/agenda" data-libelle="Agenda">Agenda</a></li><li><a href="/a-emporter" data-libelle="À emporter">À emporter</a></li><li><a href="/carte-cadeau" data-libelle="Carte cadeau">Carte cadeau</a></li><li><a href="/infos-pratiques" data-libelle="Infos pratiques" aria-current="page">Infos pratiques</a></li><li><a href="/reserver" data-libelle="Réserver">Réserver</a></li><li><a href="/mentions-legales" data-libelle="Mentions légales">Mentions légales</a></li><li><a href="/confidentialite" data-libelle="Confidentialité">Confidentialité</a></li></ul>
     </nav>
@@ -193,7 +198,7 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </footer>
 <div data-barre-fixe>
   <a class="bouton bouton--contour" href="tel:+33618212810">Appeler</a>
-  <a class="bouton" href="/reserver" data-libelle="Réserver">Réserver</a>
+  <a class="bouton" href="/reserver#formulaire" data-libelle="Réserver">Réserver</a>
 </div>
 <p id="nouvel-onglet" class="visuellement-cache">(s’ouvre dans un nouvel onglet)</p>
 </body>

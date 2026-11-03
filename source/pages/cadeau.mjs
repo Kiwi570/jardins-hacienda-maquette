@@ -3,12 +3,12 @@
 import { html, brut } from '../../outils/gabarit.mjs';
 import { tete, surtitre, aCompleter, aConfirmer } from '../composants.mjs';
 
-export const page = { cle: 'cadeau', fichier: 'carte-cadeau', imagePartage: 'grok/cadeau-kraft-1280.webp' };
+export const page = { cle: 'cadeau', fichier: 'carte-cadeau', imagePartage: 'grok/cadeau-kraft-1280.webp', barre: { ancre: 'composer', texte: 'cadeau.action' } };
 
 export default (c) => {
   const C = c.donnees.cadeau;
   return html`
-${tete(c, { surtitre: c.s('cadeau.surtitre'), titre: c.t('cadeau.titre'), texte: c.t('cadeau.texte'), action: c.t('cadeau.action'), actionHref: '#composer', info: c.s('cadeau.info'), image: 'grok/cadeau-kraft', alt: c.s('cadeau.alt') })}
+${tete(c, { surtitre: c.s('cadeau.surtitre'), titre: c.t('cadeau.titre'), titre2: c.t('cadeau.titre2'), texte: c.t('cadeau.texte'), action: c.t('cadeau.action'), actionHref: '#composer', info: c.s('cadeau.info'), classe: 'page-tete--court', image: 'grok/cadeau-kraft', alt: c.s('cadeau.alt') })}
 
 <section class="cadeau conteneur" id="composer">
   <div class="cadeau-apercu">
@@ -18,6 +18,7 @@ ${tete(c, { surtitre: c.s('cadeau.surtitre'), titre: c.t('cadeau.titre'), texte:
       <p class="carte-cadeau-lieu">${c.site.nom}</p>
       <p class="carte-cadeau-montant" data-prix><span data-cadeau-montant>${C.defaut}</span> €</p>
       <p class="carte-cadeau-pour" data-cadeau-pour-apercu>&nbsp;</p>
+      <p class="carte-cadeau-mot" data-cadeau-mot-apercu aria-hidden="true"></p>
     </div>
     <p class="note">${c.t('cadeau.conditions')}</p>
   </div>

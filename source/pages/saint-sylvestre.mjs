@@ -3,7 +3,7 @@
 import { html } from '../../outils/gabarit.mjs';
 import { tete, surtitre, decompte, aCompleter } from '../composants.mjs';
 
-export const page = { cle: 'saint-sylvestre', fichier: 'agenda/saint-sylvestre', imagePartage: 'site/sylvestre-ouverture-1280.webp' };
+export const page = { cle: 'saint-sylvestre', fichier: 'agenda/saint-sylvestre', imagePartage: 'site/sylvestre-ouverture-1280.webp', barre: { page: 'reserver', ancre: 'formulaire', params: 'sujet=evenement&evenement=saint-sylvestre', texte: 'sylvestre.action' } };
 
 export default (c) => {
   const e = c.donnees.evenements.find((x) => x.id === 'saint-sylvestre');

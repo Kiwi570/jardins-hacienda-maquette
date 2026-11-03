@@ -1,5 +1,5 @@
 /* À emporter : produits des fêtes, panier (une seule source, synchronisé entre onglets), jour de retrait
-   du 05/12 au 31/12 (jours passés grisés, calculés à la date réelle), moment Midi ou Soir, commande simulée.
+   du 5 au 31 décembre (jours passés grisés, calculés à la date réelle), moment Midi ou Soir, commande simulée.
    Effet propre : envol (les produits montent au défilement, et s'envolent vers le panier à l'ajout). */
 import { html, brut } from '../../outils/gabarit.mjs';
 import { tete, surtitre, euros, aCompleter } from '../composants.mjs';
@@ -36,7 +36,7 @@ function calendrier(c, debut, fin) {
 export default (c) => {
   const E = c.donnees.emporter;
   return html`
-${tete(c, { surtitre: c.s('emporter.surtitre'), titre: c.t('emporter.titre'), texte: c.t('emporter.texte'), action: c.t('emporter.action'), actionHref: '#produits', info: c.s('emporter.info'), image: 'grok/table-fetes', alt: c.s('emporter.alt') })}
+${tete(c, { surtitre: c.s('emporter.surtitre'), titre: c.t('emporter.titre'), titre2: c.t('emporter.titre2'), texte: c.t('emporter.texte'), action: c.t('emporter.action'), actionHref: '#produits', info: c.s('emporter.info'), classe: 'page-tete--court', image: 'grok/table-fetes', alt: c.s('emporter.alt') })}
 
 <section class="produits conteneur" id="produits" data-panier-produits>
   <div class="produits-tete">

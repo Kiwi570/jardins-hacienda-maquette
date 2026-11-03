@@ -12,7 +12,7 @@ const carte = (c, e) => html`<li class="evenement" data-evenement="${e.id}" data
     <h3 class="evenement-titre">${e.titre}</h3>
     <p>${e.texte}</p>
     ${e.tarif ? html`<p class="evenement-tarif" data-prix>${e.tarif}</p>` : ''}
-    <p class="evenement-actions">${e.page ? c.lien(e.page, { classe: 'bouton bouton--contour bouton--petit', texte: c.t('agenda.voir') }) : ''}${c.lien('reserver', { params: `sujet=evenement&evenement=${e.id}`, classe: 'bouton bouton--petit evenement-reserver', texte: c.t('agenda.reserver') })}</p>
+    <p class="evenement-actions">${e.page ? c.lien(e.page, { classe: 'bouton bouton--contour bouton--petit', texte: c.t('agenda.voir') }) : ''}${aVenir(e) ? c.lien('reserver', { ancre: 'formulaire', params: `sujet=evenement&evenement=${e.id}`, classe: 'bouton bouton--petit evenement-reserver', texte: c.t('agenda.reserver') }) : ''}</p>
   </div>
 </li>`;
 
@@ -22,7 +22,7 @@ export default (c) => {
   const passes = E.filter((e) => !aVenir(e)).sort((a, b) => b.dates.at(-1).localeCompare(a.dates.at(-1)));
   const p = venir[0];
   return html`
-${tete(c, { surtitre: c.s('agenda.surtitre'), titre: c.t('agenda.titre'), texte: c.t('agenda.texte'), action: c.t('agenda.action'), actionHref: c.url('reserver', '', 'sujet=evenement'), info: p ? `${c.s('accueil.hero.prochaine')} : ${p.titre}, ${datesTexte(p.dates)}` : c.s('agenda.vide'), image: 'grok/confettis-or', alt: c.s('agenda.alt'), classe: 'page-tete--sombre' })}
+${tete(c, { surtitre: c.s('agenda.surtitre'), titre: c.t('agenda.titre'), titre2: c.t('agenda.titre2'), texte: c.t('agenda.texte'), action: c.t('agenda.action'), actionHref: c.url('reserver', 'formulaire', 'sujet=evenement'), info: p ? `${c.s('accueil.hero.prochaine')} : ${p.titre}, ${datesTexte(p.dates)}` : c.s('agenda.vide'), image: 'grok/confettis-or', alt: c.s('agenda.alt'), classe: 'page-tete--sombre' })}
 
 <section class="agenda conteneur" id="a-venir" data-agenda>
   <div class="agenda-colonne">
@@ -31,6 +31,15 @@ ${tete(c, { surtitre: c.s('agenda.surtitre'), titre: c.t('agenda.titre'), texte:
     ${p && p.fin ? html`<p class="decompte-surtitre">${p.titre} · ${c.t('sylvestre.decompte')}</p>${decompte(c, p.fin, { libelle: c.s('sylvestre.decompte'), classe: 'decompte--grand' })}` : ''}
     <ul class="evenements" data-liste="a-venir" data-anime="cascade">${venir.map((e) => carte(c, e))}</ul>
     <p class="agenda-vide" data-agenda-vide${venir.length ? ' hidden' : ''}>${c.t('agenda.vide')}</p>
+    <aside class="agenda-aussi" data-masquer-apres="${c.donnees.emporter.fin}T23:59:59+01:00" data-anime>
+      ${c.media({ nom: 'grok/table-fetes', alt: '', classe: 'agenda-aussi-media', sizes: '(max-width: 760px) 90vw, 20vw' })}
+      <div>
+        ${surtitre(c.s('agenda.aussiSur'))}
+        <h3>${c.t('agenda.aussiTitre')}</h3>
+        <p>${c.t('agenda.aussiTexte')}</p>
+        <p>${c.lien('emporter', { classe: 'bouton bouton--petit', texte: c.t('agenda.aussiLien') })}</p>
+      </div>
+    </aside>
   </div>
 </section>
 
